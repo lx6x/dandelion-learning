@@ -1,0 +1,32 @@
+
+spring:
+  kafka:
+    #    指定 server 地址,集群配置多个,中间逗号隔开
+    bootstrap-servers: 192.168.229.131:9092
+    producer:
+      #      重试次数
+      retries: 0
+      #      应答级别:多少个分区副本备份完成时向生产者发送ack确认(可选0、1、all/-1)
+      acks: 1
+      #      kafka提供的序列化和反序列化
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      #      每次批量发送消息的数量,produce积累到一定数据，一次发送
+      batch-size: 16384
+      #      produce积累数据一次发送，缓存大小达到buffer.memory就发送数据
+      buffer-memory: 33554432
+      properties:
+        partitioner:
+          class: org.example.demo.kafka.customizes.CustomizePartitioner
+#    listener:
+      #      设置批量消费
+#      type: batch
+    consumer:
+      group-id: myGroup
+      #      kafka提供的序列化和反序列化
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      #      批量消费每次最多消费多少条消息
+#      max-poll-records: 50
+server:
+  port: 30003

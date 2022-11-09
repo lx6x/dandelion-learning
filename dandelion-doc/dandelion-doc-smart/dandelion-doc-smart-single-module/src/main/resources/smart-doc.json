@@ -1,0 +1,20 @@
+{
+  // 服务器地址
+  "serverUrl": "http://localhost:30006",
+  // 指定文档输出地址
+  "outPath": "src/main/resources/templates",
+  // 是否开启严格模式
+  "isStrict": false,
+  // 是否将文档合并到一个文件中，一般推荐为true
+  "allInOne": true,
+  // 是否显示接口作者名称，默认是true,不想显示可关闭
+  "showAuthor": true,
+  // 基于highlight.js的代码高设置,可选值很多可查看码云wiki，喜欢配色统一简洁的同学可以不设置
+  "style": "xt256",
+  //是否覆盖旧的文件，主要用于mardown文件覆盖
+  "coverOld": true,
+  //@since 2.0.0 smart-doc支持创建可以测试的html页面，仅在AllInOne模式中起作用。
+  "createDebugPage": true,
+  //自定义设置输出文档名称, @since 1.9.0
+  "allInOneDocFileName": "doc.html"
+}

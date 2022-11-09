@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Live Video 7.X</title>
+    <link href="../static/lib/video7.3.0/video-js.min.css" rel="stylesheet">
+    <script src="../static/lib/video7.3.0/video.min.js"></script>
+    <script src="../static/lib/flash/videojs-flash.min.js"></script>
+</head>
+
+<body>
+<video id="liveVideo" class="video-js" controls autoplay preload="auto" width="1280"
+       height="720" data-setup="{}">
+    <source src="rtmp://192.168.80.100:1935/live/34020000001320000005@34020000001310000005" type="rtmp/flv">
+</video>
+</body>
+
+<!--<head>
+    <title>视频直播</title>
+    <meta charset="utf-8">
+    <link href="http://vjs.zencdn.net/5.5.3/video-js.css" rel="stylesheet">
+    &lt;!&ndash; If you'd like to support IE8 &ndash;&gt;
+    <script src="http://vjs.zencdn.net/ie8/1.1.1/videojs-ie8.min.js"></script>
+</head>
+<body>
+<video id="my-video" class="video-js" controls preload="auto" width="640" height="300"
+       poster="http://ppt.downhot.com/d/file/p/2014/08/12/9d92575b4962a981bd9af247ef142449.jpg" data-setup="{}">
+    <source src="rtmp://live.hkstv.hk.lxdns.com/live/hks" type="rtmp/flv">
+    &lt;!&ndash; 如果上面的rtmp流无法播放，就播放hls流 &ndash;&gt;
+    &lt;!&ndash; <source src="http://192.168.80.100/live/livestream.m3u8" type='application/x-mpegURL'> &ndash;&gt;
+    <p class="vjs-no-js">播放视频需要启用 JavaScript，推荐使用支持HTML5的浏览器访问。
+        To view this video please enable JavaScript, and consider upgrading to a web browser that
+        <a href="rtmp://192.168.80.100:1935/live/34020000001320000005@34020000001310000005" target="_blank">supports HTML5 video</a>
+    </p>
+</video>
+<script src="http://vjs.zencdn.net/5.5.3/video.js"></script>
+</body>-->
+</html>

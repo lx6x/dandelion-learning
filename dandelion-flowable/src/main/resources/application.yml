@@ -1,0 +1,8 @@
+server:
+  port: 30025
+spring:
+  datasource:
+    username: root
+    password: root
+    url: jdbc:mysql://192.168.80.100:3306/flowable?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=Asia/Shanghai
+    driver-class-name: com.mysql.cj.jdbc.Driver

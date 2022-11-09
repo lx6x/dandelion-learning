@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>dandelion-learning</artifactId>
+        <groupId>org.dandelion</groupId>
+        <version>1.0.0</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.dandelion.commons</groupId>
+    <artifactId>dandelion-commons</artifactId>
+    <packaging>pom</packaging>
+    <name>dandelion-commons</name>
+    <description>公共模块</description>
+
+    <modules>
+        <module>dandelion-commons-logs</module>
+        <module>dandelion-commons-utils</module>
+        <module>dandelion-commons-model</module>
+    </modules>
+
+    <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+    </properties>
+
+
+</project>

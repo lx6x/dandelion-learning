@@ -1,0 +1,13 @@
+server:
+  port: 30011
+spring:
+  cloud:
+    zookeeper:
+      connect-string: 192.168.14.136:2181
+      discovery:
+        instanceHost: 192.168.1.4
+  application:
+    name: dandelion-feignclient-consumer
+feign:
+  hystrix:
+    enabled: true

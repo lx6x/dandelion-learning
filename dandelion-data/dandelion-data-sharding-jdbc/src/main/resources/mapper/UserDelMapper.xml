@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.dandelion.data.sharding.mapper.UserDelMapper">
+
+    <insert id="saveByUserDel" parameterType="org.dandelion.data.sharding.entity.UserDel">
+        insert into d_user_del (id,u_id, phone,age,remark,address)
+        values (#{id},#{uId}, #{phone},#{age},#{remark},#{address})
+    </insert>
+
+
+</mapper>

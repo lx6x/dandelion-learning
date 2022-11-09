@@ -1,0 +1,16 @@
+server:
+  port: 30015
+spring:
+  datasource:
+    username: root
+    password: root
+    url: jdbc:mysql://192.168.80.100:3306/test?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=Asia/Shanghai
+    driver-class-name: com.mysql.jdbc.Driver
+  jpa:
+    hibernate:
+      # 新增数据库链接必须的参数
+      ddl-auto: update
+    # 控制台显示SQL
+    show-sql: true
+    properties:
+      hibernate.format_sql: true

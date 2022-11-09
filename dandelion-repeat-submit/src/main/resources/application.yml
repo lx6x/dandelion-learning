@@ -1,0 +1,14 @@
+server:
+  port: 30026
+spring:
+  # redis 连接参数信息
+  redis:
+    jedis:
+      pool:
+        max-active: 100
+        max-idle: 100
+        max-wait: 1000
+    host: 192.168.14.136
+    port: 6379
+token:
+  header: Authorization

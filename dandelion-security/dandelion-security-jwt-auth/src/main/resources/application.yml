@@ -1,0 +1,18 @@
+server:
+  port: 30017
+
+spring:
+  datasource:
+    username: root
+    password: root
+    url: jdbc:mysql://192.168.80.100:3306/dandelion_security?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=Asia/Shanghai
+    driver-class-name: com.mysql.cj.jdbc.Driver
+jwt:
+  secret: dandelion-sevurity-jwt-
+  expiration: 604800
+  token-head: Bearer
+  token-header: Authorization
+mybatis:
+  mapper-locations:
+    - classpath:mapper/*.xml
+

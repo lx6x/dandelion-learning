@@ -1,0 +1,37 @@
+#spring:
+#  datasource:
+#    primary:
+#      url: jdbc:mysql://192.168.229.131:3306/scheduler_quartz?serverTimezone=UTC&useSSL=false&useUnicode=true&characterEncoding=UTF-8
+#      username: root
+#      password: root
+#      driver-class-name: com.mysql.cj.jdbc.Driver
+#    quartz:
+#      url: jdbc:mysql://192.168.229.131:3306/scheduler_quartz?serverTimezone=UTC&useSSL=false&useUnicode=true&characterEncoding=UTF-8
+#      username: root
+#      password: root
+#      driver-class-name: com.mysql.cj.jdbc.Driver
+#  quartz:
+#    job-store-type: jdbc
+#    jdbc:
+#      initialize-schema: embedded
+#    properties:
+#      org:
+#        quartz:
+#          scheduler:
+#            instanceName: MyScheduler
+#            instanceId: AUTO
+#          jobStore:
+#            class: org.quartz.impl.jdbcjobstore.JobStoreTX
+#            driverDelegateClass: org.quartz.impl.jdbcjobstore.StdJDBCDelegate
+#            tablePrefix: QRTZ_
+#            #            集群配置
+#            isClustered: true
+#            dataSource: quartzDataSource
+#            clusterCheckinInterval: 10000
+#            useProperties: true
+#          threadPool:
+#            class: org.quartz.simpl.SimpleThreadPool
+#            threadCount: 10
+#            threadPriority: 5
+#            threadsInheritContextClassLoaderOfInitializingThread: true
+#
