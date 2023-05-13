@@ -1,14 +1,11 @@
 package org.dandelion.commons.utils;
 
-import com.alibaba.fastjson.JSONObject;
 import com.jcraft.jsch.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Properties;
 
 /**

@@ -1,17 +1,14 @@
 package org.dandelion.commons.utils;
 
 import cn.hutool.core.date.DateUtil;
-import cn.hutool.http.HttpUtil;
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
+import org.apache.commons.lang3.StringUtils;
 
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * TODO 时间工具类
@@ -21,6 +18,8 @@ import java.util.Map;
  * @date 2021/8/18 14:44
  */
 public class DateUtils extends DateUtil {
+
+    public static final String YYYY_MM_DD_HH_MM_SS = "yyyy-MM-dd HH:mm:ss";
 
     private static final SimpleDateFormat SDF1 = new SimpleDateFormat("yyyy-MM-dd");
     private static final SimpleDateFormat SDF2 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -35,23 +34,38 @@ public class DateUtils extends DateUtil {
      * @author L
      */
     public static Date getNowDate() {
-        Date currentTime = new Date();
-        SimpleDateFormat formatter = DateUtils.SDF2;
-        String dateString = formatter.format(currentTime);
-        try {
-            return formatter.parse(dateString);
-        } catch (ParseException e) {
-            e.printStackTrace();
+        Calendar instance = Calendar.getInstance();
+        return instance.getTime();
+    }
+
+    /**
+     * 时间 字符格式 转成 date
+     *
+     * @param date    时间字符串
+     * @param pattern 格式
+     * @return date
+     */
+    public static Date parseDate(String date, String pattern) {
+        if (StringUtils.isBlank(pattern)) {
+            pattern = YYYY_MM_DD_HH_MM_SS;
+        }
+        SimpleDateFormat sml = new SimpleDateFormat(pattern);
+        if (StringUtils.isNotBlank(date)) {
+            try {
+                return sml.parse(date);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
         }
         return null;
     }
 
     public static String getNowDate(Date date) {
 
-        return DateUtils.SDF2.format(date);
+        return SDF2.format(date);
     }
 
-    public static Date parse(String date) {
+    public static Date parseDate(String date) {
         Date time;
         try {
             time = SDF2.parse(date);
@@ -102,6 +116,7 @@ public class DateUtils extends DateUtil {
         return date1.before(date2);
     }
 
+
     public static void main(String[] args) {
 
         /*LocalDateTime localDateTime=LocalDateTime.now();
@@ -112,14 +127,23 @@ public class DateUtils extends DateUtil {
         System.out.println(localDateTime);*/
 
 
-        Map<String, Object> map = new HashMap<>();
-        map.put("loginname", "admin");
-        map.put("password", "123456");
-        String s = JSONObject.toJSONString(map);
-        String post = HttpUtil.post("http://localhost:18083/auth/login", s);
-        JSONObject jsonresult = JSON.parseObject(post);
-        System.out.println(jsonresult.toString());
+//        Map<String, Object> map = new HashMap<>();
+//        map.put("loginname", "admin");
+//        map.put("password", "123456");
+//        String s = JSONObject.toJSONString(map);
+//        String post = HttpUtil.post("http://localhost:18083/auth/login", s);
+//        JSONObject jsonresult = JSON.parseObject(post);
+//        System.out.println(jsonresult.toString());
 
+        Date date = parseDate("2023-02-22 10:30:01", null);
 
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+
+        System.out.println(getNowDate(calendar.getTime()));
+        calendar.add(Calendar.MINUTE, -10);
+        System.out.println(getNowDate(calendar.getTime()));
+        calendar.add(Calendar.HOUR_OF_DAY, -36);
+        System.out.println(getNowDate(calendar.getTime()));
     }
 }

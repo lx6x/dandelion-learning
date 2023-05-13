@@ -1,18 +1,13 @@
 package org.dandelion.commons.utils;
 
+import com.jcraft.jsch.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
-
-import com.jcraft.jsch.Channel;
-import com.jcraft.jsch.JSch;
-import com.jcraft.jsch.JSchException;
-import com.jcraft.jsch.Session;
-import com.jcraft.jsch.UIKeyboardInteractive;
-import com.jcraft.jsch.UserInfo;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public class SSHCommandExecutor implements Runnable {
 
