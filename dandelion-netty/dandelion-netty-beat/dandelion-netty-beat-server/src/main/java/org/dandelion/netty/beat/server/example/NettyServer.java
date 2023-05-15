@@ -44,7 +44,7 @@ public class NettyServer {
                 // 配置 NioServerSocketChannel 的 TCP 参数
                 .childOption(ChannelOption.SO_BACKLOG, 1024)
                 // 设置绑定 IO 事件的处理类
-                .childHandler(new HearBeatInitializer());
+                .childHandler(new ServerInitializer());
         // 绑定并开始接受传入的连接。
         try {
             ChannelFuture channelFuture = sb.bind().sync();
