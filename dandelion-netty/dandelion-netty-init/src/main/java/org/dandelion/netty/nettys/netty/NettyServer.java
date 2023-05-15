@@ -29,7 +29,8 @@ public class NettyServer {
         EventLoopGroup parentGroup = new NioEventLoopGroup();
         // 用于进行 SocketChannel 的网路读写
         EventLoopGroup childGroup = new NioEventLoopGroup();
-        try { // Netty 用于启动 NIO 服务器的辅助启动类
+        try {
+            // Netty 用于启动 NIO 服务器的辅助启动类
             ServerBootstrap sb = new ServerBootstrap();
             // 将两个 NIO 线程组传入辅助启动类中
             sb.group(parentGroup, childGroup)

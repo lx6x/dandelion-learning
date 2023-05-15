@@ -1,13 +1,13 @@
 package org.dandelion.netty.im.controller;
 
-import org.dandelion.netty.im.bean.ChatInfo;
-import org.dandelion.netty.im.bean.ServerInfo;
-import org.dandelion.netty.im.bean.UserInfo;
-import org.dandelion.netty.im.constant.BasicConstant;
+import org.dandelion.netty.common.bean.ChatInfo;
+import org.dandelion.netty.common.bean.ServerInfo;
+import org.dandelion.netty.common.bean.UserInfo;
+import org.dandelion.netty.common.constant.BasicConstant;
 import org.dandelion.netty.im.service.RouteService;
-import org.dandelion.netty.im.utils.RedisUtils;
-import org.dandelion.netty.im.utils.RoundRobin;
-import org.dandelion.netty.im.utils.ZkClientUtil;
+import org.dandelion.netty.common.utils.RedisUtils;
+import org.dandelion.netty.common.utils.RoundRobin;
+import org.dandelion.netty.common.utils.ZkClientUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +30,7 @@ import java.util.List;
 public class ImRoutingController {
     private static final Logger logger = LoggerFactory.getLogger(ImRoutingController.class);
 
-    @Autowired
+    @Resource
     private RedisUtils redisUtils;
 
     @Autowired

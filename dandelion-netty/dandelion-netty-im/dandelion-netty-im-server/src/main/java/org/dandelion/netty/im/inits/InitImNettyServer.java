@@ -9,16 +9,16 @@ import io.netty.handler.codec.protobuf.ProtobufDecoder;
 import io.netty.handler.codec.protobuf.ProtobufEncoder;
 import io.netty.handler.codec.protobuf.ProtobufVarint32FrameDecoder;
 import io.netty.handler.codec.protobuf.ProtobufVarint32LengthFieldPrepender;
+import org.dandelion.netty.common.protocol.MessageProto;
 import org.dandelion.netty.im.config.SystemServerConfig;
 import org.dandelion.netty.im.hadle.ImServerHandle;
-import org.dandelion.netty.im.protocol.MessageProto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
+import javax.annotation.Resource;
 
 /**
  * TODO init im netty server
@@ -36,7 +36,7 @@ public class InitImNettyServer {
     private final EventLoopGroup bossGroup = new NioEventLoopGroup();
     private final EventLoopGroup workerGroup = new NioEventLoopGroup();
 
-    @Autowired
+    @Resource
     private SystemServerConfig systemServerConfig;
 
 

@@ -3,7 +3,7 @@ package org.dandelion.netty.im.handle;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 import io.netty.util.ReferenceCountUtil;
-import org.dandelion.netty.im.protocol.MessageProto;
+import org.dandelion.netty.common.protocol.MessageProto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

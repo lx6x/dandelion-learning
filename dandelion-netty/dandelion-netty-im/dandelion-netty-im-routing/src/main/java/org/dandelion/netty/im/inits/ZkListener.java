@@ -2,11 +2,13 @@ package org.dandelion.netty.im.inits;
 
 import org.I0Itec.zkclient.ZkClient;
 import org.dandelion.netty.im.config.SystemRoutingConfig;
-import org.dandelion.netty.im.utils.ZkClientUtil;
+import org.dandelion.netty.common.utils.ZkClientUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
+
+import javax.annotation.Resource;
 
 /**
  * TODO start monitoring zk
@@ -19,13 +21,13 @@ import org.springframework.stereotype.Component;
 @Order(value = 2)
 public class ZkListener implements CommandLineRunner {
 
-    @Autowired
+    @Resource
     private SystemRoutingConfig systemRoutingConfig;
 
-    @Autowired
+    @Resource
     private ZkClient zkClient;
 
-    @Autowired
+    @Resource
     private ZkClientUtil zkClientUtil;
 
     @Override

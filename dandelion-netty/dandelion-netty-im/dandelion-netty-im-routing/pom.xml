@@ -23,8 +23,8 @@
         </dependency>
 
         <dependency>
-            <groupId>org.dandelion.netty.im</groupId>
-            <artifactId>dandelion-netty-im-commons</artifactId>
+            <groupId>org.dandelion.netty</groupId>
+            <artifactId>dandelion-netty-commons</artifactId>
             <version>1.0.0</version>
         </dependency>
 

@@ -10,15 +10,14 @@ import io.netty.handler.codec.protobuf.ProtobufDecoder;
 import io.netty.handler.codec.protobuf.ProtobufEncoder;
 import io.netty.handler.codec.protobuf.ProtobufVarint32FrameDecoder;
 import io.netty.handler.codec.protobuf.ProtobufVarint32LengthFieldPrepender;
-import io.netty.handler.codec.string.StringEncoder;
-import org.dandelion.netty.im.bean.ChatInfo;
-import org.dandelion.netty.im.bean.ServerInfo;
-import org.dandelion.netty.im.bean.UserInfo;
+import org.dandelion.netty.common.bean.ChatInfo;
+import org.dandelion.netty.common.bean.ServerInfo;
+import org.dandelion.netty.common.bean.UserInfo;
 import org.dandelion.netty.im.config.SystemClientConfig;
-import org.dandelion.netty.im.constant.MessageConstant;
+import org.dandelion.netty.common.constant.MessageConstant;
 import org.dandelion.netty.im.handle.ImClientHandle;
-import org.dandelion.netty.im.protocol.MessageProto;
-import org.dandelion.netty.im.utils.HttpUtils;
+import org.dandelion.netty.common.protocol.MessageProto;
+import org.dandelion.netty.common.utils.HttpUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +26,6 @@ import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
-import java.nio.charset.StandardCharsets;
 
 /**
  * TODO

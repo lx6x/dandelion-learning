@@ -1,7 +1,7 @@
 package org.dandelion.netty.im.config;
 
 import org.I0Itec.zkclient.ZkClient;
-import org.dandelion.netty.im.utils.ZkClientUtil;
+import org.dandelion.netty.common.utils.ZkClientUtil;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

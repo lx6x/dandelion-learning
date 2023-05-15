@@ -1,6 +1,6 @@
 package org.dandelion.netty.im.config;
 
-import org.dandelion.netty.im.properties.ImCustomProperties;
+import org.dandelion.netty.common.properties.ImCustomProperties;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Configuration;

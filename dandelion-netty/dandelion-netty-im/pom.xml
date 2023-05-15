@@ -16,7 +16,6 @@
     <modules>
         <module>dandelion-netty-im-client</module>
         <module>dandelion-netty-im-server</module>
-        <module>dandelion-netty-im-commons</module>
         <module>dandelion-netty-im-routing</module>
     </modules>
 

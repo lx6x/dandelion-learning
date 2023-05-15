@@ -15,6 +15,9 @@
     <modules>
         <module>dandelion-netty-init</module>
         <module>dandelion-netty-im</module>
+        <module>dandelion-netty-beat</module>
+        <module>dandelion-netty-commons</module>
+
     </modules>
 
     <properties>

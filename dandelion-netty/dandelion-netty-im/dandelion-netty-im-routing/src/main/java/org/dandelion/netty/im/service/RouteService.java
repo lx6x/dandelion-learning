@@ -1,8 +1,8 @@
 package org.dandelion.netty.im.service;
 
 import com.alibaba.fastjson.JSONObject;
-import org.dandelion.netty.im.bean.ChatInfo;
-import org.dandelion.netty.im.utils.HttpUtils;
+import org.dandelion.netty.common.bean.ChatInfo;
+import org.dandelion.netty.common.utils.HttpUtils;
 import org.springframework.stereotype.Service;
 
 /**

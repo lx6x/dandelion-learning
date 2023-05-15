@@ -1,9 +1,9 @@
 package org.dandelion.netty.im.handle;
 
-import org.dandelion.netty.im.bean.ChatInfo;
+import org.dandelion.netty.common.bean.ChatInfo;
 import org.dandelion.netty.im.config.SystemClientConfig;
-import org.dandelion.netty.im.constant.MessageConstant;
-import org.dandelion.netty.im.factory.SpringBeanFactory;
+import org.dandelion.netty.common.constant.MessageConstant;
+import org.dandelion.netty.common.factory.SpringBeanFactory;
 import org.dandelion.netty.im.inits.InitImNettyClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
