@@ -24,8 +24,7 @@ public class ServerHandle extends ChannelInboundHandlerAdapter {
      */
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-        BeatInfo beatInfo = (BeatInfo) msg;
-        System.out.println(beatInfo.toString());
+        System.out.println(msg.toString());
     }
 
     /**
