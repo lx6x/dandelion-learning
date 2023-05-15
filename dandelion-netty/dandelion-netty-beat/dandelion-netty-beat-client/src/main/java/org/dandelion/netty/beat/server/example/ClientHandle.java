@@ -23,7 +23,7 @@ public class ClientHandle extends ChannelInboundHandlerAdapter {
      */
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-        BeatInfo beatInfo = (BeatInfo) ctx;
+        BeatInfo beatInfo = (BeatInfo) msg;
         System.out.println(beatInfo.toString());
     }
 
@@ -34,7 +34,7 @@ public class ClientHandle extends ChannelInboundHandlerAdapter {
      */
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
-        System.err.println("连接成功");
+        logger.info("---- 连接成功");
     }
 
     /**
@@ -44,7 +44,7 @@ public class ClientHandle extends ChannelInboundHandlerAdapter {
      */
     @Override
     public void channelInactive(ChannelHandlerContext ctx) throws Exception {
-        System.err.println("连接断开");
+        logger.info("---- 连接断开");
     }
 
     /**
