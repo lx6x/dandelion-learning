@@ -17,7 +17,7 @@ public class ServerInitializer extends ChannelInitializer<Channel> {
     protected void initChannel(Channel ch) throws Exception {
         ch.pipeline()
                 // 5秒没有读操作 将触发READER_IDLE
-                .addLast(new IdleStateHandler(0, 4, 0, TimeUnit.SECONDS))
+                .addLast(new IdleStateHandler(5, 0, 0, TimeUnit.SECONDS))
                 .addLast("decoder", new StringDecoder())
                 .addLast("encoder", new StringEncoder())
                 .addLast(new ServerHandle());

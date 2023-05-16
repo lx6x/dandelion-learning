@@ -1,9 +1,11 @@
 package org.dandelion.netty.beat.server.example;
 
+import com.alibaba.fastjson.JSONObject;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 import io.netty.handler.timeout.IdleState;
 import io.netty.handler.timeout.IdleStateEvent;
+import io.netty.util.AttributeKey;
 import org.dandelion.netty.common.bean.BeatInfo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,6 +18,8 @@ public class ServerHandle extends ChannelInboundHandlerAdapter {
 
     private static final Logger logger = LoggerFactory.getLogger(ServerHandle.class);
 
+    private final ChannelMap channelMap = ChannelMap.newInstance();
+
     /**
      * 当前通道从对等端读取消息时调用
      *
@@ -24,7 +28,10 @@ public class ServerHandle extends ChannelInboundHandlerAdapter {
      */
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-        System.out.println(msg.toString());
+        System.out.println("服务端成功收到信息 " + msg);
+        BeatInfo beatInfo = JSONObject.parseObject(msg.toString(), BeatInfo.class);
+        //
+        ctx.channel().attr(AttributeKey.valueOf("id")).set(beatInfo.getId());
     }
 
     /**
@@ -34,7 +41,8 @@ public class ServerHandle extends ChannelInboundHandlerAdapter {
      */
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
-        logger.info("---- 连接成功");
+        logger.info("---- 连接成功 ");
+
     }
 
     /**
@@ -44,7 +52,9 @@ public class ServerHandle extends ChannelInboundHandlerAdapter {
      */
     @Override
     public void channelInactive(ChannelHandlerContext ctx) throws Exception {
-        logger.info("---- 连接断开");
+        Object id = ctx.channel().attr(AttributeKey.valueOf("id")).get();
+        logger.info("---- 连接断开 " + id);
+
     }
 
     /**

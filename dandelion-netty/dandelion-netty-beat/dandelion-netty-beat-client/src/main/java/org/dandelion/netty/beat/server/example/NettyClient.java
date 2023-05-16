@@ -6,12 +6,14 @@ import io.netty.channel.ChannelOption;
 import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioSocketChannel;
+import io.netty.util.AttributeKey;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 
 /**
  * @author liujunfei
@@ -38,7 +40,6 @@ public class NettyClient {
                 .channel(NioSocketChannel.class)
                 .option(ChannelOption.TCP_NODELAY, true)
                 .handler(new ClientInitializer());
-
         try {
             ChannelFuture channelFuture = bs.connect(serverIp, serverPort).sync();
             if (channelFuture.isSuccess()) {
@@ -48,5 +49,14 @@ public class NettyClient {
             throw new RuntimeException(e);
         }
 
+    }
+
+    /**
+     * 销毁
+     */
+    @PreDestroy
+    public void destroy() {
+        clientGroup.shutdownGracefully().syncUninterruptibly();
+        logger.info("关闭 Netty 成功 ...");
     }
 }

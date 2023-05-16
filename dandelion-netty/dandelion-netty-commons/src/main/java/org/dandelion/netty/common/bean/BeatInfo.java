@@ -10,22 +10,22 @@ import java.io.Serializable;
  */
 public class BeatInfo implements Serializable {
 
-    private Long id;
+    private String id;
     private String content;
     public BeatInfo(){
 
     }
 
-    public BeatInfo(long id, String content) {
+    public BeatInfo(String id, String content) {
         this.id = id;
         this.content = content;
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
