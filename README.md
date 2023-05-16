@@ -83,6 +83,7 @@ dandelion-oshi                                              30027
 dandelion-search-lucene                                     30028
 dandelion-netty-beat-server                                 30029
 dandelion-netty-beat-client                                 30030
+dandelion-scheduling-rocketmq                               30032
 
 ```
 
