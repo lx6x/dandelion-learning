@@ -6,20 +6,21 @@
         <artifactId>dandelion-learning</artifactId>
         <version>1.0.0</version>
     </parent>
-    <groupId>org.dandelion.oshi</groupId>
+    <groupId>org.dandelion.search</groupId>
     <artifactId>dandelion-search</artifactId>
-    <packaging>war</packaging>
-    <name>dandelion-search Maven Webapp</name>
+    <packaging>pom</packaging>
+    <name>dandelion-search</name>
     <url>http://maven.apache.org</url>
+    <modules>
+        <module>dandelion-search-lucene</module>
+    </modules>
+
     <dependencies>
+        <!--    ik 中文分词器    -->
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>3.8.1</version>
-            <scope>test</scope>
+            <groupId>com.github.magese</groupId>
+            <artifactId>ik-analyzer</artifactId>
+            <version>8.5.0</version>
         </dependency>
     </dependencies>
-    <build>
-        <finalName>dandelion-search</finalName>
-    </build>
 </project>

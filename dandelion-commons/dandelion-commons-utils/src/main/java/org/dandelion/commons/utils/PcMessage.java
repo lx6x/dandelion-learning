@@ -23,6 +23,10 @@ import static cn.hutool.core.io.unit.DataSizeUtil.format;
  */
 public class PcMessage {
 
+    public static void main(String[] args) {
+        read();
+    }
+
     public static void read() {
         Console.log("======= 操作系统信息 ======");
         OsInfo osInfo = SystemUtil.getOsInfo();
