@@ -1,6 +1,8 @@
 package org.dandelion.oshi.controller;
 
 import cn.hutool.system.oshi.OshiUtil;
+import org.dandelion.oshi.common.HutoolOshiUtil;
+import org.dandelion.oshi.common.IpUtil;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -74,7 +76,7 @@ public class OshiController {
                     StringBuilder macs = new StringBuilder();
                     for (int i = 0; i < mac.length; i++) {
                         // 格式化十六进制
-                        macs.append(String.format("%02X%s", mac[i], (i < mac.length - 1) ? "-" : ""));
+                        macs.append(String.format("%02X%s", mac[i], (i < mac.length - 1) ? ":" : ""));
                     }
                     map.put("mac", macs.toString());
                     map.put("ip", inetAddress.getHostAddress());
@@ -86,7 +88,7 @@ public class OshiController {
         return listMap;
     }
 
-    @GetMapping("/test")
+    @GetMapping("/getNetwork")
     public void test() {
         List<String> oshi = new ArrayList<>();
         List<NetworkIF> list = OshiUtil.getHardware().getNetworkIFs();
@@ -101,6 +103,16 @@ public class OshiController {
         oshi.add(sb.toString());
 
         System.out.println(oshi);
+    }
+
+    @GetMapping("/huTool")
+    public void huTool(){
+        HutoolOshiUtil.huTool();
+    }
+
+    @GetMapping("/getLocalIP")
+    public String getLinuxLocalIp() throws Exception {
+        return IpUtil.getLocalIP();
     }
 }
 

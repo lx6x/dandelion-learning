@@ -2,24 +2,27 @@ package org.dandelion.oshi.common;
 
 import cn.hutool.system.oshi.CpuInfo;
 import cn.hutool.system.oshi.OshiUtil;
-import oshi.hardware.CentralProcessor;
-import oshi.hardware.ComputerSystem;
-import oshi.hardware.GlobalMemory;
-import oshi.hardware.HardwareAbstractionLayer;
-import oshi.software.os.*;
+import oshi.hardware.*;
+import oshi.software.os.FileSystem;
+import oshi.software.os.OSFileStore;
+import oshi.software.os.OperatingSystem;
 import oshi.util.FormatUtil;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import java.time.Instant;
+import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class HutoolOshiUtil {
 
-
     public static void main(String[] args) {
+        huTool();
+    }
+
+    public static void huTool() {
         OperatingSystem os = OshiUtil.getOs();
         HardwareAbstractionLayer hal = OshiUtil.getHardware();
 
@@ -43,13 +46,14 @@ public class HutoolOshiUtil {
         System.out.println("系统制造商: " + computerSystem.getManufacturer());
         System.out.println("获取计算机系统模型: " + computerSystem.getModel());
         System.out.println("获取计算机序列号: " + computerSystem.getSerialNumber());
+        System.out.println("获取计算机系统硬件uuid: " + computerSystem.getHardwareUUID());
         System.out.println("获取计算机系统固件/BIOS: " + computerSystem.getFirmware().toString());
-        System.out.println("获取计算机系统基板/主板: " + computerSystem.getBaseboard().toString());
         System.out.println("系统固件 - 制造商：" + computerSystem.getFirmware().getManufacturer());
         System.out.println("系统固件 - 名称：" + computerSystem.getFirmware().getName());
         System.out.println("系统固件 - 描述：" + computerSystem.getFirmware().getDescription());
         System.out.println("系统固件 - 版本：" + computerSystem.getFirmware().getVersion());
         System.out.println("系统固件 -发布时间：" + computerSystem.getFirmware().getReleaseDate());
+        System.out.println("获取计算机系统基板/主板: " + computerSystem.getBaseboard().toString());
         System.out.println("主板 - 制造商：" + computerSystem.getBaseboard().getManufacturer());
         System.out.println("主板 - 模型：" + computerSystem.getBaseboard().getModel());
         System.out.println("主板 - 版本：" + computerSystem.getBaseboard().getVersion());
@@ -123,7 +127,7 @@ public class HutoolOshiUtil {
         System.out.println();
 
         System.out.println("获取正在运行的进程");
-        List<OSProcess> processes = OshiUtil.getOs().getProcesses(null, OperatingSystem.ProcessSorting.CPU_DESC, 10);
+        /*List<OSProcess> processes = OshiUtil.getOs().getProcesses(null, OperatingSystem.ProcessSorting.CPU_DESC, 10);
         for (OSProcess process : processes) {
             System.out.println(" "+process.getName() + "  " + process.getProcessID() + "  " + process.getState() + "  " +process.getResidentSetSize());
 
@@ -131,6 +135,17 @@ public class HutoolOshiUtil {
             for (OSThread threadDetail : threadDetails) {
                 System.out.println("  "+threadDetail.getName());
             }
+        }*/
+
+        System.out.println();
+
+        System.out.println("网络信息");
+        List<NetworkIF> networkIFs = hal.getNetworkIFs();
+        System.out.println("networkIFs：" + networkIFs);
+        for (NetworkIF networkIF : networkIFs) {
+            System.out.println(" 名称：" + networkIF.getName());
+            System.out.println(" mac：" + networkIF.getMacaddr());
+            System.out.println(" ip：" + networkIF.getIPv4addr()[0]);
         }
 
 
