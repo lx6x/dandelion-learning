@@ -8,11 +8,7 @@ import org.apache.lucene.queryparser.classic.QueryParser;
 import org.apache.lucene.search.IndexSearcher;
 import org.apache.lucene.search.Query;
 import org.apache.lucene.search.ScoreDoc;
-import org.apache.lucene.search.highlight.Highlighter;
-import org.apache.lucene.search.highlight.QueryScorer;
-import org.apache.lucene.search.highlight.SimpleHTMLFormatter;
-import org.apache.lucene.search.highlight.TokenSources;
-import org.apache.lucene.search.highlight.SimpleSpanFragmenter;
+import org.apache.lucene.search.highlight.*;
 import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.FSDirectory;
 import org.dandelion.search.lucene.model.SearchEntity;
@@ -29,14 +25,23 @@ import java.util.List;
 @Service
 public class LuceneService {
 
-    public List<SearchEntity> search(String key ,int num) {
-        List<SearchEntity> list = new ArrayList<>();
+    private final IndexReader indexReader;
 
+    LuceneService() {
         try {
             // 索引文件存放目录
             Directory directory = FSDirectory.open(Paths.get("D:\\lucene\\index"));
             // 创建 IndexReader
-            IndexReader indexReader = DirectoryReader.open(directory);
+            indexReader = DirectoryReader.open(directory);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public List<SearchEntity> search(String key, int num) {
+        List<SearchEntity> list = new ArrayList<>();
+
+        try {
             // 创建 IndexSearcher
             IndexSearcher indexSearcher = new IndexSearcher(indexReader);
             // 创建 ik 分词器
@@ -45,7 +50,8 @@ public class LuceneService {
             // 创建查询
             Query query = parser.parse(key);
 
-            QueryScorer scorer = new QueryScorer(query,"content");
+            QueryScorer scorer = new QueryScorer(query, "content");
+            // 格式化高亮
             SimpleHTMLFormatter formatter = new SimpleHTMLFormatter("<font color=\"red\">",
                     "</font>");
             Highlighter highlighter = new Highlighter(formatter, scorer);
@@ -67,9 +73,6 @@ public class LuceneService {
                 search.setContent(content);
                 list.add(search);
             }
-
-            indexReader.close();
-            directory.close();
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

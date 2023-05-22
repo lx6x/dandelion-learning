@@ -30,7 +30,7 @@
         let key = document.getElementsByClassName('search-text').inputs.value;
         $.ajax({
             url: "/list",
-            data: {"key": key, "num": 10},
+            data: {"key": key, "num": 2},
             type: 'get',
             success: function (data) {
                 let str = "<tr><td>文件名</td><td>内容</td></tr>";
