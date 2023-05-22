@@ -6,7 +6,6 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * @author liujunfei
  * @date 2023/5/16
  */
 public class ChannelMap {

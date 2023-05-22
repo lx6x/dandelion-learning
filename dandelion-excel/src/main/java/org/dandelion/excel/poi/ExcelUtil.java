@@ -27,7 +27,7 @@ import java.util.List;
 public class ExcelUtil {
 
     public static void main(String[] args) throws FileNotFoundException {
-        File file=new File("C:\\Users\\LJF\\Desktop\\相关方人员.xlsx");
+        File file=new File("C:\\Users\\...\\Desktop\\相关方人员.xlsx");
 
         InputStream in = new FileInputStream(file);
 

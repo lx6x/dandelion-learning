@@ -268,7 +268,7 @@ public class HdfsUtil {
         System.err.println("----------------------------------");*/
 
 
-        FileInputStream fileInputStream = new FileInputStream("C:\\Users\\ljf\\Desktop\\card.csv");
+        FileInputStream fileInputStream = new FileInputStream("C:\\Users\\...\\Desktop\\card.csv");
         byte[] bytes = inputStreamToByte(fileInputStream);
         createFile("/data/operatorCompare", bytes, "card.csv");
 

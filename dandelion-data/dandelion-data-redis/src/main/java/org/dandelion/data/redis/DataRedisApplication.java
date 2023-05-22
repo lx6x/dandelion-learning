@@ -6,7 +6,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 /**
  * TODO
  *
- * @author LJF
  * @version 1.0
  * @date 2021/12/28 14:21
  */

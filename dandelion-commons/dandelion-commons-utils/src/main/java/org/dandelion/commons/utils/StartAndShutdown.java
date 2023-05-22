@@ -3,7 +3,6 @@ package org.dandelion.commons.utils;
 import java.io.IOException;
 
 /**
- * @author liujunfei
  * @date 2023/5/15
  */
 public class StartAndShutdown {
@@ -11,7 +10,6 @@ public class StartAndShutdown {
     /**
      * 默认60秒后关机
      *
-     * @author liujunfei
      * @date 2023/5/15
      **/
     public void shutdown() {
@@ -26,7 +24,6 @@ public class StartAndShutdown {
      * 根据输入的时间秒数关机
      *
      * @param s 秒
-     * @author liujunfei
      * @date 2023/5/15
      **/
     public void shutdown(String s) {
@@ -41,7 +38,6 @@ public class StartAndShutdown {
     /**
      * 重启
      *
-     * @author liujunfei
      * @date 2023/5/15
      **/
     public void restart() {

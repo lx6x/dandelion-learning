@@ -7,7 +7,6 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 
 /**
- * @author liujunfei
  * @date 2023/5/16
  */
 public class ClientNioSocketChannel extends NioSocketChannel {

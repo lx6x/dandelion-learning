@@ -18,7 +18,6 @@ import org.slf4j.LoggerFactory;
 import java.util.Date;
 
 /**
- * @author liujunfei
  * @date 2023/5/15
  */
 public class ClientHandle extends ChannelInboundHandlerAdapter {
@@ -68,7 +67,6 @@ public class ClientHandle extends ChannelInboundHandlerAdapter {
      *
      * @param ctx .
      * @param evt .
-     * @author liujunfei
      * @date 2023/5/15
      **/
     @Override

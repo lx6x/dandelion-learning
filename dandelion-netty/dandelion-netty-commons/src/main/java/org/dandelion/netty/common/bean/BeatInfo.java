@@ -5,7 +5,6 @@ import io.netty.util.CharsetUtil;
 import java.io.Serializable;
 
 /**
- * @author liujunfei
  * @date 2023/5/15
  */
 public class BeatInfo implements Serializable {

@@ -16,7 +16,6 @@ import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
 /**
- * @author liujunfei
  * @date 2023/5/15
  */
 @Component

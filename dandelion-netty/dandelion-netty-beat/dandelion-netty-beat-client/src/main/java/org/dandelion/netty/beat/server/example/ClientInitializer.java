@@ -9,7 +9,6 @@ import io.netty.handler.timeout.IdleStateHandler;
 import java.util.concurrent.TimeUnit;
 
 /**
- * @author liujunfei
  * @date 2023/5/15
  */
 public class ClientInitializer extends ChannelInitializer<Channel> {

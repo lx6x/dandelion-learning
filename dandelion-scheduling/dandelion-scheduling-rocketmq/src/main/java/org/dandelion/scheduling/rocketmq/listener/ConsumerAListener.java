@@ -5,7 +5,6 @@ import org.apache.rocketmq.spring.core.RocketMQListener;
 import org.springframework.stereotype.Component;
 
 /**
- * @author liujunfei
  * @date 2023/5/12
  */
 @Component

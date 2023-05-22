@@ -17,7 +17,7 @@ public class CsvFileUtil {
     public static List<String> getCsvDataMethod1() throws FileNotFoundException {
         ArrayList<String> csvFileList = new ArrayList<>();
 
-        FileInputStream fileInputStream = new FileInputStream(new File("C:\\Users\\ljf\\Desktop\\flow.csv"));
+        FileInputStream fileInputStream = new FileInputStream(new File("C:\\Users\\...\\Desktop\\flow.csv"));
 
         InputStreamReader in;
         String s = null;

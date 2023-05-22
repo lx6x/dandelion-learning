@@ -11,7 +11,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * @author liujunfei
  * @date 2023/5/15
  */
 public class ServerHandle extends ChannelInboundHandlerAdapter {
@@ -62,7 +61,6 @@ public class ServerHandle extends ChannelInboundHandlerAdapter {
      *
      * @param ctx .
      * @param evt .
-     * @author liujunfei
      * @date 2023/5/15
      **/
     @Override

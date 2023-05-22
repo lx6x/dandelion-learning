@@ -310,7 +310,7 @@ public class FileUtil {
 
         sb.append("(");
         //创建File 读取文件
-        File inputfile = new File("C:\\Users\\ljf\\Desktop\\正式流量数据\\operator_card_flow_compare_97044363419649.csv");
+        File inputfile = new File("C:\\Users\\...\\Desktop\\正式流量数据\\operator_card_flow_compare_97044363419649.csv");
         try {
             FileInputStream inputStream = new FileInputStream(inputfile);
             ExcelReader reader = ExcelUtil.getReader(inputStream, 0);
@@ -378,7 +378,7 @@ public class FileUtil {
     }
 
     public static void getFile() throws IOException {
-        String path = "C:\\Users\\ljf\\Desktop\\正式流量数据";
+        String path = "C:\\Users\\...\\Desktop\\正式流量数据";
         File file = new File(path);
         File[] files = file.listFiles();
         for (File file1 : files) {
@@ -417,7 +417,7 @@ public class FileUtil {
 //        dongDeConnection();
 //        List<String> excel = excel();
 //        System.out.println(excel);
-//        line(excel, "C:\\Users\\ljf\\Desktop\\test\\test.txt");
+//        line(excel, "C:\\Users\\...\\Desktop\\test\\test.txt");
 
         getFile();
     }
