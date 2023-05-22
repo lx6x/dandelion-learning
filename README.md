@@ -26,8 +26,8 @@ dandelion-parent
 ├── dandelion-mybatis-generator                   mybatis 代码生成器
 ├── dandelion-netty                               netty 
 |   ├── dandelion-netty-beat                      使用netty发送心跳
-|   |   ├── dandelion-netty-beat-server            使用netty发送心跳 测试服务端     
-|   |   ├── dandelion-netty-beat-client            使用netty发送心跳 测试客户端
+|   |   ├── dandelion-netty-beat-server           使用netty发送心跳 测试服务端     
+|   |   ├── dandelion-netty-beat-client           使用netty发送心跳 测试客户端
 ├── dandelion-oshi                                oshi 获取主机cpu/内存/系统 ... 资源信心
 ├── dandelion-oss                                 oss 服务 （阿里）
 ├── dandelion-repeat-submit                       重复提交验证（redis实现）
@@ -38,6 +38,7 @@ dandelion-parent
 |   ├── dandelion-scheduling-xxl-job              xxl-job 定时任务
 |   ├── dandelion-scheduling-rocketmq             rocketmq 消息
 ├── dandelion-search                              搜索引擎 Lucene/elasticsearch 使用
+|   ├── dandelion-search-lucene                   lucene 查询
 ├── dandelion-security                            SpringBoot-Security安全框架（2.3.2）
 |   ├── dandelion-security-init                   初始
 |   ├── dandelion-security-jwt                    jwt使用
