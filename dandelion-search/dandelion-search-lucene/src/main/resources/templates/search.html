@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Lucene Search</title>
+    <script src="webjars/jquery/3.6.2/dist/jquery.js"></script>
+</head>
+
+<body>
+<div class="search-box">
+    <label>
+        <input class="search-text" name="inputs" placeholder="输入">
+    </label>
+    <button class="search-btn" onclick="as()">
+        搜索
+    </button>
+
+    <div>
+        <table th:id="table-list">
+            <tr th:id="tr-list"></tr>
+        </table>
+    </div>
+
+</div>
+</body>
+<script type="text/javascript">
+
+    function as() {
+        let key = document.getElementsByClassName('search-text').inputs.value;
+        $.ajax({
+            url: "/list",
+            data: {"key": key, "num": 10},
+            type: 'get',
+            success: function (data) {
+                let str = "<tr><td>文件名</td><td>内容</td></tr>";
+                $.each(data, function (index, item) {
+                    str = str + "<tr>";
+                    str = str + "<td>" + item.fileName + "</td>";
+                    str = str + "<td>" + item.content + "</td>";
+                    str = str + "</tr>";
+                })
+                $("#table-list").html(str)
+            }
+        })
+    }
+</script>
+</html>

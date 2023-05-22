@@ -20,7 +20,6 @@ import java.io.IOException;
 import java.nio.file.Paths;
 
 /**
- * @author liujunfei
  * @date 2023/5/13
  */
 public class LuceneIndex {
@@ -33,7 +32,6 @@ public class LuceneIndex {
     /**
      * 创建索引
      *
-     * @author liujunfei
      * @date 2023/5/13
      **/
     public static void create() throws IOException {
@@ -54,7 +52,7 @@ public class LuceneIndex {
             for (File file : files) {
                 // 创建 Document
                 Document document = new Document();
-                // 文件名称
+                // 文件名称 设置文档格式
                 document.add(new TextField("fileName", file.getName(), Field.Store.YES));
                 // 文件内容
                 document.add(new TextField("content", FileUtils.readFileToString(file, "GBK"), Field.Store.YES));
@@ -72,7 +70,6 @@ public class LuceneIndex {
     /**
      * 检索查询
      *
-     * @author liujunfei
      * @date 2023/5/18
      **/
     public static void search() throws IOException, ParseException {
@@ -92,8 +89,9 @@ public class LuceneIndex {
         for (ScoreDoc doc : scoreDoc) {
             Document document = indexSearcher.doc(doc.doc);
             String fileName = document.get("fileName");
-
+            String content = document.get("content");
             System.out.println(fileName);
+            System.out.println(content);
         }
 
         indexReader.close();
