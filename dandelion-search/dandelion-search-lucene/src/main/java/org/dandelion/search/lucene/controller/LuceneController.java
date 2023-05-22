@@ -1,6 +1,6 @@
 package org.dandelion.search.lucene.controller;
 
-import org.dandelion.search.lucene.entity.SearchEntity;
+import org.dandelion.search.lucene.model.SearchEntity;
 import org.dandelion.search.lucene.service.LuceneService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;

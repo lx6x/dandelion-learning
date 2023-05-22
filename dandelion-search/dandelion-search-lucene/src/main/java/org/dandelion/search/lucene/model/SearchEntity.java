@@ -1,4 +1,4 @@
-package org.dandelion.search.lucene.entity;
+package org.dandelion.search.lucene.model;
 
 /**
  * @date 2023/5/22
