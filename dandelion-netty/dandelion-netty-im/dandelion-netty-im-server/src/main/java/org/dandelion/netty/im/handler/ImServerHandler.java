@@ -1,4 +1,4 @@
-package org.dandelion.netty.im.hadle;
+package org.dandelion.netty.im.handler;
 
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandlerContext;
@@ -17,9 +17,9 @@ import org.slf4j.LoggerFactory;
  * @version 1.0
  * @date 2022/05/15 17:05
  */
-public class ImServerHandle extends ChannelInboundHandlerAdapter {
+public class ImServerHandler extends ChannelInboundHandlerAdapter {
 
-    private static final Logger logger = LoggerFactory.getLogger(ImServerHandle.class);
+    private static final Logger logger = LoggerFactory.getLogger(ImServerHandler.class);
 
     private final ChannelMap channelMap = ChannelMap.newInstance();
 

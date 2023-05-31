@@ -4,7 +4,7 @@ import io.netty.channel.Channel;
 import org.dandelion.netty.common.bean.ChatInfo;
 import org.dandelion.netty.common.constant.MessageConstant;
 import org.dandelion.netty.common.protocol.MessageProto;
-import org.dandelion.netty.im.hadle.ChannelMap;
+import org.dandelion.netty.im.handler.ChannelMap;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.PostMapping;

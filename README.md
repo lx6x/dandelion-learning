@@ -39,6 +39,7 @@ dandelion-parent
 |   ├── dandelion-scheduling-rocketmq             rocketmq 消息
 ├── dandelion-search                              搜索引擎 Lucene/elasticsearch 使用
 |   ├── dandelion-search-lucene                   lucene 查询
+|   ├── dandelion-search-elasticsearch            elasticsearch 使用
 ├── dandelion-security                            SpringBoot-Security安全框架（2.3.2）
 |   ├── dandelion-security-init                   初始
 |   ├── dandelion-security-jwt                    jwt使用
@@ -85,6 +86,7 @@ dandelion-search-lucene                                     30028
 dandelion-netty-beat-server                                 30029
 dandelion-netty-beat-client                                 30030
 dandelion-scheduling-rocketmq                               30032
+dandelion-search-elasticsearch                              30033
 
 ```
 

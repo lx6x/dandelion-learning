@@ -1,4 +1,4 @@
-package org.dandelion.netty.im.hadle;
+package org.dandelion.netty.im.handler;
 
 import io.netty.channel.Channel;
 

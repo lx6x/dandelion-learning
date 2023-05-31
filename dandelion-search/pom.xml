@@ -13,6 +13,7 @@
     <url>http://maven.apache.org</url>
     <modules>
         <module>dandelion-search-lucene</module>
+        <module>dandelion-search-elasticsearch</module>
     </modules>
 
     <dependencies>

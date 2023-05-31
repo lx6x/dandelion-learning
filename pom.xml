@@ -33,6 +33,7 @@
         <module>dandelion-oshi</module>
         <module>dandelion-search</module>
         <module>dandelion-nacos</module>
+        <module>dandelion-locak</module>
     </modules>
 
     <properties>
