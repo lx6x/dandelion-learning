@@ -4,5 +4,24 @@ spring:
   datasource:
     username: root
     password: root
-    url: jdbc:mysql://192.168.80.100:3306/flowable?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://aaa:3306/dandelion_flowable?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=Asia/Shanghai&nullCatalogMeansCurrent=true
     driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+flowable:
+  #  关闭定时任务JOB
+  async-executor-activate: false
+  #  自动更新数据库
+  database-schema-update: false
+  #  校验流程文件，默认校验resources下的processes文件夹里的流程文件
+  process-definition-location-prefix: classpath*:/processes/
+  #  指定流程定义文件的后缀名。
+  process-definition-location-suffixes: "**.bpmn20.xml, **.bpmn"
+  database-schema: dandelion_flowable
+  common:
+    app:
+      idm-url: http://localhost:30025/flowable-idm
+      idm-admin:
+        user: admin
+        password: test
+

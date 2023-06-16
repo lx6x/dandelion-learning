@@ -1,68 +1,47 @@
 package org.dandelion.flowable.controller;
 
-import org.dandelion.flowable.service.FlowableService;
-import org.flowable.task.api.Task;
+import org.flowable.engine.RepositoryService;
+import org.flowable.engine.RuntimeService;
+import org.flowable.engine.repository.ProcessDefinition;
+import org.flowable.engine.runtime.ProcessInstance;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
-import java.util.List;
+import javax.annotation.Resource;
+import java.util.Map;
 
 /**
- * TODO
- *
- * @author L
- * @version 1.0
- * @date 2022/6/10 14:16
+ * @author liujunfei
+ * @date 2023/6/13
  */
 @RestController
 public class FlowableController {
 
-    @Autowired
-    private FlowableService flowableService;
 
-    @PostMapping(value = "/process")
-    public void startProcessInstance() {
-        flowableService.startProcess();
+    @Resource
+    private RuntimeService runtimeService;
+
+    @GetMapping("get")
+    public String get() {
+        return "flowable";
     }
 
-    @RequestMapping(value = "/tasks", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<TaskRepresentation> getTasks(@RequestParam String assignee) {
-        List<Task> tasks = flowableService.getTasks(assignee);
-        List<TaskRepresentation> dos = new ArrayList<>();
-        for (Task task : tasks) {
-            dos.add(new TaskRepresentation(task.getId(), task.getName()));
-        }
-        return dos;
+    @GetMapping("/startProcess")
+    public void startProcess() {
+        // 启动流程实例
+        ProcessInstance processInstance = runtimeService.startProcessInstanceByKey("test");
+
+        // 获取流程实例ID
+        String processInstanceId = processInstance.getId();
+
+        // 获取流程实例的变量
+        Map<String, Object> variables = runtimeService.getVariables(processInstanceId);
+
+        // 设置流程实例的变量
+        runtimeService.setVariable(processInstanceId, "variableName", "status");
+
+        // 其他处理
     }
-
-    static class TaskRepresentation {
-
-        private String id;
-        private String name;
-
-        public TaskRepresentation(String id, String name) {
-            this.id = id;
-            this.name = name;
-        }
-
-        public String getId() {
-            return id;
-        }
-
-        public void setId(String id) {
-            this.id = id;
-        }
-
-        public String getName() {
-            return name;
-        }
-
-        public void setName(String name) {
-            this.name = name;
-        }
-
-    }
-
 }
+

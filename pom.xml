@@ -24,7 +24,6 @@
         <module>dandelion-mybatis-generator</module>
         <module>dandelion-netty</module>
         <module>dandelion-limiter</module>
-        <module>dandelion-flowable</module>
         <module>dandelion-repeat-submit</module>
         <module>dandelion-excel</module>
         <module>dandelion-ureport2</module>
