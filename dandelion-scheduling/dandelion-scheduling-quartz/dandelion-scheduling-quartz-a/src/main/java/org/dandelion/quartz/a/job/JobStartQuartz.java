@@ -19,7 +19,7 @@ public class JobStartQuartz extends QuartzJobBean {
 
     @Override
     protected void executeInternal(JobExecutionContext jobExecutionContext) throws JobExecutionException {
-        String nowDate = DateUtils.getNowDate(DateUtils.getNowDate());
+        String nowDate = DateUtils.getNowDateTime(DateUtils.getNowDateTime());
         JobDataMap mergedJobDataMap = jobExecutionContext.getMergedJobDataMap();
         Object param = mergedJobDataMap.get("param");
         // 任务的具体逻辑

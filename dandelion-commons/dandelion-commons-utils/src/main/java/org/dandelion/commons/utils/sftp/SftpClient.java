@@ -61,8 +61,8 @@ public class SftpClient implements AutoCloseable {
             poolConfig.setTestOnReturn(config.isTestOnReturn());
             poolConfig.setTestWhileIdle(config.isTestWhileIdle());
             poolConfig.setBlockWhenExhausted(config.isBlockWhenExhausted());
-            poolConfig.setMaxWait(Duration.ofMillis(config.getMaxWaitMillis()));
-            poolConfig.setTimeBetweenEvictionRuns(Duration.ofMillis(config.getTimeBetweenEvictionRunsMillis()));
+//            poolConfig.setMaxWait(Duration.ofMillis(config.getMaxWaitMillis()));
+//            poolConfig.setTimeBetweenEvictionRuns(Duration.ofMillis(config.getTimeBetweenEvictionRunsMillis()));
             objectPool = new GenericObjectPool<>(this.sftpFactory, poolConfig);
         }
     }

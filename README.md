@@ -17,8 +17,9 @@ dandelion-parent
 |   ├── dandelion-data-sharding-jdbc              sharding-jdbc
 ├── dandelion-design-patterns                     23种设计模式
 ├── dandelion-doc                                 api 文档
-|   ├── dandelion-doc-smart                       smart
-|   ├── dandelion-doc-swagger                     swagger
+|   ├── dandelion-doc-knife4j                     Knife4j
+|   ├── dandelion-doc-smart                       Smart
+|   ├── dandelion-doc-swagger                     Swagger
 ├── dandelion-excel                               excel 工具包使用
 ├── dandelion-feignclient                         feignclient
 ├── dandelion-flowable                            工作流实现（flowable-引擎）
@@ -87,7 +88,7 @@ dandelion-netty-beat-server                                 30029
 dandelion-netty-beat-client                                 30030
 dandelion-scheduling-rocketmq                               30032
 dandelion-search-elasticsearch                              30033
-
+dandelion-doc-knife4j                                       30034
 ```
 
 ## 版本

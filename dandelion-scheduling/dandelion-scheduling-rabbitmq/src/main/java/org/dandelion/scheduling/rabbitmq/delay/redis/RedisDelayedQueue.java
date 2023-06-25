@@ -37,7 +37,7 @@ public class RedisDelayedQueue {
             cal1.add(Calendar.SECOND, 5 * i);
             int second3later = (int) (cal1.getTimeInMillis() / 1000);
             getJedis().zadd("id", second3later, "r-" + i);
-            System.out.println(DateUtils.getNowDate(DateUtils.getNowDate()) + " ms:redis生成了一个数据：数据ID为" + "r-" + i);
+            System.out.println(DateUtils.getNowDateTime(DateUtils.getNowDateTime()) + " ms:redis生成了一个数据：数据ID为" + "r-" + i);
         }
     }
 
@@ -52,7 +52,7 @@ public class RedisDelayedQueue {
         while (true) {
             Set<Tuple> id = jedis.zrangeWithScores("id", 0, 1);
             if (null == id || id.isEmpty()) {
-                System.out.println(DateUtils.getNowDate(DateUtils.getNowDate()) + " - 当前没有数据");
+                System.out.println(DateUtils.getNowDateTime(DateUtils.getNowDateTime()) + " - 当前没有数据");
                 try {
                     Thread.sleep(5000);
                 } catch (InterruptedException e) {
@@ -70,7 +70,7 @@ public class RedisDelayedQueue {
                 // 防止高并发时 消费同一条数据
                 Long num = jedis.zrem("id", ids);
                 if (null != num && num > 0) {
-                    System.out.println(DateUtils.getNowDate(DateUtils.getNowDate()) + " ms: redis 消费了一个任务：消费的任务 id 为" + ids);
+                    System.out.println(DateUtils.getNowDateTime(DateUtils.getNowDateTime()) + " ms: redis 消费了一个任务：消费的任务 id 为" + ids);
                 }
             }
         }

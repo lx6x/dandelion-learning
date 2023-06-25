@@ -68,7 +68,7 @@ public class JdbcMysql {
         try {
             Statement statement = connection.createStatement();
             for (int i = 0; i < 100000; i++) {
-                String nowDate = DateUtils.getNowDate(DateUtils.getNowDate());
+                String nowDate = DateUtils.getNowDateTime(DateUtils.getNowDateTime());
 //                String sql = "insert into account (name,balance,create_time,update_time) values(" + i + "," + i + "," + nowDate + "," + nowDate + ")";
                 String sql = "insert into account (name,balance,create_time,update_time) values('" + i + "','" + i + "','" + nowDate + "','" + nowDate + "')";
                 statement.executeUpdate(sql);

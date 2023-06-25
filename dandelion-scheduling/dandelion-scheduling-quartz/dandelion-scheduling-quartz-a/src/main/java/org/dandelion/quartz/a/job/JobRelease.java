@@ -23,7 +23,7 @@ public class JobRelease extends QuartzJobBean {
     protected void executeInternal(JobExecutionContext jobExecutionContext) throws JobExecutionException {
         Date fireTime = jobExecutionContext.getFireTime();
         System.err.println("-------> " + fireTime);
-        String nowDate = DateUtils.getNowDate(DateUtils.getNowDate());
+        String nowDate = DateUtils.getNowDateTime(DateUtils.getNowDateTime());
         JobDataMap mergedJobDataMap = jobExecutionContext.getMergedJobDataMap();
         Object param = mergedJobDataMap.get("param");
         // 任务的具体逻辑

@@ -7,6 +7,7 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -33,7 +34,7 @@ public class DateUtils extends DateUtil {
      * @return 返回时间类型 yyyy-MM-dd HH:mm:ss
      * @author L
      */
-    public static Date getNowDate() {
+    public static Date getNowDateTime() {
         Calendar instance = Calendar.getInstance();
         return instance.getTime();
     }
@@ -60,10 +61,17 @@ public class DateUtils extends DateUtil {
         return null;
     }
 
-    public static String getNowDate(Date date) {
+    public static String getNowDateTime(Date date) {
 
         return SDF2.format(date);
     }
+
+    public static String getNowDate(Date date) {
+
+        return SDF1.format(date);
+    }
+
+
 
     public static Date parseDate(String date) {
         Date time;
@@ -117,7 +125,7 @@ public class DateUtils extends DateUtil {
     }
 
 
-    public static void main(String[] args) {
+//    public static void main(String[] args) {
 
         /*LocalDateTime localDateTime=LocalDateTime.now();
 
@@ -135,15 +143,126 @@ public class DateUtils extends DateUtil {
 //        JSONObject jsonresult = JSON.parseObject(post);
 //        System.out.println(jsonresult.toString());
 
-        Date date = parseDate("2023-02-22 10:30:01", null);
+//        Date date = parseDate("2023-02-22 10:30:01", null);
+
+//        Calendar calendar = Calendar.getInstance();
+//        calendar.setTime(date);
+//        System.out.println(getNowDate(calendar.getTime()));
+//        calendar.add(Calendar.MINUTE, -10);
+//        System.out.println(getNowDate(calendar.getTime()));
+//        calendar.add(Calendar.HOUR_OF_DAY, -36);
+//        System.out.println(getNowDate(calendar.getTime()));
+
+//        calendar.add(Calendar.DATE, -1);
+//        System.out.println(getNowDate(calendar.getTime()));
+
+//        Date date1 = parseDate("2023-02-22 11:30:01", null);
+//        Date date2 = parseDate("2023-02-22 10:30:01", null);
+//        Date date3 = parseDate("2023-02-23 10:30:01", null);
+
+//        boolean effectiveDate = isEffectiveDate(date1, date2, date3);
+//        System.out.println(effectiveDate);
+//        System.out.println(date1.before(date2));
+//    }
+
+    /**
+     * 判断当前时间是否在[startTime, endTime]区间，注意三个参数的时间格式要一致
+     *
+     * @param nowTime   判断时间
+     * @param startTime 时间区间
+     * @param endTime   时间区间
+     * @return 在时间段内返回true，不在返回false
+     */
+    public static boolean isEffectiveDate(Date nowTime, Date startTime, Date endTime) {
+        if (nowTime.getTime() == startTime.getTime()
+                || nowTime.getTime() == endTime.getTime()) {
+            return true;
+        }
+
+        Calendar date = Calendar.getInstance();
+        date.setTime(nowTime);
+
+        Calendar begin = Calendar.getInstance();
+        begin.setTime(startTime);
+
+        Calendar end = Calendar.getInstance();
+        end.setTime(endTime);
+
+        return date.after(begin) && date.before(end);
+    }
+
+    /**
+     * 当前时间向前后推一周
+     */
+    public static void week() {
+        System.out.println("========LocalDate 方式=================");
+        LocalDate currentDate = LocalDate.now();
+        LocalDate oneWeekLater = currentDate.plusWeeks(1);
+        LocalDate oneWeekEarlier = currentDate.minusWeeks(1);
+
+        System.out.println("Current date: " + currentDate);
+        System.out.println("One week later: " + oneWeekLater);
+        System.out.println("One week earlier: " + oneWeekEarlier);
+
+        System.out.println("========Calendar 方式=================");
 
         Calendar calendar = Calendar.getInstance();
-        calendar.setTime(date);
+        calendar.add(Calendar.WEEK_OF_YEAR, 1);
+//        calendar.add(Calendar.WEEK_OF_YEAR, -1);
 
-        System.out.println(getNowDate(calendar.getTime()));
-        calendar.add(Calendar.MINUTE, -10);
-        System.out.println(getNowDate(calendar.getTime()));
-        calendar.add(Calendar.HOUR_OF_DAY, -36);
-        System.out.println(getNowDate(calendar.getTime()));
+        System.out.println("Current date: " + getNowDate(calendar.getTime()));
     }
+
+    /**
+     * 当前时间向前后推一月
+     */
+    public static void month(){
+        System.out.println("========LocalDate 方式=================");
+        LocalDate currentDate = LocalDate.now();
+        LocalDate oneMonthLater = currentDate.plusMonths(1);
+        LocalDate oneMonthEarlier = currentDate.minusMonths(1);
+
+        System.out.println("Current date: " + currentDate);
+        System.out.println("One month later: " + oneMonthLater);
+        System.out.println("One month earlier: " + oneMonthEarlier);
+
+        System.out.println("========Calendar 方式=================");
+
+        Calendar calendar = Calendar.getInstance();
+        calendar.add(Calendar.MONTH, 1);
+//        calendar.add(Calendar.MONTH, -1);
+        System.out.println("Current date: " + getNowDate(calendar.getTime()));
+    }
+    /**
+     * 当前时间向前后推一年
+     */
+    public static void year(){
+        System.out.println("========LocalDate 方式=================");
+        LocalDate currentDate = LocalDate.now();
+        LocalDate oneYearLater = currentDate.plusYears(1);
+        LocalDate oneYearEarlier = currentDate.minusYears(1);
+
+
+        System.out.println("Current date: " + currentDate);
+        System.out.println("One year later: " + oneYearLater);
+        System.out.println("One year earlier: " + oneYearEarlier);
+
+        System.out.println("========Calendar 方式=================");
+
+        Calendar calendar = Calendar.getInstance();
+        calendar.add(Calendar.YEAR, 1);
+//        calendar.add(Calendar.YEAR, -1);
+
+        System.out.println("Current date: " + getNowDate(calendar.getTime()));
+    }
+
+
+    public static void main(String[] args) {
+        week();
+        System.out.println("------------------------------------");
+        month();
+        System.out.println("------------------------------------");
+        year();
+    }
+
 }

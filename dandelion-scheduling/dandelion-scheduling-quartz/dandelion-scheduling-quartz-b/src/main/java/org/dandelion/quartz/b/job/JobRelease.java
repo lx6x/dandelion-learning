@@ -23,13 +23,13 @@ public class JobRelease extends QuartzJobBean {
         // 获取任务设定开始时间
         Date startTime = trigger.getStartTime();
         Date endTime = trigger.getEndTime();
-        Date nowDate = DateUtils.getNowDate();
+        Date nowDate = DateUtils.getNowDateTime();
         assert nowDate != null;
         if(nowDate.getTime()>startTime.getTime() && nowDate.getTime()>endTime.getTime()){
             // 创建新任务后，如果当前开始时间小于当前时间
             return;
         }
-        String nowDateString = DateUtils.getNowDate(nowDate);
+        String nowDateString = DateUtils.getNowDateTime(nowDate);
         JobDataMap mergedJobDataMap = jobExecutionContext.getMergedJobDataMap();
         Object param = mergedJobDataMap.get("param");
         // 任务的具体逻辑

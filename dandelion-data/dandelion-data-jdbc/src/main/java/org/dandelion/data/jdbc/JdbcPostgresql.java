@@ -45,7 +45,7 @@ public class JdbcPostgresql {
         try {
             Statement statement = connection.createStatement();
             for (int i = 0; i < 100000; i++) {
-                String nowDate = DateUtils.getNowDate(DateUtils.getNowDate());
+                String nowDate = DateUtils.getNowDateTime(DateUtils.getNowDateTime());
 //                String sql = "insert into account (name,balance,create_time,update_time) values(" + i + "," + i + "," + nowDate + "," + nowDate + ")";
                 String sql = "insert into account (name,balance,create_time,update_time) values('" + i + "','" + i + "','" + nowDate + "','" + nowDate + "')";
                 statement.executeUpdate(sql);
@@ -92,7 +92,7 @@ public class JdbcPostgresql {
         try {
             Statement statement = connection.createStatement();
             for (int i = 10; i <20; i++) {
-                String nowDate = DateUtils.getNowDate(DateUtils.getNowDate());
+                String nowDate = DateUtils.getNowDateTime(DateUtils.getNowDateTime());
 //                String sql = "insert into account (name,balance,create_time,update_time) values(" + i + "," + i + "," + nowDate + "," + nowDate + ")";
                 // INSERT INTO public.c_task_structure_result
                 //(job_name, job_result, job_time, num_read, num_write, byte_read, byte_write, null_errors, n_errors, times)

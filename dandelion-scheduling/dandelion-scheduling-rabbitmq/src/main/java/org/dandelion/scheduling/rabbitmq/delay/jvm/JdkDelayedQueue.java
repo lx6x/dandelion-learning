@@ -81,7 +81,7 @@ public class JdkDelayedQueue implements Delayed {
      * @author L
      */
     void implement() {
-        System.out.println("执行：" + DateUtils.getNowDate(DateUtils.getNowDate()) + " - " + id);
+        System.out.println("执行：" + DateUtils.getNowDateTime(DateUtils.getNowDateTime()) + " - " + id);
     }
 
     public static void main(String[] args) {

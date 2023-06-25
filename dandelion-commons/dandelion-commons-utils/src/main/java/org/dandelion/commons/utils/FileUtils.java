@@ -11,7 +11,6 @@ import java.security.MessageDigest;
 import java.text.DecimalFormat;
 
 /**
- * @author QiXiang Jiang
  * @date 2021/11/22 12:22
  * @since 1.0.0
  */
