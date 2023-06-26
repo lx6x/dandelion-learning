@@ -17,6 +17,8 @@
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
         <flowable.version>6.8.0</flowable.version>
+        <mybatis.varsion>3.5.3</mybatis.varsion>
+        <knife4j.openapi3.version>4.1.0</knife4j.openapi3.version>
     </properties>
 
     <dependencies>
@@ -40,17 +42,42 @@
             <version>${flowable.version}</version>
         </dependency>
 
-        <!--    idm    -->
+        <!--    集成Flowable身份和访问管理的用户界面（UI）功能，管理Flowable中的用户、组和权限   -->
         <dependency>
             <groupId>org.flowable</groupId>
             <artifactId>flowable-spring-boot-starter-ui-idm</artifactId>
             <version>${flowable.version}</version>
         </dependency>
 
-        <dependency>
+        <!--    提供了Flowable任务管理的Web界面，提供了Flowable任务管理的Web界面    -->
+        <!--<dependency>
+            <groupId>org.flowable</groupId>
+            <artifactId>flowable-spring-boot-starter-ui-task</artifactId>
+            <version>${flowable.version}</version>
+        </dependency>-->
+
+        <!--<dependency>
             <groupId>org.flowable</groupId>
             <artifactId>flowable-engine</artifactId>
             <version>${flowable.version}</version>
+        </dependency>-->
+
+        <dependency>
+            <groupId>org.flowable</groupId>
+            <artifactId>flowable-spring-boot-starter</artifactId>
+            <version>${flowable.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.github.xiaoymin</groupId>
+            <artifactId>knife4j-openapi3-spring-boot-starter</artifactId>
+            <version>${knife4j.openapi3.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+            <version>${mybatis.varsion}</version>
         </dependency>
 
     </dependencies>
