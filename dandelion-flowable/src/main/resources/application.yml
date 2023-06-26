@@ -18,12 +18,6 @@ flowable:
   #  指定流程定义文件的后缀名。
   process-definition-location-suffixes: "**.bpmn20.xml, **.bpmn"
   database-schema: dandelion_flowable
-  common:
-    app:
-      idm-url: http://localhost:30025/flowable-idm
-      idm-admin:
-        user: admin
-        password: test
 
 springdoc:
   swagger-ui:

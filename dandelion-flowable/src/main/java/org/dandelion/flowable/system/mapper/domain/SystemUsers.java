@@ -1,4 +1,4 @@
-package org.dandelion.flowable.system.domain;
+package org.dandelion.flowable.system.mapper.domain;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;

@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.dandelion.flowable.system.mapper.SystemUsersMapper">
 
-    <resultMap id="BaseResultMap" type="org.dandelion.flowable.system.domain.SystemUsers">
+    <resultMap id="BaseResultMap" type="org.dandelion.flowable.system.mapper.domain.SystemUsers">
         <id property="id" column="id" jdbcType="BIGINT"/>
         <result property="username" column="username" jdbcType="VARCHAR"/>
         <result property="password" column="password" jdbcType="VARCHAR"/>

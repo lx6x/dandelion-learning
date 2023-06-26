@@ -1,5 +1,9 @@
 package org.dandelion.flowable.flowable.config;
 
+import org.dandelion.flowable.flowable.config.service.FlowableIdentityServiceImpl;
+import org.flowable.idm.engine.IdmEngineConfiguration;
+import org.flowable.idm.spring.SpringIdmEngineConfiguration;
+import org.flowable.spring.boot.EngineConfigurationConfigurer;
 import org.flowable.ui.modeler.rest.app.ModelBpmnResource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -15,5 +19,9 @@ public class FlowableBeanConfig {
         return new ModelBpmnResource();
     }
 
+  /*  @Bean
+    public EngineConfigurationConfigurer<SpringIdmEngineConfiguration> idmEngineConfigurationConfigurer() {
+        return idmEngineConfiguration -> idmEngineConfiguration.setIdmIdentityService(new FlowableIdentityServiceImpl(new IdmEngineConfiguration()));
+    }*/
 
 }

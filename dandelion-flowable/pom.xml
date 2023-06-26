@@ -19,6 +19,7 @@
         <flowable.version>6.8.0</flowable.version>
         <mybatis.varsion>3.5.3</mybatis.varsion>
         <knife4j.openapi3.version>4.1.0</knife4j.openapi3.version>
+        <hutool.version>5.8.16</hutool.version>
     </properties>
 
     <dependencies>
@@ -36,6 +37,18 @@
 
 
         <!--    ui 界面    -->
+        <!--<dependency>
+            <groupId>org.flowable</groupId>
+            <artifactId>flowable-ui-modeler-frontend</artifactId>
+            <version>${flowable.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.flowable</groupId>
+            <artifactId>flowable-ui-modeler-rest</artifactId>
+            <version>${flowable.version}</version>
+        </dependency>-->
+
         <dependency>
             <groupId>org.flowable</groupId>
             <artifactId>flowable-spring-boot-starter-ui-modeler</artifactId>
@@ -49,7 +62,7 @@
             <version>${flowable.version}</version>
         </dependency>
 
-        <!--    提供了Flowable任务管理的Web界面，提供了Flowable任务管理的Web界面    -->
+        <!--    提供了Flowable Task任务管理的Web界面，提供了Flowable任务管理的Web界面    -->
         <!--<dependency>
             <groupId>org.flowable</groupId>
             <artifactId>flowable-spring-boot-starter-ui-task</artifactId>
@@ -78,6 +91,12 @@
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-boot-starter</artifactId>
             <version>${mybatis.varsion}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>${hutool.version}</version>
         </dependency>
 
     </dependencies>
