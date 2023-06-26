@@ -3,6 +3,7 @@ server:
 springdoc:
   swagger-ui:
     path: /swagger-ui.html
+    #  标签排序 [alpha: 字母排序; none: 不进行排序，按照接口定义的顺序展示]
     tags-sorter: alpha
     operations-sorter: alpha
   api-docs:
@@ -10,6 +11,7 @@ springdoc:
   group-configs:
     - group: 'default'
       paths-to-match: '/**'
+      #  指定要扫描的包路径
       packages-to-scan: org.dandelion.doc.knife4j
 # knife4j的增强配置，不需要增强可以不配
 knife4j:
