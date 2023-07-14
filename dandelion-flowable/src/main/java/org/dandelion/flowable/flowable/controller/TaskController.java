@@ -19,9 +19,6 @@ public class TaskController {
     @Resource
     private RepositoryService repositoryService;
 
-    public void deploy(){
-
-    }
 
 
 }

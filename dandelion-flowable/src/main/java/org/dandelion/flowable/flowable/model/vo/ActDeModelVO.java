@@ -41,8 +41,6 @@ public class ActDeModelVO implements Serializable {
 
     private Integer version;
 
-    private byte[] thumbnail;
-
     private Integer modelType;
 
     private String tenantId;
