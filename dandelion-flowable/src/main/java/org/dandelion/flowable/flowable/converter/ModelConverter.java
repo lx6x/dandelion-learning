@@ -15,9 +15,10 @@ import java.util.List;
  * @since 2023/07/14
  */
 @Mapper(componentModel = "spring")
-public abstract class ActDeModelConverter {
+public abstract class ModelConverter {
 
     public abstract ActDeModelVO do2vo(ActDeModelDO actDeModelDO);
 
     public abstract List<ActDeModelVO> do2vo(List<ActDeModelDO> actDeModelDO);
+
 }

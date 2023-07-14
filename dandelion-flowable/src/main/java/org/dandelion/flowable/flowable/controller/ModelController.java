@@ -6,7 +6,7 @@ import io.swagger.v3.oas.annotations.Parameters;
 import io.swagger.v3.oas.annotations.enums.ParameterIn;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.dandelion.flowable.common.R;
-import org.dandelion.flowable.flowable.converter.ActDeModelConverter;
+import org.dandelion.flowable.flowable.converter.ModelConverter;
 import org.dandelion.flowable.flowable.model.dto.DeployModelDTO;
 import org.dandelion.flowable.flowable.model.vo.ActDeModelVO;
 import org.dandelion.flowable.flowable.service.IActDeModelService;
@@ -15,7 +15,6 @@ import org.flowable.engine.RepositoryService;
 import org.flowable.engine.repository.Deployment;
 import org.flowable.engine.repository.ProcessDefinition;
 import org.flowable.ui.modeler.domain.Model;
-import org.flowable.ui.modeler.domain.ModelRelation;
 import org.flowable.ui.modeler.rest.app.ModelBpmnResource;
 import org.flowable.ui.modeler.service.FlowableModelQueryService;
 import org.flowable.ui.modeler.serviceapi.ModelService;
@@ -26,7 +25,6 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
-import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -47,7 +45,7 @@ public class ModelController {
     @Resource
     private IActDeModelService iActDeModelService;
     @Resource
-    private ActDeModelConverter actDeModelConverter;
+    private ModelConverter modelConverter;
     @Resource
     private ModelService modelService;
     @Resource
@@ -77,7 +75,7 @@ public class ModelController {
     public R<List<ActDeModelVO>> modelList() {
         // ui中调用接口
         // modelQueryService.getModels(null, sort, modelType, request)
-        return R.success(actDeModelConverter.do2vo(iActDeModelService.list()));
+        return R.success(modelConverter.do2vo(iActDeModelService.list()));
     }
 
     /*@GetMapping(produces = "application/json")
@@ -136,10 +134,9 @@ public class ModelController {
 
     @Operation(summary = "流程已部署列表")
     @GetMapping("/deployList")
-    public R<List<ProcessDefinition>> deployList(){
+    public R<String> deployList() {
         List<ProcessDefinition> processDefinitions = repositoryService.createProcessDefinitionQuery().list();
-
-        return R.success(processDefinitions);
+        return R.success();
     }
 
 
