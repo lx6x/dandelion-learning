@@ -1,32 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper
-        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.dandelion.flowable.system.mapper.SystemRoleMapper">
 
-    <resultMap id="BaseResultMap" type="org.dandelion.flowable.system.mapper.domain.SystemRole">
-            <id property="id" column="id" jdbcType="BIGINT"/>
-            <result property="name" column="name" jdbcType="VARCHAR"/>
-            <result property="code" column="code" jdbcType="VARCHAR"/>
-            <result property="sort" column="sort" jdbcType="INTEGER"/>
-            <result property="dataScope" column="data_scope" jdbcType="TINYINT"/>
-            <result property="dataScopeDeptIds" column="data_scope_dept_ids" jdbcType="VARCHAR"/>
-            <result property="status" column="status" jdbcType="TINYINT"/>
-            <result property="type" column="type" jdbcType="TINYINT"/>
-            <result property="remark" column="remark" jdbcType="VARCHAR"/>
-            <result property="creator" column="creator" jdbcType="VARCHAR"/>
-            <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
-            <result property="updater" column="updater" jdbcType="VARCHAR"/>
-            <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
-            <result property="deleted" column="deleted" jdbcType="BIT"/>
-            <result property="tenantId" column="tenant_id" jdbcType="BIGINT"/>
-    </resultMap>
-
-    <sql id="Base_Column_List">
-        id,name,code,
-        sort,data_scope,data_scope_dept_ids,
-        status,type,remark,
-        creator,create_time,updater,
-        update_time,deleted,tenant_id
-    </sql>
 </mapper>

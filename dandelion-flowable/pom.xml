@@ -17,8 +17,9 @@
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
         <flowable.version>6.8.0</flowable.version>
-        <mybatis.varsion>3.5.3</mybatis.varsion>
-        <knife4j.openapi3.version>4.1.0</knife4j.openapi3.version>
+        <mysql.version>8.0.28</mysql.version>
+        <mybatis-plus.varsion>3.5.3.1</mybatis-plus.varsion>
+        <knife4j-openapi3.version>4.1.0</knife4j-openapi3.version>
         <hutool.version>5.8.16</hutool.version>
     </properties>
 
@@ -32,7 +33,7 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>8.0.28</version>
+            <version>${mysql.version}</version>
         </dependency>
 
 
@@ -84,19 +85,40 @@
         <dependency>
             <groupId>com.github.xiaoymin</groupId>
             <artifactId>knife4j-openapi3-spring-boot-starter</artifactId>
-            <version>${knife4j.openapi3.version}</version>
+            <version>${knife4j-openapi3.version}</version>
         </dependency>
 
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-boot-starter</artifactId>
-            <version>${mybatis.varsion}</version>
+            <version>${mybatis-plus.varsion}</version>
         </dependency>
 
+        <!--    hutool 工具    -->
         <dependency>
             <groupId>cn.hutool</groupId>
             <artifactId>hutool-all</artifactId>
             <version>${hutool.version}</version>
+        </dependency>
+
+        <!--    mybatis plus 代码生成    -->
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-generator</artifactId>
+            <version>${mybatis-plus.varsion}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-extension</artifactId>
+            <version>${mybatis-plus.varsion}</version>
+        </dependency>
+
+        <!--mybatis-plus代码生成器依赖的模板引擎-->
+        <dependency>
+            <groupId>org.apache.velocity</groupId>
+            <artifactId>velocity-engine-core</artifactId>
+            <version>2.2</version>
         </dependency>
 
     </dependencies>
