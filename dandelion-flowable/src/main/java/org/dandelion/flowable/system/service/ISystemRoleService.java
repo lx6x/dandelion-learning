@@ -1,6 +1,6 @@
 package org.dandelion.flowable.system.service;
 
-import org.dandelion.flowable.system.domain.SystemRole;
+import org.dandelion.flowable.system.model.entity.SystemRoleDO;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
@@ -11,6 +11,6 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @author lx6x
  * @since 2023/07/14
  */
-public interface ISystemRoleService extends IService<SystemRole> {
+public interface ISystemRoleService extends IService<SystemRoleDO> {
 
 }

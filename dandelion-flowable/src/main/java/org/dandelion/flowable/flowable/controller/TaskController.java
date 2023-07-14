@@ -16,21 +16,12 @@ import javax.annotation.Resource;
 @RequestMapping("/dandelion/task")
 public class TaskController {
 
-    /*@Resource
-    private RuntimeService runtimeService;
-
-
-
-
-
-    @GetMapping("/startProcessInstanceByKey/{key}")
-    public String startProcessInstanceByKey(@PathVariable("key") String key) {
-        ProcessInstance processInstance = runtimeService.startProcessInstanceByKey(key);
-        return processInstance.getId();
-    }*/
-
     @Resource
     private RepositoryService repositoryService;
+
+    public void deploy(){
+
+    }
 
 
 }

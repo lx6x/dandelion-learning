@@ -1,6 +1,6 @@
 package org.dandelion.flowable.system.mapper;
 
-import org.dandelion.flowable.system.domain.SystemRole;
+import org.dandelion.flowable.system.model.entity.SystemRoleDO;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**
@@ -11,6 +11,6 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * @author lx6x
  * @since 2023/07/14
  */
-public interface SystemRoleMapper extends BaseMapper<SystemRole> {
+public interface SystemRoleMapper extends BaseMapper<SystemRoleDO> {
 
 }

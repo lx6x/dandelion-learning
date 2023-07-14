@@ -1,6 +1,6 @@
 package org.dandelion.flowable.system.mapper;
 
-import org.dandelion.flowable.system.domain.SystemUser;
+import org.dandelion.flowable.system.model.entity.SystemUserDO;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**
@@ -11,6 +11,6 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * @author lx6x
  * @since 2023/07/14
  */
-public interface SystemUserMapper extends BaseMapper<SystemUser> {
+public interface SystemUserMapper extends BaseMapper<SystemUserDO> {
 
 }

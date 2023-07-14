@@ -1,4 +1,4 @@
-package org.dandelion.flowable.system.config;
+package org.dandelion.flowable.common.config;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.Configuration;
@@ -9,7 +9,8 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 @MapperScan(
-        value = "org.dandelion.flowable.system.mapper",
+        value = "org.dandelion.flowable.system.mapper," +
+                "org.dandelion.flowable.flowable.mapper",
         sqlSessionFactoryRef = "sqlSessionFactory",
         sqlSessionTemplateRef = "sqlSessionTemplate"
 )

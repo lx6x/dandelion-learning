@@ -21,6 +21,7 @@
         <mybatis-plus.varsion>3.5.3.1</mybatis-plus.varsion>
         <knife4j-openapi3.version>4.1.0</knife4j-openapi3.version>
         <hutool.version>5.8.16</hutool.version>
+        <mapstruct.version>1.5.5.Final</mapstruct.version>
     </properties>
 
     <dependencies>
@@ -36,20 +37,16 @@
             <version>${mysql.version}</version>
         </dependency>
 
+        <!--    flowable    -->
 
-        <!--    ui 界面    -->
+        <!--    管理和监控Flowable流程引擎的界面    -->
         <!--<dependency>
             <groupId>org.flowable</groupId>
-            <artifactId>flowable-ui-modeler-frontend</artifactId>
-            <version>${flowable.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.flowable</groupId>
-            <artifactId>flowable-ui-modeler-rest</artifactId>
+            <artifactId>flowable-spring-boot-starter-ui-admin</artifactId>
             <version>${flowable.version}</version>
         </dependency>-->
 
+        <!--    模型设计器，提供了一个功能强大的界面来创建、编辑和部署BPMN 2.0流程模型    -->
         <dependency>
             <groupId>org.flowable</groupId>
             <artifactId>flowable-spring-boot-starter-ui-modeler</artifactId>
@@ -63,24 +60,22 @@
             <version>${flowable.version}</version>
         </dependency>
 
-        <!--    提供了Flowable Task任务管理的Web界面，提供了Flowable任务管理的Web界面    -->
-        <!--<dependency>
+        <!--    提供的任务管理功能，管理和协调流程任务的执行    -->
+        <dependency>
             <groupId>org.flowable</groupId>
             <artifactId>flowable-spring-boot-starter-ui-task</artifactId>
             <version>${flowable.version}</version>
-        </dependency>-->
+        </dependency>
 
-        <!--<dependency>
-            <groupId>org.flowable</groupId>
-            <artifactId>flowable-engine</artifactId>
-            <version>${flowable.version}</version>
-        </dependency>-->
 
         <dependency>
             <groupId>org.flowable</groupId>
             <artifactId>flowable-spring-boot-starter</artifactId>
             <version>${flowable.version}</version>
         </dependency>
+
+        <!--    flowable    -->
+
 
         <dependency>
             <groupId>com.github.xiaoymin</groupId>
@@ -114,12 +109,31 @@
             <version>${mybatis-plus.varsion}</version>
         </dependency>
 
-        <!--mybatis-plus代码生成器依赖的模板引擎-->
+        <!--    mybatis-plus代码生成器依赖的模板引擎    -->
         <dependency>
             <groupId>org.apache.velocity</groupId>
             <artifactId>velocity-engine-core</artifactId>
             <version>2.2</version>
         </dependency>
+
+        <!--    mapstruct 类型转换    -->
+        <dependency>
+            <groupId>org.mapstruct</groupId>
+            <artifactId>mapstruct</artifactId>
+            <version>${mapstruct.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.mapstruct</groupId>
+            <artifactId>mapstruct-processor</artifactId>
+            <version>${mapstruct.version}</version>
+        </dependency>
+        <!--    确保先生成lombok 再生成mapstruct    -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok-mapstruct-binding</artifactId>
+            <version>0.2.0</version>
+        </dependency>
+
 
     </dependencies>
 

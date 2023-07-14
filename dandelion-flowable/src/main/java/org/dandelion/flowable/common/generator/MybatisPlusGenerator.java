@@ -1,4 +1,4 @@
-package org.dandelion.flowable.generator;
+package org.dandelion.flowable.common.generator;
 
 import com.baomidou.mybatisplus.generator.FastAutoGenerator;
 
@@ -10,7 +10,7 @@ import com.baomidou.mybatisplus.generator.FastAutoGenerator;
  */
 public class MybatisPlusGenerator {
 
-    private static final String[] TABLE = {"system_role", "system_user", "system_user_role"};
+    private static final String[] TABLE = {"ACT_DE_MODEL"};
 
 
     public static void main(String[] args) {
@@ -35,23 +35,24 @@ public class MybatisPlusGenerator {
                 })
                 // 模板配置
                 .templateConfig(builder -> {
-
+                    builder.controller("");
                 })
                 // 包配置
                 .packageConfig(builder ->
-                                builder
-                                        .parent("org.dandelion.flowable") // 设置父包名
-                                        .entity("domain")
-                                        .mapper("mapper")
-                                        .service("service")
-                                        .serviceImpl("service.impl")
-                                        .controller("controller")
+                        builder
+                                .parent("org.dandelion.flowable.flowable") // 设置父包名
+                                .entity("domain")
+                                .mapper("mapper")
+                                .service("service")
+                                .serviceImpl("service.impl")
+//                                .controller("controller")
                 )
                 .strategyConfig(builder ->
                         builder.addInclude(TABLE)
                                 .addTablePrefix() // 设置过滤的前缀
-                                .controllerBuilder().enableRestStyle() // RestController
+//                                .controllerBuilder().enableRestStyle() // RestController
                                 .mapperBuilder().enableBaseResultMap()
+                                .entityBuilder().enableLombok()
                 )
                 .execute();
 

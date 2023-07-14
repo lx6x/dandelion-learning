@@ -18,6 +18,12 @@ flowable:
   #  指定流程定义文件的后缀名。
   process-definition-location-suffixes: "**.bpmn20.xml, **.bpmn"
   database-schema: dandelion_flowable
+  admin:
+    app:
+      security:
+        encryption:
+          credentials-i-v-spec: 00112233445566778899AABBCCDDEEFF
+          credentials-secret-spec: 00112233445566778899AABBCCDDEEFF
 
 springdoc:
   swagger-ui:

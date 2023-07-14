@@ -5,7 +5,7 @@ import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.Parameters;
 import io.swagger.v3.oas.annotations.enums.ParameterIn;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import org.dandelion.flowable.system.domain.SystemUser;
+import org.dandelion.flowable.system.model.entity.SystemUserDO;
 import org.dandelion.flowable.system.service.ISystemUserService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -35,7 +35,7 @@ public class SystemUserController {
     @Parameters({
             @Parameter(name = "id", description = "用户主键id",in = ParameterIn.PATH)
     })
-    public SystemUser get(@PathVariable("id") Long id) {
+    public SystemUserDO get(@PathVariable("id") Long id) {
         return iSystemUserService.getById(id);
     }
 

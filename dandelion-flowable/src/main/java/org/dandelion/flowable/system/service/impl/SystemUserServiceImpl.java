@@ -1,6 +1,6 @@
 package org.dandelion.flowable.system.service.impl;
 
-import org.dandelion.flowable.system.domain.SystemUser;
+import org.dandelion.flowable.system.model.entity.SystemUserDO;
 import org.dandelion.flowable.system.mapper.SystemUserMapper;
 import org.dandelion.flowable.system.service.ISystemUserService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -15,6 +15,6 @@ import org.springframework.stereotype.Service;
  * @since 2023/07/14
  */
 @Service
-public class SystemUserServiceImpl extends ServiceImpl<SystemUserMapper, SystemUser> implements ISystemUserService {
+public class SystemUserServiceImpl extends ServiceImpl<SystemUserMapper, SystemUserDO> implements ISystemUserService {
 
 }

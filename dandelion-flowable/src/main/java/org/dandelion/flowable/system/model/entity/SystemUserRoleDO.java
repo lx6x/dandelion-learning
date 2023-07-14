@@ -1,4 +1,4 @@
-package org.dandelion.flowable.system.domain;
+package org.dandelion.flowable.system.model.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
@@ -17,7 +17,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
  */
 @TableName("system_user_role")
 @Schema(name = "SystemUserRole", description = "用户和角色关联表")
-public class SystemUserRole implements Serializable {
+public class SystemUserRoleDO implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
