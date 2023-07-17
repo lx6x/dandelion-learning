@@ -93,10 +93,17 @@
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/com.jcraft/jsch -->
-        <dependency>
+        <!--<dependency>
             <groupId>com.jcraft</groupId>
             <artifactId>jsch</artifactId>
             <version>0.1.54</version>
+        </dependency>-->
+
+        <!-- JSch - SFTP library -->
+        <dependency>
+            <groupId>com.jcraft</groupId>
+            <artifactId>jsch</artifactId>
+            <version>0.1.55</version>
         </dependency>
 
         <dependency>

@@ -3,6 +3,10 @@ package org.dandelion.data.jdbc;
 import org.dandelion.commons.utils.DateUtils;
 
 import java.sql.*;
+import java.util.LinkedHashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
 /**
  * TODO jdbc mysql 连接测试
@@ -54,7 +58,7 @@ public class JdbcMysql {
         }
         try {
             connection = DriverManager.getConnection(
-                    "jdbc:mysql://192.168.80.100:3306/flink_a?characterEncoding=UTF-8",
+                    "jdbc:mysql://aaa:3306/base_admin?characterEncoding=UTF-8",
                     "root",
                     "root"
             );
@@ -100,8 +104,28 @@ public class JdbcMysql {
 
     }
 
-    public static void main(String[] args) {
+    public static void select() throws SQLException {
+        Statement statement = connection.createStatement();
+        List<Map<String, String>> list = new LinkedList<>();
+        ResultSet resultSet = statement.executeQuery("select id, '1' as t from test");
+        while (resultSet.next()) {
+            Map<String, String> re = new LinkedHashMap<>();
+            ResultSetMetaData metaData = resultSet.getMetaData();
+            int count = metaData.getColumnCount();
+            for (int i = 1; i <= count; i++) {
+                String name = metaData.getColumnName(i);
+                Object value = resultSet.getObject(i);
+                re.put(name, value == null ? null : value.toString());
+            }
+            list.add(re);
+        }
+
+        System.out.println(list);
+
+    }
+
+    public static void main(String[] args) throws Exception {
         loadConnection();
-        tableList();
+        select();
     }
 }

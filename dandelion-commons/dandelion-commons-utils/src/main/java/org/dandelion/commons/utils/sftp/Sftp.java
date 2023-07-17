@@ -12,7 +12,7 @@ import java.util.List;
 public class Sftp {
 
     public static void main(String[] args) {
-        SftpProperties properties=new SftpProperties();
+        /*SftpProperties properties=new SftpProperties();
         properties.setHost("172.16.5.103");
         properties.setPort(22);
         properties.setPassword("lenovo");
@@ -38,7 +38,7 @@ public class Sftp {
             throw new RuntimeException(e);
         }
         List<String> files = client.findFiles("/crm/sync/flow");
-        System.out.println(files);
+        System.out.println(files);*/
 
     }
 
