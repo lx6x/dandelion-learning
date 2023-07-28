@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.Random;
 
 /**
  * TODO 字符处理工具类
@@ -155,7 +156,26 @@ public class StringUtil {
         System.out.println(UUID.randomUUID());
     }*/
 
+    private static final Random random = new Random();
+
+    public static long generateUniqueLong() {
+        // 获取当前时间戳
+        long timestamp = System.currentTimeMillis();
+        System.out.println(timestamp);
+
+        // 生成一个 10 位的随机数
+        long randomValue = random.nextInt(1000000000);
+
+        // 合并时间戳和随机数生成唯一的 Long 值
+        long uniqueLong = timestamp * 1000000000L + randomValue;
+        System.out.println(uniqueLong);
+        return uniqueLong;
+    }
+
+
     public static void main(String[] args) {
+        generateUniqueLong();
+
 //        int sum;
 //        int i,j;
 //        for (i=1;i<10;i++){
