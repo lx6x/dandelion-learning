@@ -19,9 +19,9 @@ public class MybatisPlusGenerator {
         System.out.println("userDir=" + userDir);
 
         FastAutoGenerator.create(
-                        "jdbc:mysql://43.143.224.83:10013/dandelion?useSSL=false&autoReconnect=true&characterEncoding=utf8",
+                        "jdbc:mysql://localhost:10013/dandelion?useSSL=false&autoReconnect=true&characterEncoding=utf8",
                         "root",
-                        "5n2Qwvz0hXftUYwB")
+                        "root")
                 // 全局配置
                 .globalConfig(builder ->
                                 builder.author("lx6x") // 设置作者
