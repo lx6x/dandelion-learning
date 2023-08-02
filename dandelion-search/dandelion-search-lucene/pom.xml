@@ -2,9 +2,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>org.dandelion.search</groupId>
-        <artifactId>dandelion-search</artifactId>
-        <version>1.0.0</version>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.7.12</version>
+        <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>org.dandelion.search.lucene</groupId>
     <artifactId>dandelion-search-lucene</artifactId>
@@ -16,7 +17,6 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
-            <version>2.7.13</version>
         </dependency>
 
         <dependency>
@@ -69,6 +69,13 @@
             <groupId>org.webjars.bower</groupId>
             <artifactId>jquery</artifactId>
             <version>3.6.2</version>
+        </dependency>
+
+        <!--    ik 中文分词器    -->
+        <dependency>
+            <groupId>com.github.magese</groupId>
+            <artifactId>ik-analyzer</artifactId>
+            <version>8.5.0</version>
         </dependency>
     </dependencies>
 
