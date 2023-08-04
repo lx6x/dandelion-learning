@@ -2,7 +2,7 @@ server:
   port: 30033
 spring:
   elasticsearch:
-    uris: http://43.143.224.83:10016
+    uris: http://localhost:9200
     # 连接超时时间
     connection-timeout: 10s
     # 数据读取超时时间
