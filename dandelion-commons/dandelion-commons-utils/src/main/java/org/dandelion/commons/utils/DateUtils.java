@@ -72,7 +72,6 @@ public class DateUtils extends DateUtil {
     }
 
 
-
     public static Date parseDate(String date) {
         Date time;
         try {
@@ -216,7 +215,7 @@ public class DateUtils extends DateUtil {
     /**
      * 当前时间向前后推一月
      */
-    public static void month(){
+    public static void month() {
         System.out.println("========LocalDate 方式=================");
         LocalDate currentDate = LocalDate.now();
         LocalDate oneMonthLater = currentDate.plusMonths(1);
@@ -233,10 +232,11 @@ public class DateUtils extends DateUtil {
 //        calendar.add(Calendar.MONTH, -1);
         System.out.println("Current date: " + getNowDate(calendar.getTime()));
     }
+
     /**
      * 当前时间向前后推一年
      */
-    public static void year(){
+    public static void year() {
         System.out.println("========LocalDate 方式=================");
         LocalDate currentDate = LocalDate.now();
         LocalDate oneYearLater = currentDate.plusYears(1);
@@ -256,13 +256,41 @@ public class DateUtils extends DateUtil {
         System.out.println("Current date: " + getNowDate(calendar.getTime()));
     }
 
+    /**
+     * 计算两个时间点之间的天数
+     */
+    public static Integer dateDiffDay() {
 
-    public static void main(String[] args) {
-        week();
-        System.out.println("------------------------------------");
-        month();
-        System.out.println("------------------------------------");
-        year();
+        return null;
+    }
+
+    /**
+     * 计算两个时间差
+     */
+    public static long getDatePoorDay(Date endDate, Date nowDate) {
+        long nd = 1000 * 24 * 60 * 60;
+        // long ns = 1000;
+        // 获得两个时间的毫秒时间差异
+        long diff = endDate.getTime() - nowDate.getTime();
+        // 计算差多少天
+        return diff / nd;
+    }
+
+
+    public static void main(String[] args) throws Exception {
+//        week();
+//        System.out.println("------------------------------------");
+//        month();
+//        System.out.println("------------------------------------");
+//        year();
+
+
+        DateFormat dft = new SimpleDateFormat("yyyy-MM-dd");
+        Date star = dft.parse("2020-02-03");//开始时间
+        Date endDay=dft.parse("2020-02-09");//结束时间
+        long datePoorDay = getDatePoorDay(endDay, star);
+        System.out.println(datePoorDay);
+
     }
 
 }
