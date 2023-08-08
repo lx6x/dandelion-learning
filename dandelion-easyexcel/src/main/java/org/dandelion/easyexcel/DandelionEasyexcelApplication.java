@@ -1,13 +1,13 @@
-package org.dandelion.easyexecl;
+package org.dandelion.easyexcel;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class DandelionEasyexeclApplication {
+public class DandelionEasyexcelApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(DandelionEasyexeclApplication.class, args);
+		SpringApplication.run(DandelionEasyexcelApplication.class, args);
 	}
 
 }

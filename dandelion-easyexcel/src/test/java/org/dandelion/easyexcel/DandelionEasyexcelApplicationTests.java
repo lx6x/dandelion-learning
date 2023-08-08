@@ -1,10 +1,10 @@
-package org.dandelion.easyexecl;
+package org.dandelion.easyexcel;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class DandelionEasyexeclApplicationTests {
+class DandelionEasyexcelApplicationTests {
 
 	@Test
 	void contextLoads() {

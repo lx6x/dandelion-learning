@@ -20,7 +20,7 @@ dandelion-parent
 |   ├── dandelion-doc-knife4j                     Knife4j
 |   ├── dandelion-doc-smart                       Smart
 |   ├── dandelion-doc-swagger                     Swagger
-├── dandelion-easyexecl                           easyexecl 工具包使用
+├── dandelion-easyexcel                           easyexecl 工具包使用
 ├── dandelion-feignclient                         feignclient
 ├── dandelion-flowable                            工作流实现（flowable-引擎）
 ├── dandelion-limiter                             限流（aop+redis）
@@ -89,7 +89,7 @@ dandelion-netty-beat-client                                 30030
 dandelion-scheduling-rocketmq                               30032
 dandelion-search-elasticsearch                              30033
 dandelion-doc-knife4j                                       30034
-dandelion-easyexecl                                         30035
+dandelion-easyexcel                                         30035
 ```
 
 ## 版本

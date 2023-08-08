@@ -8,11 +8,11 @@
 		<version>3.1.2</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>org.dandelion.easyexecl</groupId>
-	<artifactId>dandelion-easyexecl</artifactId>
+	<groupId>org.dandelion.easyexcel</groupId>
+	<artifactId>dandelion-easyexcel</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>dandelion-easyexecl</name>
-	<description>dandelion-easyexecl</description>
+	<name>dandelion-easyexcel</name>
+	<description>dandelion-easyexcel</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>
