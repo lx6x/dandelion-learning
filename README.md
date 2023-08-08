@@ -89,6 +89,7 @@ dandelion-netty-beat-client                                 30030
 dandelion-scheduling-rocketmq                               30032
 dandelion-search-elasticsearch                              30033
 dandelion-doc-knife4j                                       30034
+dandelion-easyexecl                                         30035
 ```
 
 ## 版本
