@@ -20,7 +20,7 @@ dandelion-parent
 |   ├── dandelion-doc-knife4j                     Knife4j
 |   ├── dandelion-doc-smart                       Smart
 |   ├── dandelion-doc-swagger                     Swagger
-├── dandelion-excel                               excel 工具包使用
+├── dandelion-easyexecl                           easyexecl 工具包使用
 ├── dandelion-feignclient                         feignclient
 ├── dandelion-flowable                            工作流实现（flowable-引擎）
 ├── dandelion-limiter                             限流（aop+redis）

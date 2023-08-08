@@ -25,7 +25,6 @@
         <module>dandelion-netty</module>
         <module>dandelion-limiter</module>
         <module>dandelion-repeat-submit</module>
-        <module>dandelion-excel</module>
         <module>dandelion-ureport2</module>
         <module>dandelion-arithmetic</module>
         <module>dandelion-bigdata</module>
