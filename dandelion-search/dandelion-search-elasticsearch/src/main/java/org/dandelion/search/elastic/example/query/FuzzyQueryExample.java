@@ -1,4 +1,4 @@
-package org.dandelion.search.elastic.example;
+package org.dandelion.search.elastic.example.query;
 
 import org.apache.http.HttpHost;
 import org.elasticsearch.action.search.SearchRequest;
@@ -43,7 +43,7 @@ public class FuzzyQueryExample {
      */
     private static void match() throws Exception {
         RestHighLevelClient restHighLevelClient = new RestHighLevelClient(
-                RestClient.builder(new HttpHost("192.168.1.215", 9200, "http"))
+                RestClient.builder(new HttpHost("localhost", 9200, "http"))
         );
 
         SearchRequest searchRequest = new SearchRequest("library_book_doc");
@@ -85,7 +85,7 @@ public class FuzzyQueryExample {
      */
     private static void multiMatch() throws Exception {
         RestHighLevelClient restHighLevelClient = new RestHighLevelClient(
-                RestClient.builder(new HttpHost("192.168.1.215", 9200, "http"))
+                RestClient.builder(new HttpHost("localhost", 9200, "http"))
         );
 
         SearchRequest searchRequest = new SearchRequest("library_book_doc");
