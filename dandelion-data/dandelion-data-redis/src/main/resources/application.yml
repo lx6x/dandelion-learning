@@ -6,5 +6,6 @@ spring:
       pool:
         max-active: 20
         max-idle: 10
-    host: 192.168.80.100
-    password: 123456
+    host: bbb
+#    password: 123456
+    port: 10015

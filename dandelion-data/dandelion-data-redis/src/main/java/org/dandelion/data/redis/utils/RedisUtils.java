@@ -7,15 +7,16 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
 
+import javax.annotation.Resource;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 /**
- * TODO redis工具类
+ * redis工具类
  *
- * @author L
+ * @author lx6x
  * @version 1.0
  * @date 2021/11/4 14:27
  */
@@ -24,7 +25,7 @@ public class RedisUtils {
 
     private final static Logger logger = LoggerFactory.getLogger(RedisUtils.class);
 
-    @Autowired
+    @Resource
     private RedisTemplate<String, Object> redisTemplate;
 
     public RedisTemplate<String, Object> getRedisTemplate() {
