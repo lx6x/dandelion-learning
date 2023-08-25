@@ -48,15 +48,15 @@ public class R<T> {
         return new R<T>(ResultCode.UNAUTHORIZED.getCode(), ResultCode.UNAUTHORIZED.getMessage(), data);
     }
 
-    public static <T> R<T> success() {
+    public static <T> R<T> ok() {
         return new R<>(ResultCode.SUCCESS.getCode(), ResultCode.SUCCESS.getMessage(), null);
     }
 
-    public static <T> R<T> success(T data) {
+    public static <T> R<T> ok(T data) {
         return new R<>(ResultCode.SUCCESS.getCode(), ResultCode.SUCCESS.getMessage(), data);
     }
 
-    public static <T> R<T> success(String message, T data) {
+    public static <T> R<T> ok(String message, T data) {
         return new R<>(ResultCode.SUCCESS.getCode(), message, data);
     }
 

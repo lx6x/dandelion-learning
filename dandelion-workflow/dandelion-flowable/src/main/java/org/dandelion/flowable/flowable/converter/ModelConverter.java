@@ -1,5 +1,6 @@
 package org.dandelion.flowable.flowable.converter;
 
+import org.flowable.ui.modeler.domain.Model;
 import org.dandelion.flowable.flowable.model.entity.ActDeModelDO;
 import org.dandelion.flowable.flowable.model.vo.ActDeModelVO;
 import org.mapstruct.Mapper;
@@ -20,5 +21,6 @@ public abstract class ModelConverter {
     public abstract ActDeModelVO do2vo(ActDeModelDO actDeModelDO);
 
     public abstract List<ActDeModelVO> do2vo(List<ActDeModelDO> actDeModelDO);
+    public abstract ActDeModelVO do2vo(Model model);
 
 }
