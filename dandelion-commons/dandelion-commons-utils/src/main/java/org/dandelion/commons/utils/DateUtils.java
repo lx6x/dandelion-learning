@@ -8,6 +8,9 @@ import java.text.ParseException;
 import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -277,20 +280,67 @@ public class DateUtils extends DateUtil {
     }
 
 
-    public static void main(String[] args) throws Exception {
-//        week();
-//        System.out.println("------------------------------------");
-//        month();
-//        System.out.println("------------------------------------");
-//        year();
+//    public static void main(String[] args) throws Exception {
+////        week();
+////        System.out.println("------------------------------------");
+////        month();
+////        System.out.println("------------------------------------");
+////        year();
+//
+//
+//        DateFormat dft = new SimpleDateFormat("yyyy-MM-dd");
+//        Date star = dft.parse("2020-02-03");//开始时间
+//        Date endDay=dft.parse("2020-02-09");//结束时间
+//        long datePoorDay = getDatePoorDay(endDay, star);
+//        System.out.println(datePoorDay);
+//
+//    }
 
+    /**
+     * 获取指定日期是星期几<br>
+     *
+     * @param dt 指定时间
+     * @return 当前日期是星期几
+     */
+    public static String getWeekOfDate(Date dt) {
+        String[] weekDays = {"0", "1", "2", "3", "4", "5", "6"};
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(dt);
+        int w = cal.get(Calendar.DAY_OF_WEEK) - 1;
 
-        DateFormat dft = new SimpleDateFormat("yyyy-MM-dd");
-        Date star = dft.parse("2020-02-03");//开始时间
-        Date endDay=dft.parse("2020-02-09");//结束时间
-        long datePoorDay = getDatePoorDay(endDay, star);
-        System.out.println(datePoorDay);
-
+        System.out.println(w);
+        if (w < 0)
+            w = 0;
+        return weekDays[w];
     }
+
+    /*public static void main(String[] args) {
+        String weekOfDate = getWeekOfDate(new Date());
+        System.out.println(weekOfDate);
+    }*/
+
+    /**
+     * 获取当天开始时间
+     */
+    public static void getNowBeginDate() {
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        LocalDateTime todayStart = LocalDateTime.of(LocalDate.now(), LocalTime.MIN);
+        System.out.println("当前时间，当天的开始时间(日期+时分秒)："+ todayStart.format(dtf));
+    }
+
+    /**
+     * 获取当天结束时间
+     */
+    public static void getNowEndDate() {
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        LocalDateTime todayEnd = LocalDateTime.of(LocalDate.now(), LocalTime.MAX);
+        System.out.println("当前时间，当天的结束时间(日期+时分秒)："+ todayEnd.format(dtf));
+    }
+
+    public static void main(String[] args) {
+        getNowBeginDate();
+        getNowEndDate();
+    }
+
 
 }

@@ -38,6 +38,7 @@ dandelion-parent
 |   ├── dandelion-scheduling-rabbitmq             rabbitmq 消息
 |   ├── dandelion-scheduling-xxl-job              xxl-job 定时任务
 |   ├── dandelion-scheduling-rocketmq             rocketmq 消息
+|   ├── dandelion-scheduling-spring               
 ├── dandelion-search                              搜索引擎 Lucene/elasticsearch 使用
 |   ├── dandelion-search-lucene                   lucene 查询
 |   ├── dandelion-search-elasticsearch            elasticsearch 使用
@@ -90,6 +91,7 @@ dandelion-scheduling-rocketmq                               30032
 dandelion-search-elasticsearch                              30033
 dandelion-doc-knife4j                                       30034
 dandelion-easyexcel                                         30035
+dandelion-scheduling-spring                                 30036
 ```
 
 ## 版本
