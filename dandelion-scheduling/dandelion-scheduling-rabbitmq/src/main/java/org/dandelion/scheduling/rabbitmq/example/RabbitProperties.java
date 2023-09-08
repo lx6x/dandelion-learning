@@ -1,9 +1,9 @@
-package org.dandelion.scheduling.rabbitmq;
+package org.dandelion.scheduling.rabbitmq.example;
 
 /**
- * TODO rabbit 常量
+ * rabbit 常量
  *
- * @author LJF
+ * @author lx6x
  * @version 1.0
  * @date 2021/12/02 23:35
  */

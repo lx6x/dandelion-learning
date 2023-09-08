@@ -93,6 +93,7 @@ dandelion-search-elasticsearch                              30033
 dandelion-doc-knife4j                                       30034
 dandelion-easyexcel                                         30035
 dandelion-scheduling-spring                                 30036
+dandelion-scheduling-rabbitmq                               30037
 ```
 
 ## 版本

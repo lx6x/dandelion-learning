@@ -1,6 +1,7 @@
-package org.dandelion.scheduling.rabbitmq.delay.jvm;
+package org.dandelion.scheduling.rabbitmq.example.delay.jvm;
 
-import org.dandelion.commons.utils.DateUtils;
+
+import org.dandelion.scheduling.rabbitmq.utils.DateUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,9 +10,9 @@ import java.util.concurrent.Delayed;
 import java.util.concurrent.TimeUnit;
 
 /**
- * TODO jdk 延时队列测试
- *      优点：效率高，任务触发时间延迟低。
- *      缺点: 服务器重启后，数据全部消失，怕宕机；集群扩展相当麻烦；因为内存条件限制的原因，比如下单未付款的订单数太多，那么很容易就出现OOM异常；代码复杂度较高
+ * jdk 延时队列测试
+ * 优点：效率高，任务触发时间延迟低。
+ * 缺点: 服务器重启后，数据全部消失，怕宕机；集群扩展相当麻烦；因为内存条件限制的原因，比如下单未付款的订单数太多，那么很容易就出现OOM异常；代码复杂度较高
  *
  * @author L
  * @version 1.0

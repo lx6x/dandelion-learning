@@ -1,9 +1,9 @@
-package org.dandelion.scheduling.rabbitmq.exchange;
+package org.dandelion.scheduling.rabbitmq.example.exchange;
 
 /**
- * TODO
  *
- * @author LJF
+ *
+ * @author lx6x
  * @version 1.0
  * @date 2021/12/15 22:06
  */

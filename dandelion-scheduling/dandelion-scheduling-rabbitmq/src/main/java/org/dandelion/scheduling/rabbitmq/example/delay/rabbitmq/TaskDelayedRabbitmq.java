@@ -1,4 +1,4 @@
-package org.dandelion.scheduling.rabbitmq.delay.rabbitmq;
+package org.dandelion.scheduling.rabbitmq.example.delay.rabbitmq;
 
 import com.rabbitmq.client.*;
 
@@ -9,9 +9,9 @@ import java.util.Map;
 import java.util.concurrent.TimeoutException;
 
 /**
- * TODO
  *
- * @author LJF
+ *
+ * @author lx6x
  * @version 1.0
  * @date 2021/12/15 10:46
  */

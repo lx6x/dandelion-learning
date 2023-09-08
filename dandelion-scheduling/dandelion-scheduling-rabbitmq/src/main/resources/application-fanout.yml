@@ -1,0 +1,49 @@
+spring:
+  cloud:
+    stream:
+      rabbit:
+        bindings:
+          output:
+            # 生产者配置信息
+            producer:
+              # 生产者使用的交换机类型   如果已存在交换机名称，该类型必须与交换机类型一致
+              exchangeType: fanout
+              queueNameGroupOnly: true
+
+          input:
+            # 消费者配置信息
+            consumer:
+              # 消费者使用的交换机类型   如果已存在交换机名称，该类型必须与交换机类型一致
+              exchangeType: fanout
+              queueNameGroupOnly: true
+              # 消息确认模式   具体查看AcknowledgeMode
+              acknowledge-mode: manual
+              ttl: 30000
+              # 下面是死信相关配置
+              autoBindDlq: true  # 改配置不开启，死信配置不生效
+              deadLetterExchange: new-deadLetter-exchange
+              deadLetterExchangeType: fanout
+              deadLetterQueueName: new-dead_letter_queue
+      bindings:
+        output: #通道的名称
+          destination: fanout_logs #要使用的exchange名称
+          content-type: application/json
+          default-binder: dev-rabbit
+        input: #通道的名称
+          destination: fanout_logs #要使用的exchange名称
+          content-type: application/json
+          default-binder: dev-rabbit
+          group: new_ps_queue1 # 要使用的消息队列名称
+      binders:
+        dev-rabbit:
+          type: rabbit
+          environment:
+            spring:
+              rabbitmq:
+                host: bbb
+                port: 10019
+                username: root
+                password: root
+                virtual-host: /
+
+

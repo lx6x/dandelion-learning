@@ -1,0 +1,7 @@
+server:
+  port: 30037
+spring:
+  application:
+    name: dandelion-scheduling-rabbitmq
+  profiles:
+    active: direct

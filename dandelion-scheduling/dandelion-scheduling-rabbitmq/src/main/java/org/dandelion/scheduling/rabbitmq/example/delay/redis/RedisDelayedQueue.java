@@ -1,6 +1,6 @@
-package org.dandelion.scheduling.rabbitmq.delay.redis;
+package org.dandelion.scheduling.rabbitmq.example.delay.redis;
 
-import org.dandelion.commons.utils.DateUtils;
+import org.dandelion.scheduling.rabbitmq.utils.DateUtils;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.Tuple;
@@ -9,7 +9,7 @@ import java.util.Calendar;
 import java.util.Set;
 
 /**
- * TODO redis 延迟队列测试
+ *  redis 延迟队列测试
  *
  * @author L
  * @version 1.0

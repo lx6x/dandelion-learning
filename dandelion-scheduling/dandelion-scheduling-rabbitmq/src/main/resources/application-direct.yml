@@ -1,0 +1,48 @@
+spring:
+  cloud:
+    stream:
+      rabbit:
+        bindings:
+          output:
+            # 生产者配置信息
+            producer:
+              # 生产者使用的交换机类型   如果已存在交换机名称，该类型必须与交换机类型一致
+              exchangeType: direct
+              # 用于指定 routing key 表达式
+              routing-key-expression: headers["routeTo"] # 该值表示使用头信息的routeTo字段作为 routing key
+              queueNameGroupOnly: true
+          input:
+            # 消费者配置信息
+            consumer:
+              # 消费者使用的交换机类型   如果已存在交换机名称，该类型必须与交换机类型一致
+              exchangeType: direct
+              # 消费者消息队列绑定的 routing kry
+              bindingRoutingKey: info,waring,error
+              # 改配置会对上面的 routing key 进行处理
+              bindingRoutingKeyDelimiter: ","  # 该配置表示：使用,切割上面配置的routing key
+              # 消息确认模式   具体查看AcknowledgeMode
+              acknowledge-mode: manual
+              queueNameGroupOnly: true
+      bindings:
+        output: #通道的名称
+          destination: direct_logs #要使用的exchange名称
+          content-type: application/json
+          default-binder: dev-rabbit
+        input: #通道的名称
+          destination: direct_logs #要使用的exchange名称
+          content-type: application/json
+          default-binder: dev-rabbit
+          group: route_queue1 # 要使用的消息队列名称
+      binders:
+        dev-rabbit:
+          type: rabbit
+          environment:
+            spring:
+              rabbitmq:
+                host: bbb
+                port: 10019
+                username: root
+                password: root
+                virtual-host: /
+
+

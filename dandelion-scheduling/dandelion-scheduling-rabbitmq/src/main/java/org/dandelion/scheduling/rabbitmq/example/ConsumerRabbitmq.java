@@ -1,4 +1,4 @@
-package org.dandelion.scheduling.rabbitmq;
+package org.dandelion.scheduling.rabbitmq.example;
 
 import com.rabbitmq.client.*;
 
@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.util.concurrent.TimeoutException;
 
 /**
- * TODO rabbitmq消费者
+ * rabbitmq消费者
  *
  * @author L
  * @version 1.0
@@ -17,10 +17,10 @@ public class ConsumerRabbitmq {
     public static void main(String[] args) throws IOException, TimeoutException, InterruptedException {
         // 创建连接工厂
         ConnectionFactory connectionFactory = new ConnectionFactory();
-        connectionFactory.setHost("192.168.44.128");
-        connectionFactory.setPort(5672);
-        connectionFactory.setUsername("rabbitmq");
-        connectionFactory.setPassword("rabbitmq");
+        connectionFactory.setHost("bbb");
+        connectionFactory.setPort(10019);
+        connectionFactory.setUsername("root");
+        connectionFactory.setPassword("root");
         System.out.println("========== 连接工厂创建成功");
 
         // 创建连接
