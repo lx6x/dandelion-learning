@@ -6,7 +6,7 @@ import org.springframework.messaging.SubscribableChannel;
 public interface InputMessageBinding {
 
     /**
-     * 要使用的通道名称
+     * 要使用的通道名称 跟配置文件中一致
      */
     String INPUT = "input";
 

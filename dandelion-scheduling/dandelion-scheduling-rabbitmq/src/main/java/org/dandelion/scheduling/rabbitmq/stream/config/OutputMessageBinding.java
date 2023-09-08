@@ -6,7 +6,7 @@ import org.springframework.messaging.MessageChannel;
 public interface OutputMessageBinding {
 
     /**
-     * 要使用的通道名称
+     * 要使用的通道名称 跟配置文件中一致
      */
     String OUTPUT = "output";
 

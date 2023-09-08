@@ -2,6 +2,7 @@ package org.dandelion.scheduling.rabbitmq.stream.producer;
 
 import org.dandelion.scheduling.rabbitmq.stream.config.OutputMessageBinding;
 import org.springframework.cloud.stream.annotation.EnableBinding;
+import org.springframework.messaging.Message;
 import org.springframework.messaging.support.MessageBuilder;
 
 import javax.annotation.Resource;
@@ -43,6 +44,11 @@ public class IMessageSendProvider implements MessageProvider {
 
     @Override
     public String sendToDirectDelay() {
-        return null;
+        String message = "Hello, delay";
+        Message<String> build = MessageBuilder.withPayload(message)
+                .setHeader("x-delay", 6000)
+                .build();
+        outputMessageBinding.output().send(build);
+        return "success";
     }
 }

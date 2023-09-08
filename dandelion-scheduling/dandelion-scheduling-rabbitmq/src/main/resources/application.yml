@@ -4,4 +4,5 @@ spring:
   application:
     name: dandelion-scheduling-rabbitmq
   profiles:
-    active: direct
+    active: delay # 需要安装 rabbitmq_delayed_message_exchange 插件
+#    active: direct

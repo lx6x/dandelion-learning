@@ -29,4 +29,12 @@ public class TestController {
     public String sendTopicMessage() {
         return messageProvider.sendToTopic();
     }
+
+    /**
+     * 发送延时消息
+     */
+    @GetMapping("/sendDelay")
+    public String sendDelayMessage() {
+        return messageProvider.sendToDirectDelay();
+    }
 }
