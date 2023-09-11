@@ -1,4 +1,4 @@
-# dandelion-parent -- 蒲公英
+# dandelion-parent
 
 日常学习使用，某些模块可能会不全，很杂乱，想到就补到，用到补到
 
@@ -94,12 +94,6 @@ dandelion-doc-knife4j                                       30034
 dandelion-easyexcel                                         30035
 dandelion-scheduling-spring                                 30036
 dandelion-scheduling-rabbitmq                               30037
-```
-
-## 版本
-
-```
-    1.0      初始化,开发快照
 ```
 
 
