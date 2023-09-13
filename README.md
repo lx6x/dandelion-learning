@@ -30,7 +30,7 @@ dandelion-parent
 |   |   ├── dandelion-netty-beat-server           使用netty发送心跳 测试服务端     
 |   |   ├── dandelion-netty-beat-client           使用netty发送心跳 测试客户端
 ├── dandelion-onjava                              ON JAVA 中文版 代码验证
-├── dandelion-oshi                                oshi 获取主机cpu/内存/系统 ... 资源信心
+├── dandelion-oshi                                oshi 获取主机cpu/内存/系统 ... 资源信息
 ├── dandelion-oss                                 oss 服务 （阿里）
 ├── dandelion-repeat-submit                       重复提交验证（redis实现）
 ├── dandelion-scheduling                          任务调度
