@@ -1,7 +1,7 @@
 package org.dandelion.flowable.flowable.controller;
 
-import io.swagger.annotations.ApiParam;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.apache.commons.io.IOUtils;
 import org.dandelion.flowable.common.R;
@@ -39,7 +39,7 @@ public class TaskController {
 
     @Operation(summary = "获取流程变量")
     @GetMapping(value = "/processVariables/{taskId}")
-    public R<Map<String, Object>> processVariables(@ApiParam(value = "流程任务Id") @PathVariable(value = "taskId") String taskId) {
+    public R<Map<String, Object>> processVariables(@Parameter(name = "taskId",description = "流程任务Id") @PathVariable(value = "taskId") String taskId) {
         // 流程变量
         HistoricTaskInstance historicTaskInstance = historyService.createHistoricTaskInstanceQuery().includeProcessVariables().finished().taskId(taskId).singleResult();
         if (Objects.nonNull(historicTaskInstance)) {

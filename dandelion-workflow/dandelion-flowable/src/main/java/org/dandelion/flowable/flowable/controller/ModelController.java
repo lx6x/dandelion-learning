@@ -70,9 +70,10 @@ public class ModelController {
      */
     @Operation(summary = "流程模型详细信息")
     @GetMapping(value = "/{modelId}")
-    public R<Model> getInfo(@Parameter(name = "modelId", description = "模型主键") @NotNull(message = "主键不能为空") @PathVariable("modelId") String modelId) {
+    public R<ActDeModelDO> getInfo(@Parameter(name = "modelId", description = "模型主键") @NotNull(message = "主键不能为空") @PathVariable("modelId") String modelId) {
         // 获取流程模型
-        return R.ok(modelService.getModel(modelId));
+        // return R.ok(modelService.getModel(modelId));
+        return R.ok(iActDeModelService.getById(modelId));
     }
 
     /**

@@ -1,18 +1,14 @@
 package org.dandelion.flowable.flowable.controller;
 
-import io.swagger.annotations.ApiParam;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.dandelion.flowable.common.R;
-import org.dandelion.flowable.flowable.model.dto.DeployModelDTO;
 import org.dandelion.flowable.flowable.model.vo.DeployVo;
-import org.flowable.bpmn.model.BpmnModel;
 import org.flowable.engine.RepositoryService;
 import org.flowable.engine.repository.Deployment;
 import org.flowable.engine.repository.ProcessDefinition;
 import org.flowable.engine.repository.ProcessDefinitionQuery;
-import org.flowable.ui.modeler.domain.Model;
 import org.flowable.ui.modeler.serviceapi.ModelService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -81,7 +77,7 @@ public class DeployController {
      */
     @Operation(summary = "查询流程部署版本列表")
     @GetMapping("/publishList")
-    public R<List<DeployVo>> publishList(@Parameter(name = "processKey",description = "流程定义主键") @RequestParam String processKey) {
+    public R<List<DeployVo>> publishList(@Parameter(name = "processKey", description = "流程定义主键") @RequestParam String processKey) {
         // 创建查询条件
         ProcessDefinitionQuery processDefinitionQuery = repositoryService.createProcessDefinitionQuery()
                 .processDefinitionKey(processKey)
@@ -103,7 +99,6 @@ public class DeployController {
         }).collect(Collectors.toList());
         return R.ok(deployVoList);
     }
-
 
 
     /**

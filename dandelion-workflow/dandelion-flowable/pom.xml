@@ -61,11 +61,11 @@
         </dependency>
 
         <!--    提供的任务管理功能，管理和协调流程任务的执行    -->
-        <dependency>
-            <groupId>org.flowable</groupId>
-            <artifactId>flowable-spring-boot-starter-ui-task</artifactId>
-            <version>${flowable.version}</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.flowable</groupId>-->
+<!--            <artifactId>flowable-spring-boot-starter-ui-task</artifactId>-->
+<!--            <version>${flowable.version}</version>-->
+<!--        </dependency>-->
 
 
         <dependency>
