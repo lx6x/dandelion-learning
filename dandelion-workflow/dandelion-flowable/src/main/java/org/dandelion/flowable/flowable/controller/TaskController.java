@@ -2,6 +2,7 @@ package org.dandelion.flowable.flowable.controller;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.Parameters;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.apache.commons.io.IOUtils;
 import org.dandelion.flowable.common.R;
@@ -59,6 +60,10 @@ public class TaskController {
      */
     @Operation(summary = "流程节点信息")
     @GetMapping("/flowXmlAndNode")
+    @Parameters({
+            @Parameter(name = "procInsId",description = "模型id"),
+            @Parameter(name = "deployId",description = "部署id")
+    })
     public R<Map<String, Object>> flowXmlAndNode(@RequestParam(value = "procInsId", required = false) String procInsId,
                                                  @RequestParam(value = "deployId", required = false) String deployId) {
         try {

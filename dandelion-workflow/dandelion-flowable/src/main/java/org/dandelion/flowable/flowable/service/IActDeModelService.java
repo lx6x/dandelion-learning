@@ -1,6 +1,6 @@
 package org.dandelion.flowable.flowable.service;
 
-import org.dandelion.flowable.flowable.model.entity.ActDeModelDO;
+import org.dandelion.flowable.flowable.model.entity.ActDeModel;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
@@ -11,6 +11,6 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @author lx6x
  * @since 2023/07/14
  */
-public interface IActDeModelService extends IService<ActDeModelDO> {
+public interface IActDeModelService extends IService<ActDeModel> {
 
 }

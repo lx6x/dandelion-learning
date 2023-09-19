@@ -1,7 +1,7 @@
 package org.dandelion.flowable.flowable.converter;
 
+import org.dandelion.flowable.flowable.model.entity.ActDeModel;
 import org.flowable.ui.modeler.domain.Model;
-import org.dandelion.flowable.flowable.model.entity.ActDeModelDO;
 import org.dandelion.flowable.flowable.model.vo.ActDeModelVO;
 import org.mapstruct.Mapper;
 
@@ -18,9 +18,9 @@ import java.util.List;
 @Mapper(componentModel = "spring")
 public abstract class ModelConverter {
 
-    public abstract ActDeModelVO do2vo(ActDeModelDO actDeModelDO);
+    public abstract ActDeModelVO do2vo(ActDeModel actDeModel);
 
-    public abstract List<ActDeModelVO> do2vo(List<ActDeModelDO> actDeModelDO);
+    public abstract List<ActDeModelVO> do2vo(List<ActDeModel> actDeModel);
     public abstract ActDeModelVO do2vo(Model model);
 
 }

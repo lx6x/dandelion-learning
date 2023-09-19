@@ -18,7 +18,7 @@ import java.time.LocalDateTime;
 @Data
 @TableName("ACT_DE_MODEL")
 @Schema(name = "ActDeModelDO", description = "模型表DO")
-public class ActDeModelDO implements Serializable {
+public class ActDeModel implements Serializable {
 
     private static final long serialVersionUID = 1L;
 

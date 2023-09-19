@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="org.dandelion.flowable.flowable.mapper.ActDeModelMapper">
+<mapper namespace="mybatisplus.mapper.ActDeModelHistoryMapper">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="org.dandelion.flowable.flowable.model.entity.ActDeModel">
+    <resultMap id="BaseResultMap" type="org.dandelion.flowable.flowable.model.entity.ActDeModelHistory">
         <id column="id" property="id" />
         <result column="name" property="name" />
         <result column="model_key" property="modelKey" />
@@ -13,9 +13,10 @@
         <result column="created_by" property="createdBy" />
         <result column="last_updated" property="lastUpdated" />
         <result column="last_updated_by" property="lastUpdatedBy" />
+        <result column="removal_date" property="removalDate" />
         <result column="version" property="version" />
         <result column="model_editor_json" property="modelEditorJson" />
-        <result column="thumbnail" property="thumbnail" />
+        <result column="model_id" property="modelId" />
         <result column="model_type" property="modelType" />
         <result column="tenant_id" property="tenantId" />
     </resultMap>
