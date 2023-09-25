@@ -1,10 +1,15 @@
 package org.dandelion.flowable.flowable.controller;
 
+import cn.hutool.core.util.ObjectUtil;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.Parameters;
+import io.swagger.v3.oas.annotations.enums.ParameterIn;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.dandelion.flowable.common.R;
 import org.dandelion.flowable.flowable.model.vo.DeployVo;
+import org.flowable.bpmn.model.Process;
+import org.flowable.bpmn.model.*;
 import org.flowable.engine.RepositoryService;
 import org.flowable.engine.repository.Deployment;
 import org.flowable.engine.repository.ProcessDefinition;
@@ -17,14 +22,16 @@ import org.springframework.web.bind.annotation.*;
 import javax.annotation.Resource;
 import javax.validation.constraints.NotEmpty;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
  * @author lx6x
  * @date 2023/6/26
  */
-@Tag(name = "流程部署")
+@Tag(name = "部署")
 @RestController
 @RequestMapping("/workflow/deploy")
 public class DeployController {
@@ -115,5 +122,47 @@ public class DeployController {
         return R.ok();
     }
 
+    /**
+     * 获取指定流程模型的所有节点
+     *
+     * @param definitionId 已部署流程模型id
+     */
+    @Operation(summary = "获取指定流程模型的所有节点")
+    @GetMapping("/getModelNodes")
+    @Parameters({
+            @Parameter(name = "definitionId", description = "已部署流程模型id", in = ParameterIn.QUERY)
+    })
+    public Collection<FlowElement> getModelNodes(@RequestParam("definitionId") String definitionId) {
+        BpmnModel bpmnModel = repositoryService.getBpmnModel(definitionId);
+        Map<String, FlowElement> flowElements = bpmnModel.getMainProcess().getFlowElementMap();
+        return flowElements.values();
+    }
+
+    /**
+     * 获取指定流程模型的所有【任务】节点
+     *
+     * @param definitionId 已部署流程模型id
+     */
+    @Operation(summary = "获取指定流程模型的所有【任务】节点")
+    @GetMapping("/getModelTaskNodes")
+    @Parameters({
+            @Parameter(name = "definitionId", description = "已部署流程模型id", in = ParameterIn.QUERY)
+    })
+    public Collection<Task> getModelTaskNodes(@RequestParam("definitionId") String definitionId) {
+        BpmnModel bpmnModel = repositoryService.getBpmnModel(definitionId);
+        List<Task> taskNodes = new ArrayList<>();
+        if (ObjectUtil.isNotEmpty(bpmnModel)) {
+            for (Process process : bpmnModel.getProcesses()) {
+                Collection<FlowElement> flowElements = process.getFlowElements();
+                for (FlowElement flowElement : flowElements) {
+                    if (flowElement instanceof UserTask) {
+                        // 如果是User Task（任务节点），添加到列表中
+                        taskNodes.add((UserTask) flowElement);
+                    }
+                }
+            }
+        }
+        return taskNodes;
+    }
 
 }

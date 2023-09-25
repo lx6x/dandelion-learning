@@ -13,7 +13,8 @@ import org.dandelion.flowable.flowable.model.entity.ActDeModel;
 import org.dandelion.flowable.flowable.model.entity.ActDeModelHistory;
 import org.dandelion.flowable.flowable.service.IActDeModelHistoryService;
 import org.dandelion.flowable.flowable.service.IActDeModelService;
-import org.flowable.bpmn.model.BpmnModel;
+import org.flowable.bpmn.model.Process;
+import org.flowable.bpmn.model.*;
 import org.flowable.engine.RepositoryService;
 import org.flowable.engine.repository.Deployment;
 import org.flowable.engine.repository.ProcessDefinition;
@@ -27,13 +28,16 @@ import org.springframework.web.bind.annotation.*;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author liujunfei
  * @date 2023/8/25
  */
-@Tag(name = "流程模型管理")
+@Tag(name = "模型")
 @RestController
 @RequestMapping("/workflow/model")
 public class ModelController {
@@ -151,7 +155,8 @@ public class ModelController {
     @Parameters({
             @Parameter(name = "id", description = "流程模型id", in = ParameterIn.PATH)
     })
-    public void exportBpmnXml(String id, HttpServletResponse response) throws Exception {
+    public void exportBpmnXml(@RequestParam("id") String id, HttpServletResponse response) throws Exception {
         modelBpmnResource.getProcessModelBpmn20Xml(response, id);
     }
+
 }
