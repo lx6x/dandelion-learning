@@ -34,6 +34,7 @@ public class FileToWordsBuilder {
         String currentDirectory = System.getProperty("user.dir");
         String path = currentDirectory + "/dandelion-onjava/doc/FileToWordsBuilder.txt";
 
+        // 使用流读取文件内容,并打印
         new FileToWordsBuilder(path).stream()
                 .limit(7)
                 .map(w -> w + " ")
