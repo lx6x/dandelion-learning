@@ -6,3 +6,4 @@
            /\ ||//\)
           (/\\||/
        ______\||/_______  dandelion-flowable
+Spring Boot Version: ${spring-boot.version}
