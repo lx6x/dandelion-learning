@@ -1,23 +1,21 @@
 package org.dandelion.netty.beat.server.example;
 
-import com.alibaba.fastjson.JSONObject;
 import io.netty.channel.ChannelHandlerContext;
-import io.netty.channel.ChannelInboundHandlerAdapter;
+import io.netty.channel.ChannelId;
+import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.handler.timeout.IdleState;
 import io.netty.handler.timeout.IdleStateEvent;
-import io.netty.util.AttributeKey;
-import org.dandelion.netty.common.bean.BeatInfo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
 
 /**
  * @date 2023/5/15
  */
-public class ServerHandle extends ChannelInboundHandlerAdapter {
+@Component
+public class ServerHandle extends SimpleChannelInboundHandler<String> {
 
     private static final Logger logger = LoggerFactory.getLogger(ServerHandle.class);
-
-    private final ChannelMap channelMap = ChannelMap.newInstance();
 
     /**
      * 当前通道从对等端读取消息时调用
@@ -26,11 +24,8 @@ public class ServerHandle extends ChannelInboundHandlerAdapter {
      * @author L
      */
     @Override
-    public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
+    public void channelRead0(ChannelHandlerContext ctx, String msg) throws Exception {
         System.out.println("服务端成功收到信息 " + msg);
-        BeatInfo beatInfo = JSONObject.parseObject(msg.toString(), BeatInfo.class);
-        //
-        ctx.channel().attr(AttributeKey.valueOf("id")).set(beatInfo.getId());
     }
 
     /**
@@ -40,8 +35,8 @@ public class ServerHandle extends ChannelInboundHandlerAdapter {
      */
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
-        logger.info("---- 连接成功 ");
-
+        ChannelId id = ctx.channel().id();
+        logger.info("---- 连接成功 {}", id);
     }
 
     /**
@@ -51,9 +46,8 @@ public class ServerHandle extends ChannelInboundHandlerAdapter {
      */
     @Override
     public void channelInactive(ChannelHandlerContext ctx) throws Exception {
-        Object id = ctx.channel().attr(AttributeKey.valueOf("id")).get();
+        ChannelId id = ctx.channel().id();
         logger.info("---- 连接断开 " + id);
-
     }
 
     /**
@@ -69,9 +63,14 @@ public class ServerHandle extends ChannelInboundHandlerAdapter {
             IdleStateEvent event = (IdleStateEvent) evt;
             if (IdleState.READER_IDLE == event.state()) {
                 //如果读通道处于空闲状态，说明没有接收到心跳命令
-                System.out.println("5 秒了还未接收到信息");
+                System.out.println("有一段时间没有 收到 数据");
+            } else if (IdleState.WRITER_IDLE == event.state()) {
+                System.out.println("有一段时间没有 发送 数据");
+            } else if (IdleState.ALL_IDLE == event.state()) {
+                System.out.println("有一段时间没有 接收或发送 数据");
             }
-
+        } else {
+            super.userEventTriggered(ctx, evt);
         }
     }
 }

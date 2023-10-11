@@ -6,10 +6,9 @@ import io.netty.buffer.Unpooled;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelId;
-import io.netty.channel.ChannelInboundHandlerAdapter;
+import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.handler.timeout.IdleState;
 import io.netty.handler.timeout.IdleStateEvent;
-import io.netty.util.AttributeKey;
 import io.netty.util.CharsetUtil;
 import org.dandelion.netty.common.bean.BeatInfo;
 import org.slf4j.Logger;
@@ -20,7 +19,7 @@ import java.util.Date;
 /**
  * @date 2023/5/15
  */
-public class ClientHandle extends ChannelInboundHandlerAdapter {
+public class ClientHandle extends SimpleChannelInboundHandler<String> {
 
 
     private static final Logger logger = LoggerFactory.getLogger(ClientHandle.class);
@@ -37,8 +36,8 @@ public class ClientHandle extends ChannelInboundHandlerAdapter {
      * @param msg messages
      */
     @Override
-    public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-        System.out.println("客户端成功收到信息 " + msg.toString());
+    public void channelRead0(ChannelHandlerContext ctx, String msg) throws Exception {
+        System.out.println("客户端成功收到信息 " + msg);
     }
 
     /**
@@ -49,7 +48,14 @@ public class ClientHandle extends ChannelInboundHandlerAdapter {
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
         ChannelId id = ctx.channel().id();
-        logger.info("---- 连接成功 "+id.asLongText());
+        logger.info("---- 连接成功 " + id);
+
+        BeatInfo beatInfo = new BeatInfo();
+        beatInfo.setId("1");
+        beatInfo.setContent("login server");
+        String jsonString = JSONObject.toJSONString(beatInfo);
+        Channel channel = ctx.channel();
+        channel.writeAndFlush(jsonString);
     }
 
     /**
@@ -59,7 +65,8 @@ public class ClientHandle extends ChannelInboundHandlerAdapter {
      */
     @Override
     public void channelInactive(ChannelHandlerContext ctx) throws Exception {
-        logger.info("---- 连接断开");
+        ChannelId id = ctx.channel().id();
+        logger.info("---- 连接断开 {}", id);
     }
 
     /**
@@ -78,7 +85,6 @@ public class ClientHandle extends ChannelInboundHandlerAdapter {
                 //如果写通道处于空闲状态,就发送心跳命令
                 BeatInfo beatInfo = new BeatInfo();
                 beatInfo.setId("1");
-//                beatInfo.setId("2");
                 beatInfo.setContent("ping server");
                 String jsonString = JSONObject.toJSONString(beatInfo);
                 Channel channel = ctx.channel();

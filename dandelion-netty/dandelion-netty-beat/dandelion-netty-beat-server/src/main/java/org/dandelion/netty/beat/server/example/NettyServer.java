@@ -1,7 +1,6 @@
 package org.dandelion.netty.beat.server.example;
 
 import io.netty.bootstrap.ServerBootstrap;
-import io.netty.channel.Channel;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelOption;
 import io.netty.channel.EventLoopGroup;
@@ -14,6 +13,7 @@ import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
+import javax.annotation.Resource;
 import java.net.InetSocketAddress;
 
 /**
@@ -31,6 +31,9 @@ public class NettyServer {
     @Value("${netty.server.port}")
     private Integer serverPort;
 
+    @Resource
+    private ServerInitializer serverInitializer;
+
     @PostConstruct
     public void start() {
         logger.info("启动 netty server ...");
@@ -44,7 +47,7 @@ public class NettyServer {
                 // 配置 NioServerSocketChannel 的 TCP 参数
                 .childOption(ChannelOption.SO_BACKLOG, 1024)
                 // 设置绑定 IO 事件的处理类
-                .childHandler(new ServerInitializer());
+                .childHandler(serverInitializer);
         // 绑定并开始接受传入的连接。
         try {
             ChannelFuture channelFuture = sb.bind().sync();

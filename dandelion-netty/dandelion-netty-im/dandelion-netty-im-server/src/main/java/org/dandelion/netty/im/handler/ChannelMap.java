@@ -6,9 +6,9 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * TODO store all connected channels
+ * store all connected channels
  *
- * @author L
+ * @author lx6x
  * @version 1.0
  * @date 2022/5/18 17:05
  */
@@ -41,7 +41,11 @@ public class ChannelMap {
         return connectMap;
     }
 
-    public void putClient(String userId, Channel channel){
-        connectMap.put(userId, channel);
+    public void putClient(String key, Channel channel){
+        connectMap.put(key, channel);
+    }
+
+    public void remove(String key) {
+        connectMap.remove(key);
     }
 }
