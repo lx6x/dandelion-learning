@@ -39,17 +39,17 @@ public class Optionals {
         }
     }
 
-    static void test(String testName,Consumer<Optional<String >> cos){
-        System.out.println(" === "+ testName + " === ");
+    static void test(String testName, Consumer<Optional<String>> cos) {
+        System.out.println(" === " + testName + " === ");
         cos.accept(Stream.of("Epithets").findFirst());
         cos.accept(Stream.<String>empty().findFirst());
     }
 
     public static void main(String[] args) {
-        test("basics",Optionals::basics);
-        test("ifPresent",Optionals::ifPresent);
-        test("orElse",Optionals::orElse);
-        test("orElseGet",Optionals::orElseGet);
-        test("orElseThrow",Optionals::orElseThrow);
+        test("basics", Optionals::basics);
+        test("ifPresent", Optionals::ifPresent);
+        test("orElse", Optionals::orElse);
+        test("orElseGet", Optionals::orElseGet);
+        test("orElseThrow", Optionals::orElseThrow);
     }
 }
