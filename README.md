@@ -24,6 +24,7 @@ dandelion-parent
 ├── dandelion-feignclient                         feignclient
 ├── dandelion-flowable                            工作流实现（flowable-引擎）
 ├── dandelion-limiter                             限流（aop+redis）
+├── dandelion-liquibase                           
 ├── dandelion-mybatis-generator                   mybatis 代码生成器
 ├── dandelion-netty                               netty 
 |   ├── dandelion-netty-beat                      使用netty发送心跳
@@ -50,9 +51,6 @@ dandelion-parent
 ├── dandelion-thread                              线程
 ├── dandelion-ureport2                            图表工具
 ```
-
-
-
 
 ## 所有模块服务端口
 
@@ -95,6 +93,7 @@ dandelion-easyexcel                                         30035
 dandelion-scheduling-spring                                 30036
 dandelion-scheduling-rabbitmq                               30037
 ```
+## 模块涉及官网地址
 
 
 
