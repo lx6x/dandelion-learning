@@ -10,7 +10,7 @@ spring:
     change-log: classpath:liquibase/master.xml
     enabled: true
     # 记录版本日志表
-#    database-change-log-table: databasechangelog
+    database-change-log-table: databasechangelog
     # 记录版本改变lock表
-#    database-change-log-lock-table: databasechangeloglock
+    database-change-log-lock-table: databasechangeloglock
 #    contexts: development
