@@ -3,7 +3,7 @@
         xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
-    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
     <!--
     1：includeAll 标签可以把一个文件夹下的所有 changelog 都加载进来。如果单个加载可以用 include。
     2：includeAll 标签里有两个属性：path 和 relativeToChangelogFile。
