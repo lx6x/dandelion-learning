@@ -24,7 +24,7 @@ dandelion-parent
 ├── dandelion-feignclient                         feignclient
 ├── dandelion-flowable                            工作流实现（flowable-引擎）
 ├── dandelion-limiter                             限流（aop+redis）
-├── dandelion-liquibase                           
+├── dandelion-liquibase                           liquibase sql迭代工具
 ├── dandelion-mybatis-generator                   mybatis 代码生成器
 ├── dandelion-netty                               netty 
 |   ├── dandelion-netty-beat                      使用netty发送心跳
