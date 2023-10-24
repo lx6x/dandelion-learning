@@ -45,6 +45,7 @@ dandelion-parent
 |   ├── dandelion-search-lucene                   lucene 查询
 |   ├── dandelion-search-elasticsearch            elasticsearch 使用
 ├── dandelion-security                            SpringBoot-Security安全框架（2.3.2）
+|   ├── dandelion-security-boot3                  springboot3 security使用方式
 |   ├── dandelion-security-init                   初始
 |   ├── dandelion-security-jwt                    jwt使用
 |   ├── dandelion-security-jwt-auth               jwt+auth使用
@@ -93,6 +94,7 @@ dandelion-easyexcel                                         30035
 dandelion-scheduling-spring                                 30036
 dandelion-scheduling-rabbitmq                               30037
 dandelion-liquibase                                         30038
+dandelion-security-boot3                                    30039
 ```
 
 ## 模块涉及官网地址
