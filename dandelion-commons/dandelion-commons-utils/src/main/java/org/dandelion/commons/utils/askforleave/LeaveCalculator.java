@@ -77,7 +77,11 @@ public class LeaveCalculator {
 
                 // 如果请假结束时间在中午12点01分到晚上8点之间，按0.5天计算
                 if (endTime.toLocalTime().isAfter(LocalTime.of(12, 0, 1)) && endTime.toLocalTime().isBefore(LocalTime.of(23, 59))) {
-                    leaveDays += 0.5;
+                    if (startTime.toLocalDate().isEqual(endTime.toLocalDate())) {
+                        leaveDays += 0.5;
+                    } else {
+                        leaveDays += 1;
+                    }
                 }
             }
         } else {
@@ -148,8 +152,8 @@ public class LeaveCalculator {
 //            LocalDateTime startTime = LocalDateTime.of(2023, 10, 30, 10, 0);
 //            LocalDateTime endTime1 = LocalDateTime.of(2023, 11, 2, 10, 0);
 //
-        LocalDateTime startTime = LocalDateTime.of(2023, 11, 10, 9, 0);
-        LocalDateTime endTime1 = LocalDateTime.of(2023, 11, 13, 12, 0);
+        LocalDateTime startTime = LocalDateTime.of(2023, 11, 3, 1, 0);
+        LocalDateTime endTime1 = LocalDateTime.of(2023, 11, 3, 8, 0);
         double leaveDays1 = LeaveCalculator.calculateLeaveDays(startTime, endTime1);
         System.out.println("请假时长为：" + leaveDays1);
     }
