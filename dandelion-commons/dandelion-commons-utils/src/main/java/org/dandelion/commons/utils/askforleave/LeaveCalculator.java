@@ -63,28 +63,65 @@ public class LeaveCalculator {
 
         // 如果请假开始时间和结束时间在同一天
         if (days == 0) {
-            // 如果请假开始时间在上午9点到中午12点之间，按0.5天计算
-            if (startTime.toLocalTime().isAfter(LocalTime.of(1, 0)) && startTime.toLocalTime().isBefore(LocalTime.of(12, 0))) {
-                leaveDays += 0.5;
+            if (startTime.getDayOfWeek().getValue() != 6 && startTime.getDayOfWeek().getValue() != 7) {
+                // 如果请假开始时间在上午9点到中午12点之间，按0.5天计算
+                if (startTime.toLocalTime().isAfter(LocalTime.of(1, 0)) && startTime.toLocalTime().isBefore(LocalTime.of(12, 0))) {
+                    if (startTime.toLocalDate().isEqual(endTime.toLocalDate())) {
+                        leaveDays += 0.5;
+                    } else {
+                        leaveDays += 1;
+                    }
+                }
             }
-            // 如果请假结束时间在中午12点01分到晚上8点之间，按0.5天计算
-            if (endTime.toLocalTime().isAfter(LocalTime.of(12, 0, 1)) && endTime.toLocalTime().isBefore(LocalTime.of(23, 59))) {
-                leaveDays += 0.5;
+            if (endTime.getDayOfWeek().getValue() != 6 && endTime.getDayOfWeek().getValue() != 7) {
+
+                // 如果请假结束时间在中午12点01分到晚上8点之间，按0.5天计算
+                if (endTime.toLocalTime().isAfter(LocalTime.of(12, 0, 1)) && endTime.toLocalTime().isBefore(LocalTime.of(23, 59))) {
+                    leaveDays += 0.5;
+                }
             }
         } else {
-            // 如果请假开始时间在上午9点到中午12点之间，按0.5天计算
-            if (startTime.toLocalTime().isAfter(LocalTime.of(1, 0)) && startTime.toLocalTime().isBefore(LocalTime.of(12, 0))) {
-                leaveDays += 0.5;
+            if (startTime.getDayOfWeek().getValue() != 6 && startTime.getDayOfWeek().getValue() != 7) {
+                // 如果请假开始时间在上午9点到中午12点之间，按0.5天计算
+                if (startTime.toLocalTime().isAfter(LocalTime.of(1, 0)) && startTime.toLocalTime().isBefore(LocalTime.of(12, 0))) {
+
+                    if (startTime.toLocalDate().isEqual(endTime.toLocalDate())) {
+                        leaveDays += 0.5;
+                    } else {
+                        leaveDays += 1;
+                    }
+
+                } else {
+                    leaveDays += 0.5;
+                }
             }
-            // 如果请假结束时间在中午12点01分到晚上8点之间，按0.5天计算
-            if (endTime.toLocalTime().isAfter(LocalTime.of(12, 0, 1)) && endTime.toLocalTime().isBefore(LocalTime.of(23, 59))) {
-                leaveDays += 0.5;
+
+            if (endTime.getDayOfWeek().getValue() != 6 && endTime.getDayOfWeek().getValue() != 7) {
+                // 如果请假结束时间在中午12点01分到晚上8点之间，按0.5天计算
+
+
+                if (endTime.toLocalTime().isAfter(LocalTime.of(12, 0, 1)) && endTime.toLocalTime().isBefore(LocalTime.of(23, 59))) {
+
+                    if (startTime.toLocalDate().isEqual(endTime.toLocalDate())) {
+                        leaveDays += 0.5;
+                    } else {
+                        leaveDays += 1;
+                    }
+                } else {
+                    leaveDays += 0.5;
+                }
             }
 
             // 计算请假期间的工作日天数
             for (int i = 0; i < days; i++) {
                 LocalDate date = startTime.toLocalDate().plusDays(i);
-                if (!isHoliday(date)) {
+                boolean b = isHoliday(date);
+                if (!b) {
+
+                    if (date.isEqual(startTime.toLocalDate()) || date.isEqual(endTime.toLocalDate())) {
+                        continue;
+                    }
+
                     leaveDays += 1.0;
                 }
             }
@@ -94,23 +131,25 @@ public class LeaveCalculator {
     }
 
     private static boolean isHoliday(LocalDate date) {
+        boolean b = false;
         // 判断是否是周末
         if (date.getDayOfWeek().getValue() == 6 || date.getDayOfWeek().getValue() == 7) {
 
             // TODO 还需要判断是否是周六日调休
-            return true;
+            b = true;
+        }else {
+            b = HOLIDAYS.contains(date);
         }
-
         // 判断是否是节假日
-        return HOLIDAYS.contains(date);
+        return b;
     }
 
     public static void main(String[] args) {
 //            LocalDateTime startTime = LocalDateTime.of(2023, 10, 30, 10, 0);
 //            LocalDateTime endTime1 = LocalDateTime.of(2023, 11, 2, 10, 0);
 //
-        LocalDateTime startTime = LocalDateTime.of(2023, 10, 12, 9, 0);
-        LocalDateTime endTime1 = LocalDateTime.of(2023, 10, 13, 12, 0);
+        LocalDateTime startTime = LocalDateTime.of(2023, 11, 10, 9, 0);
+        LocalDateTime endTime1 = LocalDateTime.of(2023, 11, 13, 12, 0);
         double leaveDays1 = LeaveCalculator.calculateLeaveDays(startTime, endTime1);
         System.out.println("请假时长为：" + leaveDays1);
     }
