@@ -22,6 +22,7 @@ dandelion-parent
 |   ├── dandelion-doc-swagger                     Swagger
 ├── dandelion-easyexcel                           easyexecl 工具包使用
 ├── dandelion-feignclient                         feignclient
+├── dandelion-kaptcha                             图形验证码
 ├── dandelion-flowable                            工作流实现（flowable-引擎）
 ├── dandelion-limiter                             限流（aop+redis）
 ├── dandelion-liquibase                           liquibase sql迭代工具
@@ -95,6 +96,7 @@ dandelion-scheduling-spring                                 30036
 dandelion-scheduling-rabbitmq                               30037
 dandelion-liquibase                                         30038
 dandelion-security-boot3                                    30039
+dandelion-kaptcha                                           30040
 ```
 
 ## 模块涉及官网地址
