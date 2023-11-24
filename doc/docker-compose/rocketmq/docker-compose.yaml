@@ -1,0 +1,58 @@
+version: "3.5"
+# 简易能跑配置
+services:
+  rocketmq-namesrv:
+    image: apache/rocketmq:latest
+    container_name: rocketmq-namesrv
+    ports:
+      - 9876:9876
+#    volumes:
+#      - /opt/rocketmq/logs:/home/rocketmq/logs
+#      - /opt/rocketmq/store:/home/rocketmq/store
+    environment:
+      JAVA_OPT_EXT: "-Duser.home=/home/rocketmq -Xms512M -Xmx512M -Xmn128M"
+    command: [ "sh","mqnamesrv" ]
+    networks:
+      rocketmq:
+        aliases:
+          - rocketmq-namesrv
+
+  rocketmq-broker:
+    image: apache/rocketmq:latest
+    container_name: rocketmq-broker
+    ports:
+      - 10909:10909
+      - 10911:10911
+#    volumes:
+#      - /opt/rocketmq/logs:/home/rocketmq/logs
+#      - /opt/rocketmq/store:/home/rocketmq/store
+#      - /opt/rocketmq/conf/broker.conf:/opt/rocketmq/conf/broker.conf
+    environment:
+      JAVA_OPT_EXT: "-Duser.home=/home/rocketmq -Xms512M -Xmx512M -Xmn128M -XX:-AssumeMP"
+    command: [ "sh","mqbroker","-n","rocketmq-namesrv:9876","autoCreateTopicEnable=true" ]
+    depends_on:
+      - rocketmq-namesrv
+    networks:
+      rocketmq:
+        aliases:
+          - rocketmq-broker
+
+  rocketmq-dashboard:
+    image: apacherocketmq/rocketmq-dashboard:latest
+    container_name: rocketmq-dashboard
+    restart: always
+    ports:
+      - 8180:8080
+    environment:
+      JAVA_OPTS: "-Drocketmq.namesrv.addr=rocketmq-namesrv:9876 -Dcom.rocketmq.sendMessageWithVIPChannel=false"
+    depends_on:
+      - rocketmq-namesrv
+    networks:
+      rocketmq:
+        aliases:
+          - rocketmq-console
+
+networks:
+  rocketmq:
+    name: rocketmq
+    driver: bridge
