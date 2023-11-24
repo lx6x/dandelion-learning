@@ -26,6 +26,9 @@ dandelion-parent
 ├── dandelion-flowable                            工作流实现（flowable-引擎）
 ├── dandelion-limiter                             限流（aop+redis）
 ├── dandelion-liquibase                           liquibase sql迭代工具
+├── dandelion-locak                               
+├── dandelion-log                                 日志实现
+|   ├── dandelion-log-logback                     logback日志实现
 ├── dandelion-mybatis-generator                   mybatis 代码生成器
 ├── dandelion-netty                               netty 
 |   ├── dandelion-netty-beat                      使用netty发送心跳
@@ -97,6 +100,7 @@ dandelion-scheduling-rabbitmq                               30037
 dandelion-liquibase                                         30038
 dandelion-security-boot3                                    30039
 dandelion-kaptcha                                           30040
+dandelion-log-logback                                       30041
 ```
 
 ## 模块涉及官网地址

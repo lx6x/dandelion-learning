@@ -1,0 +1,6 @@
+server:
+  port: 30041
+logging:
+  logback:
+    rollingpolicy:
+      clean-history-on-start:
