@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <configuration>
-    <springProperty scope="context" name="log.path" source="log.path" defaultValue="logs"/>
-    <springProperty scope="context" name="log.env" source="env.name" defaultValue="NO"/>
+    <springProperty scope="context" name="APP_NAME" source="project.name"/>
+    <property name="LOG_PATH" value="${user.home}/dandelion/logs"/>
+    <property name="LOG_FILE" value="${LOG_PATH}/application.log"/>
 
     <!--  默认配置  -->
     <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
@@ -26,13 +27,12 @@
 
     <appender name="APPLICATION"
               class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${log.path}/info.log</file>
+        <file>${LOG_FILE}</file>
         <encoder>
             <pattern>${EASY_FILE_LOG_PATTERN}</pattern>
-            <charset>UTF-8</charset>
         </encoder>
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
-            <fileNamePattern>${log.path}/.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <fileNamePattern>${LOG_FILE}.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
             <maxHistory>7</maxHistory>
             <maxFileSize>1GB</maxFileSize>
             <totalSizeCap>10GB</totalSizeCap>
