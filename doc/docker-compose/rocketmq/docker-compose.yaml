@@ -2,13 +2,13 @@ version: "3.5"
 # 简易能跑配置
 services:
   rocketmq-namesrv:
-    image: apache/rocketmq:latest
+    image: rocketmqinc/rocketmq:latest
     container_name: rocketmq-namesrv
     ports:
       - 9876:9876
-#    volumes:
-#      - /opt/rocketmq/logs:/home/rocketmq/logs
-#      - /opt/rocketmq/store:/home/rocketmq/store
+    #    volumes:
+    #      - /opt/rocketmq/logs:/home/rocketmq/logs
+    #      - /opt/rocketmq/store:/home/rocketmq/store
     environment:
       JAVA_OPT_EXT: "-Duser.home=/home/rocketmq -Xms512M -Xmx512M -Xmn128M"
     command: [ "sh","mqnamesrv" ]
@@ -18,18 +18,21 @@ services:
           - rocketmq-namesrv
 
   rocketmq-broker:
-    image: apache/rocketmq:latest
+    image: rocketmqinc/rocketmq:latest
     container_name: rocketmq-broker
     ports:
       - 10909:10909
       - 10911:10911
-#    volumes:
-#      - /opt/rocketmq/logs:/home/rocketmq/logs
-#      - /opt/rocketmq/store:/home/rocketmq/store
-#      - /opt/rocketmq/conf/broker.conf:/opt/rocketmq/conf/broker.conf
+    volumes:
+      #      - /opt/rocketmq/logs:/home/rocketmq/logs
+      #      - /opt/rocketmq/store:/home/rocketmq/store
+      #      - /home/docker/rocketmq/conf/broker.conf:/opt/rocketmq-4.4.0/conf/broker.conf
+      #     本地 Docker Desktop
+      - D:\docker\volume\rocketmq\broker\conf\broker.conf:/home/rocketmq/conf/broker.conf
     environment:
       JAVA_OPT_EXT: "-Duser.home=/home/rocketmq -Xms512M -Xmx512M -Xmn128M -XX:-AssumeMP"
-    command: [ "sh","mqbroker","-n","rocketmq-namesrv:9876","autoCreateTopicEnable=true" ]
+      # -c /opt/rocketmq-4.4.0/conf/broker.conf
+    command: [ "sh","mqbroker","-n","rocketmq-namesrv:9876","-c","/home/rocketmq/conf/broker.conf","autoCreateTopicEnable=true" ]
     depends_on:
       - rocketmq-namesrv
     networks:
