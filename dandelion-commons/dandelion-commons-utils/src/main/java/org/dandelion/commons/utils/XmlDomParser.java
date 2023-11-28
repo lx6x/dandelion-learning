@@ -11,7 +11,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.File;
 
 /**
- * @author liujunfei
+ * @author lx6x
  * @date 2023/7/21
  */
 public class XmlDomParser {

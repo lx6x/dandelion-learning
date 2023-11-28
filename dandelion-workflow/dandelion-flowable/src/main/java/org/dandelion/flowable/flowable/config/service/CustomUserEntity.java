@@ -4,7 +4,7 @@ import org.flowable.idm.api.User;
 import org.flowable.idm.engine.impl.persistence.entity.UserEntityImpl;
 
 /**
- * @author liujunfei
+ * @author lx6x
  * @date 2023/7/14
  */
 public class CustomUserEntity extends UserEntityImpl {

@@ -3,7 +3,7 @@ package org.dandelion.commons.utils;
 import java.security.SecureRandom;
 
 /**
- * @author liujunfei
+ * @author lx6x
  * @date 2023/7/17
  */
 public class SecureRandomStringGenerator {

@@ -5,7 +5,7 @@ import com.baomidou.mybatisplus.generator.FastAutoGenerator;
 /**
  * <a href="https://baomidou.com/pages/981406/#%E7%AD%96%E7%95%A5%E9%85%8D%E7%BD%AE-strategyconfig">mybatis plus generator</a>
  *
- * @author liujunfei
+ * @author lx6x
  * @date 2023/7/14
  */
 public class MybatisPlusGenerator {

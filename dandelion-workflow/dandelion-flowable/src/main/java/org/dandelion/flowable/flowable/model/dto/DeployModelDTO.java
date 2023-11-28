@@ -4,7 +4,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 /**
- * @author liujunfei
+ * @author lx6x
  * @date 2023/7/14
  */
 @Data
