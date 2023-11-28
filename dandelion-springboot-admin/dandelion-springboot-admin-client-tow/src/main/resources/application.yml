@@ -1,15 +1,15 @@
 server:
-  port: 8181
+  port: 8182
 spring:
   boot:
     admin:
       client:
         url: http://localhost:8080
-        # 是否使用注册的ip地址来取代其他设置url中hostname的值
         instance:
+          # 是否使用注册的ip地址来取代其他设置url中hostname的值
           service-host-type: ip
   application:
-    name: adminClientOne
+    name: adminClientTow
 #配置可监控信息
 management:
   #对外开放某个监控点
