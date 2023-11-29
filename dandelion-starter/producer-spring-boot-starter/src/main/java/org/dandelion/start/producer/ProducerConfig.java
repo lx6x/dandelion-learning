@@ -1,6 +1,7 @@
 package org.dandelion.start.producer;
 
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.dandelion.start.producer.example.ProducerService;
@@ -14,7 +15,7 @@ import org.dandelion.start.producer.example.ProducerService;
 public class ProducerConfig {
 
     @Bean
-    @ConditionalOnBean
+    @ConditionalOnMissingBean
     public ProducerService producerService() {
         return new ProducerService();
     }

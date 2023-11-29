@@ -7,7 +7,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @author lx6x
  * @date 2023/11/28
  */
-@SpringBootApplication(scanBasePackages = {"org.dandelion.start"})
+//@SpringBootApplication(scanBasePackages = {"org.dandelion.start"})
+@SpringBootApplication
 public class ConsumerApplication {
 
     public static void main(String[] args) {

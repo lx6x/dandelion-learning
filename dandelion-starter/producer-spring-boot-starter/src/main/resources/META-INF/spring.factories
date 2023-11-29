@@ -1,1 +1,2 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=org.dandelion.start.producer.ProducerConfig
+# 2.7.x??????
+# org.springframework.boot.autoconfigure.EnableAutoConfiguration=org.dandelion.start.producer.ProducerConfig
