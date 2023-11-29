@@ -1,0 +1,17 @@
+server:
+  port: 30042
+spring:
+  application:
+    name: dandelion-actuator
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    env:
+      # 敏感值
+      show-values: always
+    health:
+      show-details: always
+

@@ -6,6 +6,7 @@
 
 ```
 dandelion-parent
+├── dandelion-actuator                            监控
 ├── dandelion-arithmetic                          算法实现
 ├── dandelion-bigdata                             大数据（hive hdfs 操作等）
 ├── dandelion-commons                             公共模块
@@ -101,6 +102,7 @@ dandelion-liquibase                                         30038
 dandelion-security-boot3                                    30039
 dandelion-kaptcha                                           30040
 dandelion-log-logback                                       30041
+dandelion-actuator                                          30042
 ```
 
 ## 模块涉及官网地址
