@@ -1,4 +1,6 @@
-package com.dandelion.actuator.register;
+package org.dandelion.starter.monitor.client.register;
+
+import org.dandelion.starter.monitor.client.Application;
 
 /**
  * @author lx6x
@@ -6,8 +8,5 @@ package com.dandelion.actuator.register;
  */
 public interface ApplicationFactory {
 
-    /**
-     * @return {@link Application} instance;
-     */
     Application createApplication();
 }
