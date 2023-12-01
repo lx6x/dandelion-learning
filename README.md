@@ -54,6 +54,10 @@ dandelion-parent
 |   ├── dandelion-security-init                   初始
 |   ├── dandelion-security-jwt                    jwt使用
 |   ├── dandelion-security-jwt-auth               jwt+auth使用
+├── dandelion-springboot-admin                    Spring Boot Admin 集成使用示例
+|   ├── dandelion-springboot-admin-client-one     client 测试1
+|   ├── dandelion-springboot-admin-client-tow     client 测试2
+|   ├── dandelion-springboot-admin-server         server 
 ├── dandelion-thread                              线程
 ├── dandelion-ureport2                            图表工具
 ```
