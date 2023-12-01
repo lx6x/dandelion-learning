@@ -5,13 +5,15 @@
 
 	<groupId>org.dandelion.start</groupId>
 	<artifactId>dandelion-starter</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0</version>
 	<name>dandelion-starter</name>
 	<description>dandelion-starter</description>
 	<packaging>pom</packaging>
 	<modules>
-		<module>producer-spring-boot-starter</module>
-		<module>consumer-spring-boot-starter</module>
+		<module>dandelion-monitor-client</module>
+		<module>dandelion-monitor-server</module>
+		<module>monitor-client-spring-boot-starter</module>
+		<module>monitor-server-spring-boot-starter</module>
 	</modules>
 
 	<properties>
@@ -19,6 +21,18 @@
 		<maven.compiler.target>17</maven.compiler.target>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-dependencies</artifactId>
+				<version>3.2.0</version>
+				<scope>import</scope>
+				<type>pom</type>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 
 
 </project>

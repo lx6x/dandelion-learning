@@ -6,11 +6,11 @@
     <parent>
         <groupId>org.dandelion.start</groupId>
         <artifactId>dandelion-starter</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
+        <version>1.0</version>
     </parent>
 
-    <groupId>org.dandelion.start.consumer</groupId>
-    <artifactId>consumer-spring-boot-starter</artifactId>
+    <groupId>org.dandelion.monitor.server</groupId>
+    <artifactId>dandelion-monitor-server</artifactId>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
@@ -22,14 +22,16 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
-            <version>3.1.5</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.dandelion.start.producer</groupId>
-            <artifactId>producer-spring-boot-starter</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
         </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>

@@ -4,13 +4,17 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>org.dandelion.start</groupId>
-        <artifactId>dandelion-starter</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.2.0</version>
+        <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
-    <groupId>org.dandelion.start.producer</groupId>
-    <artifactId>producer-spring-boot-starter</artifactId>
+    <groupId>org.dandelion.start.example</groupId>
+    <artifactId>example-spring-boot-starter</artifactId>
+    <version>1.0</version>
+    <name>example-spring-boot-starter</name>
+    <description>example-spring-boot-starter</description>
     <packaging>jar</packaging>
 
     <properties>
@@ -24,13 +28,11 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
-            <version>${spring-boot.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-autoconfigure</artifactId>
-            <version>${spring-boot.version}</version>
         </dependency>
 
     </dependencies>

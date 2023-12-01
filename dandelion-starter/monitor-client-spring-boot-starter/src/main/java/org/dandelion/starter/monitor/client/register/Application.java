@@ -1,4 +1,4 @@
-package org.dandelion.starter.monitor.client;
+package org.dandelion.starter.monitor.client.register;
 
 import lombok.Builder;
 import lombok.Data;

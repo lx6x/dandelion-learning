@@ -1,4 +1,4 @@
-package org.dandelion.start.producer.example;
+package org.dandelion.start.example;
 
 import jakarta.annotation.PostConstruct;
 import org.springframework.stereotype.Component;

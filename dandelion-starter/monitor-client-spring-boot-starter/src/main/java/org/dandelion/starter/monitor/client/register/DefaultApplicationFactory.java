@@ -1,11 +1,6 @@
 package org.dandelion.starter.monitor.client.register;
 
-import org.dandelion.starter.monitor.client.Application;
 import org.dandelion.starter.monitor.client.properties.ApplicationProperties;
-import org.springframework.boot.actuate.env.EnvironmentEndpoint;
-import org.springframework.core.env.Environment;
-import org.springframework.util.StringUtils;
-import org.springframework.web.util.UriComponentsBuilder;
 
 import java.lang.management.ManagementFactory;
 import java.lang.management.RuntimeMXBean;
