@@ -1,4 +1,4 @@
-package org.dandelion.starter.monitor.client.register;
+package org.dandelion.starter.monitor.client.application;
 
 import lombok.Builder;
 import lombok.Data;
@@ -16,7 +16,7 @@ import java.util.Map;
  */
 @Data
 @ToString(exclude = "metadata")
-public class Application {
+public class ServiceInfo {
 
     private final String name;
 
@@ -33,7 +33,7 @@ public class Application {
     private final Map<String, String> metadata;
 
     @Builder
-    protected Application(String name, String host, String pid, String managementUrl, String healthUrl, String serviceUrl, Map<String, String> metadata) {
+    protected ServiceInfo(String name, String host, String pid, String managementUrl, String healthUrl, String serviceUrl, Map<String, String> metadata) {
         this.pid = pid;
         this.host = host;
         this.name = name;

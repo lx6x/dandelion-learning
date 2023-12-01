@@ -1,11 +1,11 @@
 package org.dandelion.starter.monitor.client.config;
 
-import org.dandelion.starter.monitor.client.listener.PushListener;
+import org.dandelion.starter.monitor.client.register.listener.RedisterListener;
 import org.dandelion.starter.monitor.client.properties.ApplicationProperties;
-import org.dandelion.starter.monitor.client.push.DefaultPushFactory;
-import org.dandelion.starter.monitor.client.push.PushFactory;
-import org.dandelion.starter.monitor.client.register.ApplicationFactory;
-import org.dandelion.starter.monitor.client.register.DefaultApplicationFactory;
+import org.dandelion.starter.monitor.client.register.DefaultRegisterFactory;
+import org.dandelion.starter.monitor.client.register.RegisterFactory;
+import org.dandelion.starter.monitor.client.application.ServiceInfoFactory;
+import org.dandelion.starter.monitor.client.application.DefaultServiceInfoFactory;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnWebApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -23,20 +23,20 @@ public class ClientAutoConfiguration {
 
     @Bean
     @ConditionalOnMissingBean
-    public ApplicationFactory applicationFactory(ApplicationProperties applicationProperties) {
-        return new DefaultApplicationFactory(applicationProperties);
+    public ServiceInfoFactory applicationFactory(ApplicationProperties applicationProperties) {
+        return new DefaultServiceInfoFactory(applicationProperties);
     }
 
     @Bean
     @ConditionalOnMissingBean
-    public PushFactory pushFactory(ApplicationFactory applicationFactory, ApplicationProperties applicationProperties) {
-        return new DefaultPushFactory(applicationFactory.createApplication(), applicationProperties);
+    public RegisterFactory pushFactory(ServiceInfoFactory serviceInfoFactory, ApplicationProperties applicationProperties) {
+        return new DefaultRegisterFactory(serviceInfoFactory.createApplication(), applicationProperties);
     }
 
     @Bean
     @ConditionalOnMissingBean
-    public PushListener pushListener(PushFactory pushFactory, ApplicationProperties applicationProperties) {
-        return new PushListener(pushFactory, applicationProperties);
+    public RedisterListener pushListener(RegisterFactory registerFactory, ApplicationProperties applicationProperties) {
+        return new RedisterListener(registerFactory, applicationProperties);
     }
 
 }

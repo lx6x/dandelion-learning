@@ -6,12 +6,12 @@ import org.springframework.context.annotation.Import;
 import java.lang.annotation.*;
 
 /**
- * @author liujunfei
+ * @author lx6x
  * @date 2023/11/30
  */
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 @Import(ClientAutoConfiguration.class)
-public @interface EnableCollectionClient {
+public @interface EnableMonitorClient {
 }

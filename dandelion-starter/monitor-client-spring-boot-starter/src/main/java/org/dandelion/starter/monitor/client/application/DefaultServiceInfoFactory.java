@@ -1,4 +1,4 @@
-package org.dandelion.starter.monitor.client.register;
+package org.dandelion.starter.monitor.client.application;
 
 import org.dandelion.starter.monitor.client.properties.ApplicationProperties;
 
@@ -11,19 +11,19 @@ import java.net.UnknownHostException;
  * @author lx6x
  * @date 2023/11/29
  */
-public class DefaultApplicationFactory implements ApplicationFactory {
+public class DefaultServiceInfoFactory implements ServiceInfoFactory {
 
     private final ApplicationProperties applicationProperties;
-    public DefaultApplicationFactory(ApplicationProperties applicationProperties) {
+    public DefaultServiceInfoFactory(ApplicationProperties applicationProperties) {
         this.applicationProperties=applicationProperties;
     }
 
     @Override
-    public Application createApplication() {
+    public ServiceInfo createApplication() {
         RuntimeMXBean runtimeMXBean = ManagementFactory.getRuntimeMXBean();
         // 获取进程 ID
         String processId = runtimeMXBean.getName().split("@")[0];
-        return Application.builder().name(applicationProperties.getName()).pid(processId).host(getHost(getLocalHost())).build();
+        return ServiceInfo.builder().name(applicationProperties.getName()).pid(processId).host(getHost(getLocalHost())).build();
     }
 
     protected InetAddress getLocalHost() {
