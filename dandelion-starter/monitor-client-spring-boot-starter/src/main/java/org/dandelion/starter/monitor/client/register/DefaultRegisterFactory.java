@@ -42,9 +42,8 @@ public class DefaultRegisterFactory implements RegisterFactory {
 
         String serverUrl = applicationProperties.getServerUrl();
         if (serverUrl != null) {
-
-            ResponseEntity<Map<String, Object>> exchange = restTemplate.exchange(applicationProperties.getServerUrl(), HttpMethod.POST, new HttpEntity<>(serviceInfo), RESPONSE_TYPE);
-            System.out.println(exchange);
+            HttpEntity<ServiceInfo> requestEntity = new HttpEntity<>(serviceInfo, createRequestHeaders());
+           restTemplate.postForEntity(serverUrl,requestEntity, String.class);
         }
     }
 

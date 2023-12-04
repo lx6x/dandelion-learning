@@ -1,16 +1,14 @@
-package org.dandelion.starter.monitor.client.application;
+package org.dandelion.start.monitor.server.register.model;
 
 import lombok.Builder;
 import lombok.Data;
+import lombok.ToString;
 
 import java.io.Serializable;
 
 /**
- * 参考 SpringBoot Admin
- * 注册信息
- *
  * @author lx6x
- * @date 2023/11/29
+ * @date 2023/12/1
  */
 @Data
 public class ServiceInfo implements Serializable {
@@ -27,6 +25,8 @@ public class ServiceInfo implements Serializable {
         this.pid = pid;
         this.host = host;
         this.name = name;
-
     }
+
+
 }
+

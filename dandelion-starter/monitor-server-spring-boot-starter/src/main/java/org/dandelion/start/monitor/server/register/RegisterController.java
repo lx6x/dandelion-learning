@@ -1,6 +1,6 @@
 package org.dandelion.start.monitor.server.register;
 
-import org.dandelion.start.monitor.server.register.model.Application;
+import org.dandelion.start.monitor.server.register.model.ServiceInfo;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class RegisterController {
 
     @PostMapping(path = "/instances", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void register(@RequestBody Application application) {
-        System.out.println(application.toString());
+    public void register(@RequestBody ServiceInfo serviceInfo) {
+        System.out.println(serviceInfo.toString());
     }
 }
