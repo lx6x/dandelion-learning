@@ -6,7 +6,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.core.ParameterizedTypeReference;
-import org.springframework.http.*;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.Collections;
@@ -43,7 +46,11 @@ public class DefaultRegisterFactory implements RegisterFactory {
         String serverUrl = applicationProperties.getServerUrl();
         if (serverUrl != null) {
             HttpEntity<ServiceInfo> requestEntity = new HttpEntity<>(serviceInfo, createRequestHeaders());
-           restTemplate.postForEntity(serverUrl,requestEntity, String.class);
+            try {
+                restTemplate.postForEntity(serverUrl, requestEntity, String.class);
+            } catch (RestClientException e) {
+                logger.error(e.getMessage());
+            }
         }
     }
 

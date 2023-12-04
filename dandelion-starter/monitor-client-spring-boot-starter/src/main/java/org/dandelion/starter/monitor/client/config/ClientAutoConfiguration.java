@@ -1,6 +1,6 @@
 package org.dandelion.starter.monitor.client.config;
 
-import org.dandelion.starter.monitor.client.register.listener.RedisterListener;
+import org.dandelion.starter.monitor.client.register.listener.RegisterListener;
 import org.dandelion.starter.monitor.client.properties.ApplicationProperties;
 import org.dandelion.starter.monitor.client.register.DefaultRegisterFactory;
 import org.dandelion.starter.monitor.client.register.RegisterFactory;
@@ -35,8 +35,8 @@ public class ClientAutoConfiguration {
 
     @Bean
     @ConditionalOnMissingBean
-    public RedisterListener pushListener(RegisterFactory registerFactory, ApplicationProperties applicationProperties) {
-        return new RedisterListener(registerFactory, applicationProperties);
+    public RegisterListener pushListener(RegisterFactory registerFactory, ApplicationProperties applicationProperties) {
+        return new RegisterListener(registerFactory, applicationProperties);
     }
 
 }

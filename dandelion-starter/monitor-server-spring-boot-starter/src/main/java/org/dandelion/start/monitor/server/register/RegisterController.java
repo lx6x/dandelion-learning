@@ -13,8 +13,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class RegisterController {
 
+    private final InstancesRegister instancesRegister;
+
+    public RegisterController(InstancesRegister instancesRegister) {
+        this.instancesRegister = instancesRegister;
+    }
+
     @PostMapping(path = "/instances", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void register(@RequestBody ServiceInfo serviceInfo) {
-        System.out.println(serviceInfo.toString());
+        instancesRegister.save(serviceInfo);
     }
 }

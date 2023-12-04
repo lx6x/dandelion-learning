@@ -4,6 +4,7 @@ import lombok.Data;
 import org.dandelion.starter.monitor.client.enmu.HostType;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.lang.Nullable;
 
 /**
  * @author lx6x
@@ -32,10 +33,18 @@ public class ApplicationProperties {
     /**
      * 设备主机唯一标识键
      */
+    @Nullable
     private String collectionId;
 
+    /**
+     * server 注册url
+     */
     private String serverUrl;
 
+    /**
+     * 是否连接
+     */
+    private boolean connect = true;
 
 
 }

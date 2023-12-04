@@ -23,7 +23,12 @@ public class DefaultServiceInfoFactory implements ServiceInfoFactory {
         RuntimeMXBean runtimeMXBean = ManagementFactory.getRuntimeMXBean();
         // 获取进程 ID
         String processId = runtimeMXBean.getName().split("@")[0];
-        return ServiceInfo.builder().name(applicationProperties.getName()).pid(processId).host(getHost(getLocalHost())).build();
+        return ServiceInfo.builder()
+                .name(applicationProperties.getName())
+                .pid(processId)
+                .host(getHost(getLocalHost()))
+                .collectionId(applicationProperties.getCollectionId())
+                .build();
     }
 
     protected InetAddress getLocalHost() {

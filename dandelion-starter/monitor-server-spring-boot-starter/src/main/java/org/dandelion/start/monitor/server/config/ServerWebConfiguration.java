@@ -1,5 +1,6 @@
 package org.dandelion.start.monitor.server.config;
 
+import org.dandelion.start.monitor.server.register.InstancesRegister;
 import org.dandelion.start.monitor.server.register.RegisterController;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
@@ -14,7 +15,13 @@ public class ServerWebConfiguration {
 
     @Bean
     @ConditionalOnMissingBean
-    public RegisterController registerController(){
-        return new RegisterController();
+    public RegisterController registerController(InstancesRegister instancesRegister){
+        return new RegisterController(instancesRegister);
+    }
+
+    @Bean
+    @ConditionalOnMissingBean
+    public InstancesRegister instancesRegister(){
+        return new InstancesRegister();
     }
 }

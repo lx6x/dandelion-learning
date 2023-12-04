@@ -1,8 +1,9 @@
 package org.dandelion.start.monitor.server.register.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-import lombok.ToString;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 
@@ -11,22 +12,17 @@ import java.io.Serializable;
  * @date 2023/12/1
  */
 @Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class ServiceInfo implements Serializable {
 
-    private final String name;
+    private String name;
 
-    private final String host;
+    private String host;
 
-    private final String pid;
+    private String pid;
 
-
-    @Builder
-    protected ServiceInfo(String name, String host, String pid) {
-        this.pid = pid;
-        this.host = host;
-        this.name = name;
-    }
-
-
+    private String collectionId;
 }
 
