@@ -47,7 +47,7 @@ public class DefaultRegisterFactory implements RegisterFactory {
         if (serverUrl != null) {
             HttpEntity<ServiceInfo> requestEntity = new HttpEntity<>(serviceInfo, createRequestHeaders());
             try {
-                restTemplate.postForEntity(serverUrl, requestEntity, String.class);
+                restTemplate.postForEntity("http://" + serverUrl + "/instances", requestEntity, String.class);
             } catch (RestClientException e) {
                 logger.error(e.getMessage());
             }

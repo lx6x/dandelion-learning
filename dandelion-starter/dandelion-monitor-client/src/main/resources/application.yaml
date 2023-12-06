@@ -1,5 +1,5 @@
 server:
   port: 30043
 mc:
-  server-url: "http://127.0.0.1:30044/instances"
-#  collection-id: 1
+  server-url: "127.0.0.1:30044"
+  collection-id: 1
