@@ -31,6 +31,7 @@ dandelion-parent
 ├── dandelion-log                                 日志实现
 |   ├── dandelion-log-logback                     logback日志实现
 ├── dandelion-mybatis-generator                   mybatis 代码生成器
+├── dandelion-mybatis-flex                        mybatis-flex使用
 ├── dandelion-netty                               netty 
 |   ├── dandelion-netty-beat                      使用netty发送心跳
 |   |   ├── dandelion-netty-beat-server           使用netty发送心跳 测试服务端     
@@ -109,6 +110,7 @@ dandelion-log-logback                                       30041
 dandelion-actuator                                          30042
                                                             30043
                                                             30044
+dandelion-mybatis-flex                                      30045
 ```
 
 ## 模块涉及官网地址
