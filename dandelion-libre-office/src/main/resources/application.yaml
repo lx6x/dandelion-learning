@@ -2,4 +2,9 @@ spring:
   application:
     name: dandelion-libre-office
 server:
-  port:
+  port: 30046
+jodconverter:
+  local:
+    enabled: true
+    office-home: 'F:\Program Files\LibreOffice'
+    port-numbers: 2001,2002
