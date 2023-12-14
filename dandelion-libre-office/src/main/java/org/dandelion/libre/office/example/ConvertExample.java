@@ -2,6 +2,7 @@ package org.dandelion.libre.office.example;
 
 import jakarta.annotation.Resource;
 import org.jodconverter.core.DocumentConverter;
+import org.jodconverter.core.document.DocumentFormat;
 import org.jodconverter.core.office.OfficeException;
 import org.springframework.stereotype.Service;
 
@@ -15,7 +16,7 @@ import java.io.IOException;
 @Service
 public class ConvertExample {
 
-    public String convertToPDF() {
+    public static String convertToPDF() {
         try {
             // 定义LibreOffice命令
             String libreOfficeCommand = "libreoffice --headless --convert-to pdf /path/to/your/document.docx";
@@ -38,11 +39,15 @@ public class ConvertExample {
         }
     }
 
+    public static void main(String[] args) {
+        convertToPDF();
+    }
+
     @Resource
     private DocumentConverter documentConverter;
 
-    public void convertDocument(String sourcePath, String targetPath) throws OfficeException {
+    public void convertDocument(String sourcePath, DocumentFormat sourceType, String targetPath, DocumentFormat targetType) throws OfficeException {
         // 调用jodconverter提供的方法执行文档转换
-        documentConverter.convert(new File(sourcePath)).to(new File(targetPath)).execute();
+        documentConverter.convert(new File(sourcePath)).as(sourceType).to(new File(targetPath)).as(targetType).execute();
     }
 }
