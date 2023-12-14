@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: dandelion-libre-office
+server:
+  port:

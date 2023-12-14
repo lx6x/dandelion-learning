@@ -24,6 +24,7 @@ dandelion-parent
 ├── dandelion-easyexcel                           easyexecl 工具包使用
 ├── dandelion-feignclient                         feignclient
 ├── dandelion-kaptcha                             图形验证码
+├── dandelion-libre-office                        
 ├── dandelion-flowable                            工作流实现（flowable-引擎）
 ├── dandelion-limiter                             限流（aop+redis）
 ├── dandelion-liquibase                           liquibase sql迭代工具
@@ -111,6 +112,7 @@ dandelion-actuator                                          30042
                                                             30043
                                                             30044
 dandelion-mybatis-flex                                      30045
+dandelion-libre-office                                      30046
 ```
 
 ## 模块涉及官网地址
