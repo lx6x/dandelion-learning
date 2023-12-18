@@ -1,12 +1,12 @@
 package org.dandelion.libre.office;
 
-import jakarta.annotation.Resource;
 import org.dandelion.libre.office.example.ConvertExample;
 import org.jodconverter.core.document.DefaultDocumentFormatRegistry;
 import org.jodconverter.core.office.OfficeException;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import javax.annotation.Resource;
 import java.io.IOException;
 
 /**
@@ -20,12 +20,18 @@ public class LibreOfficeApplicationTest {
 
     @Test
     public void excelToPdf() throws OfficeException {
-//        String sourcePath = "C:\\Users\\xiayo\\Desktop\\1.xlsx";
-//        String targetPath = "C:\\Users\\xiayo\\Desktop\\1xlsx.pdf";
-
-        String sourcePath = "C:\\Users\\zk\\Desktop\\1.xls";
-        String targetPath = "C:\\Users\\zk\\Desktop\\1xls.pdf";
+        String sourcePath = "C:\\Users\\xiayo\\Desktop\\1.xlsx";
+        String targetPath = "C:\\Users\\xiayo\\Desktop\\1xlsx.pdf";
+//        String sourcePath = "C:\\Users\\zk\\Desktop\\1.xls";
+//        String targetPath = "C:\\Users\\zk\\Desktop\\1xls.pdf";
         convertExample.convertDocument(sourcePath,DefaultDocumentFormatRegistry.XLS, targetPath, DefaultDocumentFormatRegistry.PDF);
+    }
+
+    @Test
+    public void excelToOds() throws OfficeException {
+        String sourcePath = "C:\\Users\\xiayo\\Desktop\\1.xlsx";
+        String targetPath = "C:\\Users\\xiayo\\Desktop\\1xlsx.ods";
+        convertExample.convertDocument(sourcePath,DefaultDocumentFormatRegistry.XLSX, targetPath,DefaultDocumentFormatRegistry.ODS);
     }
 
     @Test
@@ -36,30 +42,6 @@ public class LibreOfficeApplicationTest {
         String sourcePath = "C:\\Users\\zk\\Desktop\\1.doc";
         String targetPath = "C:\\Users\\zk\\Desktop\\1doc.pdf";
         convertExample.convertDocument(sourcePath,DefaultDocumentFormatRegistry.DOC, targetPath,DefaultDocumentFormatRegistry.PDF);
-    }
-
-    @Test
-    public void convertToPDF() {
-        try {
-            // 定义LibreOffice命令
-            String libreOfficeCommand = "libreoffice --headless --convert-to pdf /path/to/your/document.docx";
-
-            // 执行命令
-            Process process = Runtime.getRuntime().exec(libreOfficeCommand);
-
-            // 等待进程执行完成
-            int exitCode = process.waitFor();
-
-            if (exitCode == 0) {
-                System.out.println("Conversion successful!");
-            } else {
-                System.out.println("Conversion failed!");
-            }
-
-        } catch (IOException | InterruptedException e) {
-            e.printStackTrace();
-            System.out.println("Error during conversion: " + e.getMessage());
-        }
     }
 
 }

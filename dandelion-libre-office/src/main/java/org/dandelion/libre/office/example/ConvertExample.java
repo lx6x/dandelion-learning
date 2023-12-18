@@ -1,11 +1,12 @@
 package org.dandelion.libre.office.example;
 
-import jakarta.annotation.Resource;
 import org.jodconverter.core.DocumentConverter;
 import org.jodconverter.core.document.DocumentFormat;
 import org.jodconverter.core.office.OfficeException;
+import org.jodconverter.local.filter.PageCounterFilter;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.io.File;
 import java.io.IOException;
 
@@ -39,14 +40,16 @@ public class ConvertExample {
         }
     }
 
-    public static void main(String[] args) {
-        convertToPDF();
-    }
-
     @Resource
     private DocumentConverter documentConverter;
 
     public void convertDocument(String sourcePath, DocumentFormat sourceType, String targetPath, DocumentFormat targetType) throws OfficeException {
+        // 调用jodconverter提供的方法执行文档转换
+        documentConverter.convert(new File(sourcePath)).as(sourceType).to(new File(targetPath)).as(targetType).execute();
+    }
+    public void convertDocumentFilter(String sourcePath, DocumentFormat sourceType, String targetPath, DocumentFormat targetType) throws OfficeException {
+
+        PageCounterFilter pageCounterFilter=new PageCounterFilter();
         // 调用jodconverter提供的方法执行文档转换
         documentConverter.convert(new File(sourcePath)).as(sourceType).to(new File(targetPath)).as(targetType).execute();
     }
