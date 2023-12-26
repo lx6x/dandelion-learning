@@ -49,6 +49,9 @@ $ source /etc/profile
 # 安装 openjdk
 # 默认安装路径一般在 /usr/lib/jvm
 $ yum install java-1.8.0-openjdk-devel
+
+# 验证
+$ java -version
 ```
 
 ### Linux 系统设置
@@ -120,7 +123,6 @@ $ ssh node2 # master主机上免密登录到 node2
 ```shell
 $ su root  
 $ chown -R hadoop:hadoop /usr/local/hadoop-3.3.6  
-$ cd /usr/local/hadoop-3.3.6
 
 !!! 注意文件权限问题 !!!
 ```
@@ -135,7 +137,6 @@ export HADOOP_HOME=/usr/local/hadoop-3.3.6 # 对应安装目录
 #### 修改 etc/hadoop/mapred-site.xml
 
 ```xml
-
 <configuration>
     <property>
         <name>mapreduce.framework.name</name>
@@ -161,7 +162,6 @@ export HADOOP_HOME=/usr/local/hadoop-3.3.6 # 对应安装目录
 #### 修改 etc/hadoop/core-site.xml
 
 ```xml
-
 <configuration>
     <property>
         <name>fs.default.name</name>
@@ -177,7 +177,6 @@ export HADOOP_HOME=/usr/local/hadoop-3.3.6 # 对应安装目录
 #### 修改 etc/hadoop/hdfs-site.xml
 
 ```xml
-
 <configuration>
     <property>
         <name>dfs.replication</name>
@@ -201,7 +200,6 @@ export HADOOP_HOME=/usr/local/hadoop-3.3.6 # 对应安装目录
 #### 修改 etc/hadoop/yarn-site.xml
 
 ```xml
-
 <configuration>
     <!-- Site specific YARN configuration properties -->
     <property>
@@ -249,6 +247,6 @@ ip:50070
 
 集群需要节点分发 slave
 
-然后在执行初始化 Hadoop 操作 （在主节点上操作）
+然后再执行初始化 Hadoop 操作 （在主节点上操作）
 
 
