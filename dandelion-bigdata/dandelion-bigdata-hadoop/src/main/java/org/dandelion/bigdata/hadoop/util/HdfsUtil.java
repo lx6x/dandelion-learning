@@ -26,7 +26,7 @@ import java.util.Map;
  */
 public class HdfsUtil {
 
-    private static String path = "hdfs://192.168.80.101:9000";
+    private static String path = "hdfs://node1:9000";
 
     /**
      * 获取HDFS文件系统对象
@@ -261,15 +261,15 @@ public class HdfsUtil {
 
     public static void main(String[] args) throws Exception {
         // 获取指定文件目录下的文件信息
-        /*List<Map<String, Object>> mapList = readPathInfo("/test");
+        List<Map<String, Object>> mapList = readPathInfo("/");
         System.err.println("----------------------------------");
         System.err.println(JSONObject.toJSONString(mapList));
-        System.err.println("----------------------------------");*/
+        System.err.println("----------------------------------");
 
 
-        FileInputStream fileInputStream = new FileInputStream("C:\\Users\\...\\Desktop\\card.csv");
-        byte[] bytes = inputStreamToByte(fileInputStream);
-        createFile("/data/operatorCompare", bytes, "card.csv");
+//        FileInputStream fileInputStream = new FileInputStream("C:\\Users\\...\\Desktop\\card.csv");
+//        byte[] bytes = inputStreamToByte(fileInputStream);
+//        createFile("/data/operatorCompare", bytes, "card.csv");
 
 //        boolean b = existFile("/CCCCCCCCCCCCC/aaaa/1111.txt");
 //        System.err.println(b);

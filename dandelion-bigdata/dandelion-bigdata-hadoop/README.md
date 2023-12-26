@@ -1,6 +1,6 @@
 # dandelion-bigdata
 
-## hadoop 安装
+## hadoop 安装 （单节点） 
 
 ### 环境
 
@@ -8,7 +8,7 @@
 * java8
 * hadoop-3.3.6
 
-#### Hadoop Java 版本
+### Hadoop Java 版本
 
 支持的 Java 版本
 
@@ -103,11 +103,11 @@ chmod 644 ./authorized_keys
 # 测试
 ssh localhost
 
-# 分发authorized_keys到 node1 node2
+# 分发authorized_keys到 node1 node2 集群需要做
 ssh-copy-id hadoop@node1
 ssh-copy-id hadoop@node2
 
-# 在主机上对免密登录进行测试，除第一外后面再登录都不需要输入登录密码
+# 在主机上对免密登录进行测试，除第一外后面再登录都不需要输入登录密码 集群需要做
 ssh node1 # master主机上免密登录到 node1
 ssh node2 # master主机上免密登录到 node2
 
@@ -121,6 +121,8 @@ ssh node2 # master主机上免密登录到 node2
 su root  
 chown -R hadoop:hadoop /usr/local/hadoop-3.3.6  
 cd /usr/local/hadoop-3.3.6
+
+!!! 注意文件权限问题 !!!
 ```
 
 #### 修改 etc/hadoop/hadoop-env.sh
@@ -133,75 +135,120 @@ export HADOOP_HOME=/usr/local/hadoop-3.3.6 # 对应安装目录
 #### 修改 etc/hadoop/mapred-site.xml
 
 ```xml
+
 <configuration>
-  <property>
-    <name>mapreduce.framework.name</name>
-    <value>yarn</value>
-    <final>true</final>
-    <description>The runtime framework for executing MapReduce jobs</description>
-  </property>
-  <property>
-    <name>yarn.app.mapreduce.am.env</name>
-    <value>HADOOP_MAPRED_HOME=/usr/local/hadoop-3.3.6</value>
-  </property>
-  <property>
-    <name>mapreduce.map.env</name>
-    <value>HADOOP_MAPRED_HOME=/usr/local/hadoop-3.3.6</value>
-  </property>
-  <property>
-    <name>mapreduce.reduce.env</name>
-    <value>HADOOP_MAPRED_HOME=/usr/local/hadoop-3.3.6</value>
-  </property>
+    <property>
+        <name>mapreduce.framework.name</name>
+        <value>yarn</value>
+        <final>true</final>
+        <description>The runtime framework for executing MapReduce jobs</description>
+    </property>
+    <property>
+        <name>yarn.app.mapreduce.am.env</name>
+        <value>HADOOP_MAPRED_HOME=/usr/local/hadoop-3.3.6</value>
+    </property>
+    <property>
+        <name>mapreduce.map.env</name>
+        <value>HADOOP_MAPRED_HOME=/usr/local/hadoop-3.3.6</value>
+    </property>
+    <property>
+        <name>mapreduce.reduce.env</name>
+        <value>HADOOP_MAPRED_HOME=/usr/local/hadoop-3.3.6</value>
+    </property>
 </configuration>
 ```
 
 #### 修改 etc/hadoop/core-site.xml
+
 ```xml
+
 <configuration>
-  <property>
-    <name>fs.default.name</name>
-    <value>hdfs://master:9001</value>
-  </property>
+    <property>
+        <name>fs.default.name</name>
+        <value>hdfs://master:9000</value>
+    </property>
+    <property>
+        <name>hadoop.tmp.dir</name>
+        <value>/home/hadoop/dfs</value>
+    </property>
 </configuration>
 ```
 
 #### 修改 etc/hadoop/hdfs-site.xml
+
 ```xml
+
 <configuration>
-  <property>
-    <name>dfs.replication</name>
-    <value>1</value>
-  </property>
-  <property>
-    <name>dfs.namenode.name.dir</name>
-    <value>/home/hadoop/dfs/namenode</value>
-  </property>
-  <property>
-    <name>dfs.datanode.data.dir</name>
-    <value>/home/hadoop/dfs/datanode</value>
-  </property>
-  <property>
-    <name>dfs.http.address</name>
-    <value>0.0.0.0:50070</value>
-  </property>
-</configuration>
-```
-#### 修改 etc/hadoop/yarn-site.xml
-```xml
-<configuration>
-  <!-- Site specific YARN configuration properties -->
-  <property>
-    <name>yarn.nodemanager.aux-services</name>
-    <value>mapreduce_shuffle</value>
-    <final>true</final>
-  </property>
+    <property>
+        <name>dfs.replication</name>
+        <value>1</value>
+    </property>
+    <property>
+        <name>dfs.namenode.name.dir</name>
+        <value>/home/hadoop/dfs/namenode</value>
+    </property>
+    <property>
+        <name>dfs.datanode.data.dir</name>
+        <value>/home/hadoop/dfs/datanode</value>
+    </property>
+    <property>
+        <name>dfs.http.address</name>
+        <value>node1:50070</value>
+    </property>
 </configuration>
 ```
 
-#### 初始化Hadoop
+#### 修改 etc/hadoop/yarn-site.xml
+
+```xml
+
+<configuration>
+    <!-- Site specific YARN configuration properties -->
+    <property>
+        <name>yarn.nodemanager.aux-services</name>
+        <value>mapreduce_shuffle</value>
+        <final>true</final>
+    </property>
+</configuration>
+```
+
+#### !!! 使用 hadoop 用户操作 !!!
+
+#### !!! 使用 hadoop 用户操作 !!!
+
+#### !!! 使用 hadoop 用户操作 !!!
+
+#### 初始化 Hadoop
+
 ```shell
 # 对namenode进行格式化（必须在主节点上进行）
 hdfs namenode -format
 ```
+
+#### 启动
+
+```shell
+
+./start-all.sh
+# 或者
+./start-dfs.sh
+./start-yarn.sh
+```
+
+#### 访问
+```
+ip:50070
+```
+#### 遗留问题
+1. 页面HDFS文件上传后出现，Couldn't find datanode to write file. Forbidden，导致无法上传
+2. windows hosts 设置域名指向后无法访问
+
+### 集群
+
+以上只是单机版
+
+集群需要节点分发 slave
+
+然后在执行初始化 Hadoop 操作 （在主节点上操作）
 
 
