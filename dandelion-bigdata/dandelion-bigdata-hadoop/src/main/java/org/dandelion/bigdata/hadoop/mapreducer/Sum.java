@@ -1,4 +1,4 @@
-package org.dandelion.bigdata.mapreducer;
+package org.dandelion.bigdata.hadoop.mapreducer;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
@@ -13,7 +13,7 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import java.io.IOException;
 
 /**
- * TODO 求和
+ * 求和
  *
  * @author L
  * @version 1.0

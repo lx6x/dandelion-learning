@@ -8,7 +8,9 @@
 dandelion-parent
 ├── dandelion-actuator                            监控
 ├── dandelion-arithmetic                          算法实现
-├── dandelion-bigdata                             大数据（hive hdfs 操作等）
+├── dandelion-bigdata                             
+├── ├── dandelion-bigdata-flink                   flink
+├── ├── dandelion-bigdata-hadoop                  hive hdfs 操作等
 ├── dandelion-commons                             公共模块
 ├── dandelion-data                                数据模块
 |   ├── dandelion-data-jdbc                       原生jdbc
@@ -113,6 +115,7 @@ dandelion-actuator                                          30042
                                                             30044
 dandelion-mybatis-flex                                      30045
 dandelion-libre-office                                      30046
+dandelion-bigdata-flink                                     30047
 ```
 
 ## 模块涉及官网地址

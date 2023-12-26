@@ -1,7 +1,7 @@
-package org.dandelion.bigdata.mapreducer;
+package org.dandelion.bigdata.hadoop.mapreducer;
 
 /**
- * TODO 按求和后的值排序
+ * 按求和后的值排序
  *
  * @author L
  * @version 1.0

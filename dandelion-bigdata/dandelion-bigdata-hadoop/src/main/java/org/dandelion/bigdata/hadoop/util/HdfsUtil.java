@@ -1,4 +1,4 @@
-package org.dandelion.bigdata.util;
+package org.dandelion.bigdata.hadoop.util;
 
 import com.alibaba.fastjson.JSONObject;
 import org.apache.commons.io.IOUtils;
@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * TODO hadoop -> hdfs 操作工具类
+ *  hadoop -> hdfs 操作工具类
  *
  * @author L
  * @version 1.0
@@ -26,8 +26,7 @@ import java.util.Map;
  */
 public class HdfsUtil {
 
-//    private static String path = "hdfs://192.168.80.101:9000";
-    private static String path = "hdfs://10.0.7.134:8020";
+    private static String path = "hdfs://192.168.80.101:9000";
 
     /**
      * 获取HDFS文件系统对象

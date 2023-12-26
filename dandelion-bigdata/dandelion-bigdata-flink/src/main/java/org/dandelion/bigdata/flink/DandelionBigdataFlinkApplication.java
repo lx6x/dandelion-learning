@@ -1,13 +1,13 @@
-package org.dandelion.bigdata;
+package org.dandelion.bigdata.flink;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class DandelionBigdataApplication {
+public class DandelionBigdataFlinkApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(DandelionBigdataApplication.class, args);
+        SpringApplication.run(DandelionBigdataFlinkApplication.class, args);
     }
 
 }
