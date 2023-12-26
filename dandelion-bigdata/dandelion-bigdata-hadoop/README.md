@@ -19,13 +19,13 @@
 
 官方文档：[Hadoop 支持 Java 版本](https://cwiki.apache.org/confluence/display/HADOOP/Hadoop+Java+Versions)
 
-### 下载 Hadoop Jdk
+### 下载 Hadoop
 
 ```shell
 # 下载 不同版本对应修改
-wget https://dlcdn.apache.org/hadoop/common/hadoop-3.3.6/hadoop-3.3.6.tar.gz
+$ wget https://dlcdn.apache.org/hadoop/common/hadoop-3.3.6/hadoop-3.3.6.tar.gz
 # 解压
-tar -zxvf hadoop-3.3.6.tar.gz /软件目录下
+$ tar -zxvf hadoop-3.3.6.tar.gz /软件目录下
 ```
 
 ### 下载 Jdk
@@ -33,7 +33,7 @@ tar -zxvf hadoop-3.3.6.tar.gz /软件目录下
 ```shell
 # 安装包手动安装
 # https://www.oracle.com/java/technologies/downloads/#java8
-tar -zxvf tar -zxvf jdk-8u391-linux-x64.tar.gz
+$ tar -zxvf jdk-8u391-linux-x64.tar.gz /软件目录下
 
 # 配置环境变量 /etc/profile 写入
 export JAVA_HOME=/usr/local/jdk1.8.0_391
@@ -41,22 +41,22 @@ export PATH=$JAVA_HOME/bin:$PATH
 export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
 
 # 刷新配置
-source /etc/profile
+$ source /etc/profile
 
 --------------------------------------------------------------------------
 
 # yum 安装
 # 安装 openjdk
 # 默认安装路径一般在 /usr/lib/jvm
-yum install java-1.8.0-openjdk-devel
+$ yum install java-1.8.0-openjdk-devel
 ```
 
 ### Linux 系统设置
 
 ```shell
 # 创建 hadoop 用户
-useradd hadoop
-passwd hadoop
+$ useradd hadoop
+$ passwd hadoop
 
 # 修改 /etc/hosts 文件，单机/集群 写入
 192.0.0.1 master
@@ -68,48 +68,48 @@ NETWORKING=yes
 HOSTNAME=你的主机名
 
 # 关闭防火墙
-systemctl stop firewalld.service
-systemctl disable firewalld.service
+$ systemctl stop firewalld.service
+$ systemctl disable firewalld.service
 
 --------------------------------------------------------------------------
 
 # 查看是否安装 ssh
-rpm -qa | grep ssh
+$ rpm -qa | grep ssh
 
 # 安装
-yum install openssh-clients
-yum install openssh-server
+$ yum install openssh-clients
+$ yum install openssh-server
 
 # 安装完后测试
-ssh localhost
+$ ssh localhost
 
 # 设置免密登录，集群、单节点模式都需要用到 SSH 登陆
 # 切换用户到 hadoop
-su hadoop
+$ su hadoop
 
 # 在master主机上生成RSA公私钥对
-ssh-keygen -t rsa
+$ ssh-keygen -t rsa
 
 # 到hadoop用户的用户目录下的.ssh目录
 # ~ 代表的是用户的主文件夹，即 “/home/用户名” 这个目录，如你的用户名为 hadoop，则 ~ 就代表 “/home/hadoop/”
-cd ~/.ssh
+$ cd ~/.ssh
 
 # 生成authorized_keys文件 加入授权
-cat id_rsa.pub >> authorized_keys
+$ cat id_rsa.pub >> authorized_keys
 
 # 对authorized_keys文件进行权限修复
-chmod 644 ./authorized_keys
+$ chmod 644 ./authorized_keys
 
 # 测试
-ssh localhost
+$ ssh localhost
 
 # 分发authorized_keys到 node1 node2 集群需要做
-ssh-copy-id hadoop@node1
-ssh-copy-id hadoop@node2
+$ ssh-copy-id hadoop@node1
+$ ssh-copy-id hadoop@node2
 
 # 在主机上对免密登录进行测试，除第一外后面再登录都不需要输入登录密码 集群需要做
-ssh node1 # master主机上免密登录到 node1
-ssh node2 # master主机上免密登录到 node2
+$ ssh node1 # master主机上免密登录到 node1
+$ ssh node2 # master主机上免密登录到 node2
 
 ```
 
@@ -118,9 +118,9 @@ ssh node2 # master主机上免密登录到 node2
 #### 设置目录权限
 
 ```shell
-su root  
-chown -R hadoop:hadoop /usr/local/hadoop-3.3.6  
-cd /usr/local/hadoop-3.3.6
+$ su root  
+$ chown -R hadoop:hadoop /usr/local/hadoop-3.3.6  
+$ cd /usr/local/hadoop-3.3.6
 
 !!! 注意文件权限问题 !!!
 ```
@@ -221,18 +221,18 @@ export HADOOP_HOME=/usr/local/hadoop-3.3.6 # 对应安装目录
 #### 初始化 Hadoop
 
 ```shell
-# 对namenode进行格式化（必须在主节点上进行）
-hdfs namenode -format
+# 对namenode进行格式化（必须在主节点上进行） bin 下 
+$ hdfs namenode -format
 ```
 
 #### 启动
 
 ```shell
-
-./start-all.sh
+# sbin 下
+$ start-all.sh
 # 或者
-./start-dfs.sh
-./start-yarn.sh
+$ start-dfs.sh
+$ start-yarn.sh
 ```
 
 #### 访问
