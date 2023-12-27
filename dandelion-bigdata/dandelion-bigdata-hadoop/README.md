@@ -1,4 +1,4 @@
-# dandelion-bigdata
+# dandelion-bigdata-hadoop
 
 ## hadoop 安装 （单节点） 
 
@@ -120,6 +120,7 @@ $ ssh node2 # master主机上免密登录到 node2
 
 #### 配置环境变量
 ```shell
+$ su hadoop
 # 编辑 ~/.bashrc
 export HADOOP_HOME=/usr/local/hadoop-3.3.6
 export HADOOP_INSTALL=$HADOOP_HOME
