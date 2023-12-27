@@ -118,6 +118,20 @@ $ ssh node2 # master主机上免密登录到 node2
 
 ### 配置 Hadoop
 
+#### 配置环境变量
+```shell
+# 编辑 ~/.bashrc
+export HADOOP_HOME=/usr/local/hadoop-3.3.6
+export HADOOP_INSTALL=$HADOOP_HOME
+export HADOOP_MAPRED_HOME=$HADOOP_HOME
+export HADOOP_COMMON_HOME=$HADOOP_HOME
+export HADOOP_HDFS_HOME=$HADOOP_HOME
+export YARN_HOME=$HADOOP_HOME
+export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_HOME/lib/native
+export PATH=$PATH:$HADOOP_HOME/sbin:$HADOOP_HOME/bin
+export HADOOP_OPTS="-Djava.library.path=$HADOOP_HOME/lib/native"
+```
+
 #### 设置目录权限
 
 ```shell
