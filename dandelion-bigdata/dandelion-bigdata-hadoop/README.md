@@ -241,14 +241,27 @@ $ start-all.sh
 $ start-dfs.sh
 $ start-yarn.sh
 ```
-
+#### 验证
+```shell
+$ hdfs version
+$ hadoop version
+# 创建目录
+$ hdfs dfs -mkdir /test
+# 查询
+$ hdfs dfs -ls / 
+```
 #### 访问
 ```
-ip:50070
+ip:9870
+ip:9864
+ip:8088
 ```
 #### 遗留问题
-1. 页面HDFS文件上传后出现，Couldn't find datanode to write file. Forbidden，导致无法上传
-2. windows hosts 设置域名指向后无法访问
+1. 页面HDFS文件上传后出现
+   1. Permission denied: user=dr.who, access=WRITE, inode="/test":hadoop:supergroup:drwxr-xr-x.
+   2. Couldn't find datanode to write file. Forbidden.
+   3. Couldn't upload the file 1.txt.
+2. windows hosts 设置域名指向后无法访问.
 
 ### 集群
 
