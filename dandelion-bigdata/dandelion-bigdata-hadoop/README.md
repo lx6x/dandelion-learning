@@ -182,18 +182,18 @@ export HADOOP_HOME=/usr/local/hadoop-3.3.6 # 对应安装目录
         <name>dfs.replication</name>
         <value>1</value>
     </property>
-    <property>
-        <name>dfs.namenode.name.dir</name>
-        <value>/home/hadoop/dfs/namenode</value>
-    </property>
-    <property>
-        <name>dfs.datanode.data.dir</name>
-        <value>/home/hadoop/dfs/datanode</value>
-    </property>
-    <property>
-        <name>dfs.http.address</name>
-        <value>node1:50070</value>
-    </property>
+<!--    <property>-->
+<!--        <name>dfs.namenode.name.dir</name>-->
+<!--        <value>/home/hadoop/dfs/namenode</value>-->
+<!--    </property>-->
+<!--    <property>-->
+<!--        <name>dfs.datanode.data.dir</name>-->
+<!--        <value>/home/hadoop/dfs/datanode</value>-->
+<!--    </property>-->
+<!--    <property>-->
+<!--        <name>dfs.http.address</name>-->
+<!--        <value>node1:50070</value>-->
+<!--    </property>-->
 </configuration>
 ```
 
@@ -210,15 +210,10 @@ export HADOOP_HOME=/usr/local/hadoop-3.3.6 # 对应安装目录
 </configuration>
 ```
 
-#### !!! 使用 hadoop 用户操作 !!!
-
-#### !!! 使用 hadoop 用户操作 !!!
-
-#### !!! 使用 hadoop 用户操作 !!!
-
 #### 初始化 Hadoop
 
 ```shell
+# !!! 使用 hadoop 用户操作 !!!
 # 对namenode进行格式化（必须在主节点上进行） bin 下 
 $ hdfs namenode -format
 ```
