@@ -261,10 +261,12 @@ ip:8088
 ```
 #### 遗留问题
 1. 页面HDFS文件上传后出现
-   1. Permission denied: user=dr.who, access=WRITE, inode="/test":hadoop:supergroup:drwxr-xr-x.
-   2. Couldn't find datanode to write file. Forbidden.
-   3. Couldn't upload the file 1.txt.
-2. windows hosts 设置域名指向后无法访问.
+    1. Permission denied: user=dr.who, access=WRITE, inode="/test":hadoop:supergroup:drwxr-xr-x.  
+       解决：执行 ‘hdfs dfs -chmod’ 命令为目录添加写权限，例如目录 ‘/test’ 执行 ‘hdfs dfs -chmod +w /test’
+    2. Couldn't upload the file 1.txt.  
+       解决：检查hosts是否配置对应ip映射
+2. windows hosts 设置域名指向后无法访问.  
+   解决：检查代理/hosts/DNS解析/Hadoop主机名 等是否配置正确
 
 ### 集群
 
