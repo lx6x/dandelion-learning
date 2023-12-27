@@ -68,7 +68,9 @@ $ passwd hadoop
 
 # 修改 /etc/sysconfig/network 写入 
 NETWORKING=yes
-HOSTNAME=你的主机名
+HOSTNAME=<master/主机名>
+# 或者
+$ hostnamectl set-hostname <主机名> 
 
 # 关闭防火墙
 $ systemctl stop firewalld.service
@@ -207,7 +209,7 @@ export HADOOP_HOME=/usr/local/hadoop-3.3.6 # 对应安装目录
 <!--    </property>-->
 <!--    <property>-->
 <!--        <name>dfs.http.address</name>-->
-<!--        <value>node1:50070</value>-->
+<!--        <value>master:50070</value>-->
 <!--    </property>-->
 </configuration>
 ```
