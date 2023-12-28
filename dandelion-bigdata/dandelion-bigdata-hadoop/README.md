@@ -115,7 +115,8 @@ $ chmod 644 ./authorized_keys
 # 测试
 $ ssh localhost
 
-# 分发authorized_keys到 node1 node2 集群需要做
+# 分发authorized_keys到 node1 node2 集群需要做 三台虚拟机相互发送密钥
+$ ssh-copy-id hadoop@master
 $ ssh-copy-id hadoop@node1
 $ ssh-copy-id hadoop@node2
 
