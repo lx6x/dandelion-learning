@@ -57,6 +57,13 @@ $ java -version
 ### Linux 系统设置
 
 ```shell
+# vm centos7 修改静态 ip 需要的话 /etc/sysconfig/network-scripts/ifcfg-ens33
+BOOTPROTO="static" # 静态ip
+IPADDR=192.168.1.10 # 设置ip地址
+NETMASK=255.255.255.0 # 子网掩码
+GATEWAY=192.168.1.2 # 网关
+DNS1=8.8.8.8 # DNS
+
 # 创建 hadoop 用户
 $ useradd hadoop
 $ passwd hadoop
