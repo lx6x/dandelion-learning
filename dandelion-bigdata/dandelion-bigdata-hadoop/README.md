@@ -154,7 +154,7 @@ $ chown -R hadoop:hadoop /usr/local/hadoop-3.3.6
 
 #### 修改 etc/hadoop/hadoop-env.sh
 
-```shell
+```text
 export JAVA_HOME=/usr/local/jdk1.8.0_391 # 对应安装目录
 export HADOOP_HOME=/usr/local/hadoop-3.3.6 # 对应安装目录
 ```
@@ -203,6 +203,7 @@ export HADOOP_HOME=/usr/local/hadoop-3.3.6 # 对应安装目录
 
 ```xml
 <configuration>
+    <!--  副本数量  -->
     <property>
         <name>dfs.replication</name>
         <value>1</value>
