@@ -281,6 +281,12 @@ ip:8088
 以上只是单机版
 
 集群需要节点分发 slave
+```shell
+# 在 workers 新加
+master
+node1
+node2
+```
 
 然后再执行初始化 Hadoop 操作 （在主节点上操作）
 
