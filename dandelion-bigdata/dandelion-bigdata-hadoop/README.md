@@ -63,6 +63,7 @@ IPADDR=192.168.1.10 # 设置ip地址
 NETMASK=255.255.255.0 # 子网掩码
 GATEWAY=192.168.1.2 # 网关
 DNS1=8.8.8.8 # DNS
+# UUID="" 如何是克隆复制的话最好这个也要改了 uuidgen ens33
 
 # 创建 hadoop 用户
 $ useradd hadoop
@@ -290,5 +291,14 @@ node2
 ```
 
 然后再执行初始化 Hadoop 操作 （在主节点上操作）
+
+### 参考：
+* https://blog.csdn.net/hiliang521/article/details/132527045
+* https://zhuanlan.zhihu.com/p/657386353
+* https://data-flair.training/blogs/installation-of-hadoop-3-on-ubuntu/
+* https://phoenixnap.com/kb/install-hadoop-ubuntu#ftoc-heading-16
+* https://medium.com/@amitmishra_393/hadoop-3-0-installation-on-ubuntu-18-04-step-by-step-pseudo-distributed-mode-2808f6b8e71f
+* https://kontext.tech/article/448/install-hadoop-330-on-linux
+* https://linuxconfig.org/how-to-install-hadoop-on-redhat-8-linux
 
 

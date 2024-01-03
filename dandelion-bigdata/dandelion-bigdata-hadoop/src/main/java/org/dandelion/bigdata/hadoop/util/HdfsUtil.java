@@ -2,7 +2,7 @@ package org.dandelion.bigdata.hadoop.util;
 
 import com.alibaba.fastjson.JSONObject;
 import org.apache.commons.io.IOUtils;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.*;
@@ -18,10 +18,9 @@ import java.util.List;
 import java.util.Map;
 
 /**
- *  hadoop -> hdfs 操作工具类
+ * hadoop -> hdfs 操作工具类
  *
- * @author L
- * @version 1.0
+ * @author lx6x
  * @date 2021/12/20 9:51
  */
 public class HdfsUtil {
@@ -32,7 +31,6 @@ public class HdfsUtil {
      * 获取HDFS文件系统对象
      *
      * @return FileSystem
-     * @author L
      */
     public static FileSystem getFileSystem() throws Exception {
 
@@ -51,7 +49,6 @@ public class HdfsUtil {
      *
      * @param path 文件路径
      * @return bool
-     * @author L
      */
     public static boolean existFile(String path) throws Exception {
         if (StringUtils.isEmpty(path)) {
@@ -67,7 +64,6 @@ public class HdfsUtil {
      *
      * @param path 目录
      * @return bool
-     * @throws Exception
      */
     public static boolean mkdir(String path) throws Exception {
         if (StringUtils.isEmpty(path)) {
@@ -90,7 +86,6 @@ public class HdfsUtil {
      *
      * @param path 目录
      * @return list
-     * @author L
      */
     public static List<Map<String, Object>> readPathInfo(String path) throws Exception {
         if (StringUtils.isEmpty(path)) {
@@ -130,7 +125,6 @@ public class HdfsUtil {
      * @param path     目录
      * @param bytes    文件
      * @param fileName 文件名称
-     * @author L
      */
     public static void createFile(String path, byte[] bytes, String fileName) throws Exception {
         if (StringUtils.isEmpty(path) || null == bytes) {
@@ -164,7 +158,6 @@ public class HdfsUtil {
      *
      * @param path       上传路径
      * @param uploadPath 目标路径
-     * @author L
      */
     public static void uploadFile(String path, String uploadPath) throws Exception {
         if (StringUtils.isEmpty(path) || StringUtils.isEmpty(uploadPath)) {
@@ -186,7 +179,6 @@ public class HdfsUtil {
      *
      * @param path 文件全路径
      * @return bool
-     * @author L
      */
     public static boolean deleteFile(String path) throws Exception {
         if (StringUtils.isEmpty(path)) {
@@ -219,7 +211,7 @@ public class HdfsUtil {
                 String s3 = split[2];
                 String s4 = split[3];
 
-                System.out.println(s1+" "+s2+" "+s3+" "+s4);
+                System.out.println(s1 + " " + s2 + " " + s3 + " " + s4);
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -240,9 +232,10 @@ public class HdfsUtil {
 
     /**
      * 上传文件
-     * @param inputStream
-     * @param fileName
-     * @param dir
+     *
+     * @param inputStream .
+     * @param fileName    .
+     * @param dir         .
      */
     public static void fileUploadByStream(InputStream inputStream, String fileName, String dir) {
         try {
@@ -265,7 +258,6 @@ public class HdfsUtil {
         System.err.println("----------------------------------");
         System.err.println(JSONObject.toJSONString(mapList));
         System.err.println("----------------------------------");
-
 
 //        FileInputStream fileInputStream = new FileInputStream("C:\\Users\\...\\Desktop\\card.csv");
 //        byte[] bytes = inputStreamToByte(fileInputStream);

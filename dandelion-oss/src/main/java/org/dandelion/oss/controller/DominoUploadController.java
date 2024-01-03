@@ -3,7 +3,6 @@ package org.dandelion.oss.controller;
 import org.dandelion.oss.dto.OSSObjectSummaryDTO;
 import org.dandelion.oss.service.FmService;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -11,8 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 /**
- * TODO
- *
  * @author L
  * @version 1.0
  * @date 2021/12/8 14:55
