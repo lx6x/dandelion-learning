@@ -1,4 +1,4 @@
-package org.dandelion.search.elastic.example.query;
+package org.dandelion.search.elastic.example.resthighlevelclient;
 
 import org.apache.http.HttpHost;
 import org.elasticsearch.action.search.SearchRequest;

@@ -1,0 +1,261 @@
+GET _search
+{
+  "query": {
+    "match_all": {}
+  }
+}
+# 查看集群中有哪些索引
+GET _cat/indices?v
+# 创建索引
+PUT shopping
+#删除索引
+DELETE shopping
+# 查询索引
+GET shopping
+# 创建文档数据
+POST shopping/_doc
+{
+  "name": "无糖可乐",
+  "price": 4.5
+}
+POST shopping/_doc/001
+{
+  "name": "可乐",
+  "price": 3.5
+}
+POST shopping/_doc/002
+{
+  "name": "农夫山泉",
+  "price": 2
+}
+POST shopping/_doc/003
+{
+  "name": "富豪山泉",
+  "price": 10
+}
+# 主键查询
+GET shopping/_doc/001
+GET shopping/_doc/002
+# 全查询
+GET shopping/_search
+# 全量修改 会全覆盖
+PUT shopping/_doc/002
+{
+  "name": "农夫山泉",
+  "price": 2.5
+}
+# 局部修改 
+POST shopping/_update/002
+{
+  "doc": {
+    "name":"农夫山泉plus"
+  }
+}
+# 删除
+DELETE shopping/_doc/002
+# 查询
+GET shopping/_search?q=name:山
+# 请求体查询
+POST shopping/_search
+{
+  "query": {
+    "match": {
+      "name": "山泉"
+    }
+  }
+}
+# 分页查询
+POST shopping/_search
+{
+  "query": {
+    "match": {
+      "name": "山泉"
+    }
+  },
+  "from": 1,
+  "size": 1
+}
+# 排序
+POST shopping/_search
+{
+  "query": {
+    "match": {
+      "name": "山泉"
+    }
+  },
+  "from": 0,
+  "size": 1,
+  "sort": [
+    {
+      "price": {
+        "order": "asc"
+      }
+    }
+  ]
+}
+# 联合查询 and
+POST shopping/_search
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "match": {
+            "name": "山泉"
+          }
+        },
+        {
+          "match": {
+            "price": 10
+          }
+        }
+      ]
+    }
+  }
+}
+# 联合查询 or
+POST shopping/_search
+{
+  "query": {
+    "bool": {
+      "should": [
+        {
+          "match": {
+            "name": "山泉"
+          }
+        },
+        {
+          "match": {
+            "name": "可乐"
+          }
+        }
+      ]
+    }
+  }
+}
+# 联合查询 or + 范围
+POST shopping/_search
+{
+  "query": {
+    "bool": {
+      "should": [
+        {
+          "match": {
+            "name": "山泉"
+          }
+        },
+        {
+          "match": {
+            "name": "可乐"
+          }
+        }
+      ],
+      "filter": [
+        {
+          "range": {
+            "price": {
+              "gte": 3,
+              "lte": 20
+            }
+          }
+        }
+      ]
+    }
+  },
+  "highlight": {
+    "fields": {
+      "name": {}
+    }
+  }
+}
+# 全文检索
+POST shopping/_search
+{
+  "query": {
+    "match": {
+      "name": "山泉可乐"
+    }
+  }
+}
+# 聚合
+POST shopping/_search
+{
+  "aggs": {
+    "xxx": {
+      "terms": {
+        "field": "price"
+      }
+    }
+  },
+  "size": 0
+}
+# 平均值
+POST shopping/_search
+{
+  "aggs": {
+    "xxx": {
+      "avg": {
+        "field": "price"
+      }
+    }
+  },
+  "size": 0
+}
+# 文档关系映射
+PUT dandelion
+{
+  "mappings": {
+    "properties": {
+      "id": {
+        "type": "integer",
+        "index": true
+      },
+      "name":{
+        "type": "text",
+        "index": true
+      },
+      "sex":{
+        "type": "keyword",
+        "index": true
+      },
+      "age":{
+        "type": "keyword",
+        "index": false
+      }
+    }
+  }
+}
+GET dandelion/_search
+POST dandelion/_doc
+{
+  "id": 6,
+  "name": "王八",
+  "sex": "男女",
+  "age": 12
+}
+POST dandelion/_search
+{
+  "query": {
+    "match": {
+      "name": "张李"
+    }
+  }
+}
+# keyword 查询
+POST dandelion/_search
+{
+  "query": {
+    "match": {
+      "sex": "女"
+    }
+  }
+}
+# index = false 查询
+POST dandelion/_search
+{
+  "query": {
+    "match": {
+      "age": "2"
+    }
+  }
+}
