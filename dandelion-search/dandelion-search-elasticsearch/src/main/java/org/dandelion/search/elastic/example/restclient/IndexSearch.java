@@ -26,7 +26,8 @@ public class IndexSearch {
                 restClient, new JacksonJsonpMapper());
         // 创建API客户端
         ElasticsearchClient client = new ElasticsearchClient(transport);
-        GetIndexResponse createIndexResponse = client.indices().get(e -> e.index("teacher"));
+//        GetIndexResponse createIndexResponse = client.indices().get(e -> e.index("teacher"));
+        GetIndexResponse createIndexResponse = client.indices().get(e -> e.index("teacher-set"));
         System.out.println(createIndexResponse.result());
         System.out.println(createIndexResponse.result().keySet());
         transport.close();
