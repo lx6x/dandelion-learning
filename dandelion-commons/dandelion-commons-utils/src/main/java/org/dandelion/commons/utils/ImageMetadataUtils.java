@@ -35,7 +35,7 @@ public class ImageMetadataUtils {
             for (Tag tag : directory.getTags()) {
                 String tagName = tag.getTagName();  //标签名
                 String desc = tag.getDescription(); //标签信息
-                System.out.println(tagName + "===" + desc);//照片信息
+                System.out.printf("%-30s : %-10s \n",tagName, desc);//照片信息
             }
         }
     }
