@@ -43,6 +43,7 @@ dandelion-parent
 ├── dandelion-oshi                                oshi 获取主机cpu/内存/系统 ... 资源信息
 ├── dandelion-oss                                 oss 服务 （阿里）
 ├── dandelion-repeat-submit                       重复提交验证（redis实现）
+├── dandelion-sa-token                            sa-token轻量级 Java 权限认证框架
 ├── dandelion-scheduling                          任务调度
 |   ├── dandelion-kafka                           kafka 消息
 |   ├── dandelion-scheduling-quartz               quartz 定时任务
@@ -116,6 +117,7 @@ dandelion-actuator                                          30042
 dandelion-mybatis-flex                                      30045
 dandelion-libre-office                                      30046
 dandelion-bigdata-flink                                     30047
+dandelion-sa-token                                          30048
 ```
 
 ## 模块涉及官网地址
