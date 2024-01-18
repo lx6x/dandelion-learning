@@ -1,0 +1,17 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: dandelion-null
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/dandelion?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true
+    username: root
+    password: root
+  liquibase:
+    change-log: classpath:liquibase/master.xml
+    enabled: true
+    # 记录版本日志表
+    database-change-log-table: databasechangelog
+    # 记录版本改变lock表
+    database-change-log-lock-table: databasechangeloglock
