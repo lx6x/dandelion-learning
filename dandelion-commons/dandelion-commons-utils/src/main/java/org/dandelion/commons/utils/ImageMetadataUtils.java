@@ -2,15 +2,18 @@ package org.dandelion.commons.utils;
 
 import com.drew.imaging.ImageMetadataReader;
 import com.drew.imaging.ImageProcessingException;
+import com.drew.lang.GeoLocation;
 import com.drew.metadata.Directory;
 import com.drew.metadata.Metadata;
 import com.drew.metadata.Tag;
+import com.drew.metadata.exif.GpsDirectory;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Collection;
 
 /**
  * 获取图片和视频文件的Exif信息
@@ -30,6 +33,8 @@ public class ImageMetadataUtils {
         Path path = Paths.get("1.png");
         InputStream inputStream = Files.newInputStream(path);
         Metadata metadata = ImageMetadataReader.readMetadata(inputStream);
+
+        // Metadata信息获取
         Iterable<Directory> directories = metadata.getDirectories();
         for (Directory directory : directories) {
             for (Tag tag : directory.getTags()) {
@@ -38,5 +43,18 @@ public class ImageMetadataUtils {
                 System.out.printf("%-30s : %-10s \n",tagName, desc);//照片信息
             }
         }
+
+        System.out.println();
+
+        // 经纬度提取
+        Collection<GpsDirectory> directoriesOfType = metadata.getDirectoriesOfType(GpsDirectory.class);
+        for (GpsDirectory gpsDirectory : directoriesOfType) {
+            GeoLocation geoLocation = gpsDirectory.getGeoLocation();
+            System.out.println("经度："+geoLocation.getLongitude());
+            System.out.println("纬度："+geoLocation.getLatitude());
+            System.out.println("********************************************************");
+        }
+
+        System.out.println();
     }
 }
