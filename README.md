@@ -24,6 +24,7 @@ dandelion-parent
 |   ├── dandelion-doc-smart                       Smart
 |   ├── dandelion-doc-swagger                     Swagger
 ├── dandelion-easyexcel                           easyexecl 工具包使用
+├── dandelion-emqx                                EMQX 是一款开源的大规模分布式 MQTT 消息服务器
 ├── dandelion-feignclient                         feignclient
 ├── dandelion-kaptcha                             图形验证码
 ├── dandelion-libre-office                        
@@ -118,6 +119,7 @@ dandelion-mybatis-flex                                      30045
 dandelion-libre-office                                      30046
 dandelion-bigdata-flink                                     30047
 dandelion-sa-token                                          30048
+dandelion-emqx                                              30049
 ```
 
 ## 模块涉及官网地址

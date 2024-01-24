@@ -1,0 +1,9 @@
+server:
+  port: 30049
+spring:
+  application:
+    name: dandelion-emqx
+  integration:
+
+
+
