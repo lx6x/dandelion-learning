@@ -4,10 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Random;
-import java.util.StringJoiner;
+import java.util.*;
 
 /**
  * TODO 字符处理工具类
@@ -236,6 +233,14 @@ public class StringUtil {
         return from;
     }
 
+
+    /**
+     * 前缀中删除所有的'0'字符
+     */
+    public static String sub0(String s) {
+        return s = s.replaceAll("^0+", ""); // 使用replaceAll替换所有前缀的'0'
+    }
+
     /*public static void main(String[] args) {
         String leftString = "abcdefg";
         System.out.println("左移2位字符串结果："+leftMoveIndex(leftString,10));
@@ -245,7 +250,7 @@ public class StringUtil {
     }*/
 
 
-    public static void main(String[] args) {
+/*    public static void main(String[] args) {
         // 随机字符串
 //        generateUniqueLong();
 
@@ -258,5 +263,5 @@ public class StringUtil {
             sj.add(s);
         }
         System.out.println(sj);
-    }
+    }*/
 }

@@ -10,6 +10,7 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.Date;
@@ -338,8 +339,31 @@ public class DateUtils extends DateUtil {
     }
 
     public static void main(String[] args) {
-        getNowBeginDate();
-        getNowEndDate();
+//        getNowBeginDate();
+//        getNowEndDate();
+
+        SimpleDateFormat a = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssXXX");
+        String format = a.format(new Date());
+        System.out.println(format);
+
+        LocalDate todayEnd = LocalDate.now();
+
+        Date from = Date.from(todayEnd.atStartOfDay().atZone(ZoneId.systemDefault()).toInstant());
+
+
+        System.out.println(a.format(from));
+
+        System.out.println("-------------------");
+        Calendar calendar=Calendar.getInstance();
+
+        calendar.add(Calendar.HOUR, -1);
+        Date time = calendar.getTime();
+        String format1 = a.format(time);
+        System.out.println(format1);
+
+
+
+
     }
 
 
