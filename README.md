@@ -120,7 +120,6 @@ dandelion-libre-office                                      30046
 dandelion-bigdata-flink                                     30047
 dandelion-sa-token                                          30048
 dandelion-emqx                                              30049
-dandelion-redis                                             30050
 ```
 
 ## 模块涉及官网地址
