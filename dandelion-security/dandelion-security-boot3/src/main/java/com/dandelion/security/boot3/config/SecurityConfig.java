@@ -49,17 +49,17 @@ public class SecurityConfig {
                 // 不需要 csrf
 //                .csrf(AbstractHttpConfigurer::disable)
                 // 基于token
-//                .sessionManagement(session -> {
-//                    session.sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-//                })
-//                .authorizeHttpRequests(auth -> {
-//                    auth
+                .sessionManagement(session -> {
+                    session.sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+                })
+                .authorizeHttpRequests(auth -> {
+                    auth
                             // 允许所有OPTIONS请求
-//                            .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
-//                            .requestMatchers(HttpMethod.GET,"/").permitAll()
+                            .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
+                            .requestMatchers(HttpMethod.GET,"/test").permitAll()
                             // 所有请求都会被拦截
-//                            .anyRequest().authenticated();
-//                });
+                            .anyRequest().authenticated();
+                });
         ;
         return http.build();
     }
