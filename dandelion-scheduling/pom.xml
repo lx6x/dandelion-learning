@@ -20,7 +20,6 @@
     <modules>
         <module>dandelion-scheduling-xxl-job</module>
         <module>dandelion-scheduling-quartz</module>
-        <module>dandelion-scheduling-kafka</module>
         <module>dandelion-scheduling-rocketmq</module>
         <module>dandelion-scheduling-spring</module>
     </modules>
