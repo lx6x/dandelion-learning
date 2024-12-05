@@ -7,10 +7,7 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.time.ZoneId;
+import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.Date;
@@ -281,21 +278,21 @@ public class DateUtils extends DateUtil {
     }
 
 
-//    public static void main(String[] args) throws Exception {
-////        week();
-////        System.out.println("------------------------------------");
-////        month();
-////        System.out.println("------------------------------------");
-////        year();
-//
-//
-//        DateFormat dft = new SimpleDateFormat("yyyy-MM-dd");
-//        Date star = dft.parse("2020-02-03");//开始时间
-//        Date endDay=dft.parse("2020-02-09");//结束时间
-//        long datePoorDay = getDatePoorDay(endDay, star);
-//        System.out.println(datePoorDay);
-//
-//    }
+    public static void main(String[] args) throws Exception {
+//        week();
+//        System.out.println("------------------------------------");
+//        month();
+//        System.out.println("------------------------------------");
+//        year();
+
+
+        DateFormat dft = new SimpleDateFormat("yyyy-MM-dd");
+        Date star = dft.parse("2020-10-22");//开始时间
+        Date endDay=dft.parse("2020-11-29");//结束时间
+        long datePoorDay = getDatePoorDay(endDay, star);
+        System.out.println(datePoorDay);
+
+    }
 
     /**
      * 获取指定日期是星期几<br>
@@ -338,11 +335,11 @@ public class DateUtils extends DateUtil {
         System.out.println("当前时间，当天的结束时间(日期+时分秒)："+ todayEnd.format(dtf));
     }
 
-    public static void main(String[] args) {
+//    public static void main(String[] args) {
 //        getNowBeginDate();
 //        getNowEndDate();
 
-        SimpleDateFormat a = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssXXX");
+     /*   SimpleDateFormat a = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssXXX");
         String format = a.format(new Date());
         System.out.println(format);
 
@@ -359,12 +356,12 @@ public class DateUtils extends DateUtil {
         calendar.add(Calendar.HOUR, -1);
         Date time = calendar.getTime();
         String format1 = a.format(time);
-        System.out.println(format1);
+        System.out.println(format1);*/
 
-
-
-
-    }
+//        DateTimeFormatter YMDHMS = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+//        LocalDate day = LocalDate.parse("2020-01-01 00:00:00", YMDHMS);
+//        System.out.println(day);
+//    }
 
 
 }
