@@ -2,7 +2,7 @@
 spring:
   kafka:
     #    指定 server 地址,集群配置多个,中间逗号隔开
-    bootstrap-servers: 192.168.229.131:9092
+    bootstrap-servers: localhost:9092
     producer:
       #      重试次数
       retries: 0

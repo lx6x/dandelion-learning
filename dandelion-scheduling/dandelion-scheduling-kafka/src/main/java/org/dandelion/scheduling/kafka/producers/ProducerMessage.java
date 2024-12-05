@@ -26,7 +26,7 @@ public class ProducerMessage {
         properties = new Properties();
 
         // kafka broker连接地址，多个可[ ，]隔开
-        properties.put("bootstrap.servers", "192.168.44.128:9092");
+        properties.put("bootstrap.servers", "localhost:9092");
 
         // 序列化类
         properties.put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer");
@@ -37,8 +37,8 @@ public class ProducerMessage {
         properties.put("linger.ms", 1);
         properties.put("buffer.memory", 33554432);
 
-//        sendMessage();
-        synchronizeSendMessage();
+        sendMessage();
+//        synchronizeSendMessage();
 
 //        asynchronousSendMessage();
     }

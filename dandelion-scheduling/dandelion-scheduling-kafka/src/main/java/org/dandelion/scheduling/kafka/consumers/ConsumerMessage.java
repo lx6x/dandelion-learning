@@ -17,15 +17,15 @@ import java.util.Properties;
  */
 public class ConsumerMessage {
 
-    private static final String TOPIC_NAME = "jilipoc_gzjl1";
+    private static final String TOPIC_NAME = "topic-01";
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         Properties props = new Properties();
         props.setProperty("bootstrap.servers"
 //                ,"192.168.56.105:9092,192.168.56.105:9093,192.168.56.105:9094"
-                , "192.168.80.100:9092"
+                , "localhost:9092"
         );
-        props.setProperty("group.id", "2");
+        props.setProperty("group.id", "1");
         // 是否自动确认offset
         props.setProperty("enable.auto.commit", "true");
         // 自动确认offset的时间间隔
@@ -45,9 +45,9 @@ public class ConsumerMessage {
 
         try {
             for (; ; ) {
+                Thread.sleep(1000);
                 // poll一次会返回一批数据
                 Duration duration = Duration.ofMillis(1000);
-                System.err.println(duration.toString());
                 ConsumerRecords<String, String> records = consumer.poll(duration);
                 for (ConsumerRecord<String, String> record : records) {
                     System.err.printf("消费消息：topic=%s, partition=%d, offset=%d, key=%s, value=%s\n",

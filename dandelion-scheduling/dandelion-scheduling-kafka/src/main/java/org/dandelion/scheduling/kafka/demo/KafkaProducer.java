@@ -4,8 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.support.SendResult;
 import org.springframework.stereotype.Component;
-import org.springframework.util.concurrent.ListenableFuture;
-import org.springframework.util.concurrent.ListenableFutureCallback;
+
+import java.util.concurrent.CompletableFuture;
 
 
 /**
@@ -20,26 +20,17 @@ import org.springframework.util.concurrent.ListenableFutureCallback;
 public class KafkaProducer {
 
     @Autowired
-    private KafkaTemplate<String, Object> kafkaTemplate;
+    private KafkaTemplate<String, String> kafkaTemplate;
 
     public static final String TOPIC = "some_topic";
-    public static final String GROUP = "group";
+    public static final String GROUP = "myGroup";
 
     public void send(String s) {
         System.out.println("发送信息为：" + s);
-//        kafkaTemplate.send
-        ListenableFuture<SendResult<String, Object>> future = kafkaTemplate.send(TOPIC, s);
-        future.addCallback(new ListenableFutureCallback<SendResult<String, Object>>() {
-            @Override
-            public void onFailure(Throwable throwable) {
-                System.out.println("发送失败处理：" + throwable.getMessage());
-            }
-
-            @Override
-            public void onSuccess(SendResult<String, Object> stringObjectSendResult) {
-                System.out.println("发送成功处理：" + stringObjectSendResult.toString());
-            }
+        CompletableFuture<SendResult<String, String>> send = kafkaTemplate.send(TOPIC, s);
+        send.whenComplete((result, ex) -> {
         });
+
     }
 
 
